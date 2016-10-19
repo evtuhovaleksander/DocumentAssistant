@@ -33,7 +33,7 @@
             this.typetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.documentassistantDataSet = new DocumentAssistant.documentassistantDataSet();
             this.typetableTableAdapter = new DocumentAssistant.documentassistantDataSetTableAdapters.typetableTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SaveChangeBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typetableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentassistantDataSet)).BeginInit();
@@ -62,21 +62,22 @@
             // 
             this.typetableTableAdapter.ClearBeforeFill = true;
             // 
-            // button1
+            // SaveChangeBut
             // 
-            this.button1.Location = new System.Drawing.Point(14, 267);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SaveChangeBut.Location = new System.Drawing.Point(14, 267);
+            this.SaveChangeBut.Name = "SaveChangeBut";
+            this.SaveChangeBut.Size = new System.Drawing.Size(147, 23);
+            this.SaveChangeBut.TabIndex = 2;
+            this.SaveChangeBut.Text = "SaveChange";
+            this.SaveChangeBut.UseVisualStyleBackColor = true;
+            this.SaveChangeBut.Click += new System.EventHandler(this.button1_Click);
             // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1087, 311);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SaveChangeBut);
             this.Controls.Add(this.dgv);
             this.Name = "EditForm";
             this.Text = "EditForm";
@@ -93,6 +94,6 @@
         private documentassistantDataSet documentassistantDataSet;
         private System.Windows.Forms.BindingSource typetableBindingSource;
         private documentassistantDataSetTableAdapters.typetableTableAdapter typetableTableAdapter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SaveChangeBut;
     }
 }

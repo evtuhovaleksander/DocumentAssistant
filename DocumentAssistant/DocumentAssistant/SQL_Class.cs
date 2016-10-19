@@ -20,6 +20,15 @@ namespace DocumentAssistant
         public MySqlConnection SQL_Connection;
         public MySqlDataReader SQL_DataReader;
 
+      public   SQL_Class()
+        {
+            
+            Create_Connection(Properties.Settings.Default.BasePath);
+           Open_Connection();
+            if (SQL_Connection.State != ConnectionState.Open) MessageBox.Show("eror during con open");
+
+        }
+
         public static Boolean check_connection(string con_string)
         {
             try

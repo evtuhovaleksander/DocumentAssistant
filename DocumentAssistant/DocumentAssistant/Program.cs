@@ -16,9 +16,7 @@ namespace DocumentAssistant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditForm());
-            EditForm frm = new EditForm();
-            frm.ShowDialog();
+            Application.Run(new EditForm("Status","Статус","statustable"));
         }
     }
 }
