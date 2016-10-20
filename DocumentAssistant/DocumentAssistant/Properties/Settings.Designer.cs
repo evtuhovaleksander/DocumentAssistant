@@ -44,5 +44,77 @@ namespace DocumentAssistant.Properties {
                 return ((string)(this["documentassistantConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Type {
+            get {
+                return ((int)(this["xls_Type"]));
+            }
+            set {
+                this["xls_Type"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Mark {
+            get {
+                return ((int)(this["xls_Mark"]));
+            }
+            set {
+                this["xls_Mark"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Place {
+            get {
+                return ((int)(this["xls_Place"]));
+            }
+            set {
+                this["xls_Place"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Status {
+            get {
+                return ((int)(this["xls_Status"]));
+            }
+            set {
+                this["xls_Status"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Serial {
+            get {
+                return ((int)(this["xls_Serial"]));
+            }
+            set {
+                this["xls_Serial"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Serial2 {
+            get {
+                return ((int)(this["xls_Serial2"]));
+            }
+            set {
+                this["xls_Serial2"] = value;
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace DocumentAssistant
 {
-    partial class EditForm
+    partial class EditFormWide
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.typetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-           // this.documentassistantDataSet = new DocumentAssistant.documentassistantDataSet();
-           // this.typetableTableAdapter = new DocumentAssistant.documentassistantDataSetTableAdapters.typetableTableAdapter();
             this.SaveChangeBut = new System.Windows.Forms.Button();
+            this.typetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typetableBindingSource)).BeginInit();
-           // ((System.ComponentModel.ISupportInitialize)(this.documentassistantDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv
@@ -45,26 +42,12 @@
             this.dgv.Location = new System.Drawing.Point(12, 12);
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(1063, 241);
+            this.dgv.Size = new System.Drawing.Size(1495, 241);
             this.dgv.TabIndex = 1;
-            // 
-            // typetableBindingSource
-            // 
-            this.typetableBindingSource.DataMember = "typetable";
-          //  this.typetableBindingSource.DataSource = this.documentassistantDataSet;
-            // 
-            // documentassistantDataSet
-            // 
-          //  this.documentassistantDataSet.DataSetName = "documentassistantDataSet";
-          //  this.documentassistantDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // typetableTableAdapter
-            // 
-         //   this.typetableTableAdapter.ClearBeforeFill = true;
             // 
             // SaveChangeBut
             // 
-            this.SaveChangeBut.Location = new System.Drawing.Point(14, 267);
+            this.SaveChangeBut.Location = new System.Drawing.Point(12, 259);
             this.SaveChangeBut.Name = "SaveChangeBut";
             this.SaveChangeBut.Size = new System.Drawing.Size(147, 23);
             this.SaveChangeBut.TabIndex = 2;
@@ -72,28 +55,27 @@
             this.SaveChangeBut.UseVisualStyleBackColor = true;
             this.SaveChangeBut.Click += new System.EventHandler(this.button1_Click);
             // 
-            // EditForm
+            // EditFormWide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 311);
+            this.ClientSize = new System.Drawing.Size(1519, 529);
             this.Controls.Add(this.SaveChangeBut);
             this.Controls.Add(this.dgv);
-            this.Name = "EditForm";
+            this.Name = "EditFormWide";
             this.Text = "EditForm";
             this.Load += new System.EventHandler(this.EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typetableBindingSource)).EndInit();
-          //  ((System.ComponentModel.ISupportInitialize)(this.documentassistantDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView dgv;
-        //private documentassistantDataSet documentassistantDataSet;
+       
         private System.Windows.Forms.BindingSource typetableBindingSource;
-        //private documentassistantDataSetTableAdapters.typetableTableAdapter typetableTableAdapter;
+        
         private System.Windows.Forms.Button SaveChangeBut;
     }
 }
