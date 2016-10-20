@@ -18,11 +18,13 @@ namespace DocumentAssistant
             ObjWorkExcel = new Excel.Application(); //открыть эксель
             ObjWorkBook = ObjWorkExcel.Workbooks.Open(path, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing); //открыть файл
             ObjWorkSheet = (Excel.Worksheet)ObjWorkBook.Sheets[1]; //получить 1 лист
+
+
         }
 
         public object read_val(int i, int j)
         {
-            return ObjWorkSheet.Cells[i, j];
+            return ObjWorkSheet.get_Range("A"+j,"A"+j).Text; ;
             return null;
         }
         ~XLS_Class()  // destructor

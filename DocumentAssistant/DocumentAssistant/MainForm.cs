@@ -41,5 +41,10 @@ namespace DocumentAssistant
         {
             new CheckType().Show();
         }
+
+        private void baseShowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new BaseShow().Show();
+        }
     }
 }

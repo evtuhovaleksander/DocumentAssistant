@@ -38,6 +38,7 @@
             this.placeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ownersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cheakTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baseShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,8 @@
             // 
             // mainToolStripMenuItem
             // 
+            this.mainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.baseShowToolStripMenuItem});
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
             this.mainToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
             this.mainToolStripMenuItem.Text = "Main";
@@ -121,6 +124,13 @@
             this.cheakTypeToolStripMenuItem.Text = "Cheak Type";
             this.cheakTypeToolStripMenuItem.Click += new System.EventHandler(this.cheakTypeToolStripMenuItem_Click);
             // 
+            // baseShowToolStripMenuItem
+            // 
+            this.baseShowToolStripMenuItem.Name = "baseShowToolStripMenuItem";
+            this.baseShowToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.baseShowToolStripMenuItem.Text = "BaseShow";
+            this.baseShowToolStripMenuItem.Click += new System.EventHandler(this.baseShowToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -149,5 +159,6 @@
         private System.Windows.Forms.ToolStripMenuItem placeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ownersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cheakTypeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem baseShowToolStripMenuItem;
     }
 }

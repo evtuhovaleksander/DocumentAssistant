@@ -26,7 +26,13 @@ namespace DocumentAssistant
 
         private void Check_Type_But_Click(object sender, EventArgs e)
         {
-            dgv.DataSource = check(mcl,Convert.ToInt32(start_Tbox.Text),Convert.ToInt32(stop_Tbox.Text),Properties.Settings.Default.xls_Type,"typetable","Type");
+            List<string> lst= check(mcl,Convert.ToInt32(start_Tbox.Text),Convert.ToInt32(stop_Tbox.Text),Properties.Settings.Default.xls_Type,"typetable","Type");
+            dgv.RowCount = lst.Count;
+            for (int i = 0; i < lst.Count; i++)
+            {
+                dgv.Rows[i].Cells[0].Value = lst[i];
+                //dgv.Rows[i].Cells[0].Value
+            }
         }
 
         public List<string> check(XLS_Class xls,int start,int stop,int col,string table,string name)

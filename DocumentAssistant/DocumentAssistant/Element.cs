@@ -6,40 +6,42 @@ using System.Threading.Tasks;
 
 namespace DocumentAssistant
 {
+    class Element2
+    {
+        int ID;
+        string Serial1;
+        string Serial2;
+        string Type;
+        string Mark;
+        string Status;
+        string Place;
+        string Coments;
+        int Typeid;
+        int Markid;
+        int Statusid;
+        int Placeid;
+    }
+
     class Element
     {
-        public Element(string name, string rusName, bool cons, bool tbox, bool autocomplete, bool cmbox, string[] collection)
+        public Element(string table, string name, bool cons, bool cmbox, string addtable)
         {
-            Name = name;
-            RusName = rusName;
+            this.table = table;
+            this.name = name;
             this.cons = cons;
-            this.tbox = tbox;
-            this.autocomplete = autocomplete;
             this.cmbox = cmbox;
-            this.collection = collection;
+            this.addtable = addtable;
+            if(this.cmbox)innerpart= "inner join "+this.addtable+" on "+this.table+"."+this.name+"="+
+            this.addtable + "."  + "ID ";
         }
 
-        public Element(string name, string rusName, bool cons, bool tbox, bool autocomplete, bool cmbox, bool complexQueue, string[] collection, string innerPart)
-        {
-            Name = name;
-            RusName = rusName;
-            this.cons = cons;
-            this.tbox = tbox;
-            this.autocomplete = autocomplete;
-            this.cmbox = cmbox;
-            this.complexQueue = complexQueue;
-            this.collection = collection;
-            this.innerPart = innerPart;
-        }
+        public string table;
+        public string name;
 
-        public string Name;
-        public string RusName;
         public bool cons;
-        public bool tbox;
-        public bool autocomplete;
+
         public bool cmbox;
-        public bool complexQueue;
-        public string[] collection;
-        public string innerPart;
+        public string addtable;
+        public string innerpart;
     }
 }
