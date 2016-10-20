@@ -1,0 +1,16 @@
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\DocumentAssistant.exe.config
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\DocumentAssistant.exe
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\DocumentAssistant.pdb
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\MySql.Data.dll
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\MySql.Data.Entity.dll
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\MySql.Fabric.Plugin.dll
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\MySql.Web.dll
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\MySql.Data.xml
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\MySql.Web.xml
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.csprojResolveAssemblyReference.cache
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.EditForm.resources
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.Form1.resources
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.Properties.Resources.resources
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.csproj.GenerateResource.Cache
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.exe
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.pdb
