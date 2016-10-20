@@ -68,6 +68,7 @@
             this.start_Tbox.Name = "start_Tbox";
             this.start_Tbox.Size = new System.Drawing.Size(100, 22);
             this.start_Tbox.TabIndex = 1;
+            this.start_Tbox.Text = "1";
             // 
             // stop_Tbox
             // 
@@ -75,6 +76,7 @@
             this.stop_Tbox.Name = "stop_Tbox";
             this.stop_Tbox.Size = new System.Drawing.Size(100, 22);
             this.stop_Tbox.TabIndex = 2;
+            this.stop_Tbox.Text = "5";
             // 
             // label1
             // 

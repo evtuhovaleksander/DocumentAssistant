@@ -36,5 +36,10 @@ namespace DocumentAssistant
         {
             new EditFormWide("Place", "Место", "placetable").Show();
         }
+
+        private void cheakTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new CheckType().Show();
+        }
     }
 }

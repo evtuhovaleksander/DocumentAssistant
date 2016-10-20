@@ -47,7 +47,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int xls_Type {
             get {
                 return ((int)(this["xls_Type"]));
@@ -59,7 +59,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int xls_Mark {
             get {
                 return ((int)(this["xls_Mark"]));
@@ -71,7 +71,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int xls_Place {
             get {
                 return ((int)(this["xls_Place"]));
@@ -83,7 +83,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int xls_Status {
             get {
                 return ((int)(this["xls_Status"]));
@@ -95,7 +95,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int xls_Serial {
             get {
                 return ((int)(this["xls_Serial"]));
@@ -107,7 +107,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int xls_Serial2 {
             get {
                 return ((int)(this["xls_Serial2"]));

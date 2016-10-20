@@ -37,6 +37,7 @@
             this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ownersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cheakTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,8 @@
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tablesToolStripMenuItem,
-            this.ownersToolStripMenuItem});
+            this.ownersToolStripMenuItem,
+            this.cheakTypeToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -81,28 +83,28 @@
             // typeToolStripMenuItem
             // 
             this.typeToolStripMenuItem.Name = "typeToolStripMenuItem";
-            this.typeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.typeToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
             this.typeToolStripMenuItem.Text = "Type";
             this.typeToolStripMenuItem.Click += new System.EventHandler(this.typeToolStripMenuItem_Click);
             // 
             // markToolStripMenuItem
             // 
             this.markToolStripMenuItem.Name = "markToolStripMenuItem";
-            this.markToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.markToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
             this.markToolStripMenuItem.Text = "Mark";
             this.markToolStripMenuItem.Click += new System.EventHandler(this.markToolStripMenuItem_Click);
             // 
             // statusToolStripMenuItem
             // 
             this.statusToolStripMenuItem.Name = "statusToolStripMenuItem";
-            this.statusToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.statusToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
             this.statusToolStripMenuItem.Text = "Status";
             this.statusToolStripMenuItem.Click += new System.EventHandler(this.statusToolStripMenuItem_Click);
             // 
             // placeToolStripMenuItem
             // 
             this.placeToolStripMenuItem.Name = "placeToolStripMenuItem";
-            this.placeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.placeToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
             this.placeToolStripMenuItem.Text = "Place";
             this.placeToolStripMenuItem.Click += new System.EventHandler(this.placeToolStripMenuItem_Click);
             // 
@@ -111,6 +113,13 @@
             this.ownersToolStripMenuItem.Name = "ownersToolStripMenuItem";
             this.ownersToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.ownersToolStripMenuItem.Text = "Owners";
+            // 
+            // cheakTypeToolStripMenuItem
+            // 
+            this.cheakTypeToolStripMenuItem.Name = "cheakTypeToolStripMenuItem";
+            this.cheakTypeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.cheakTypeToolStripMenuItem.Text = "Cheak Type";
+            this.cheakTypeToolStripMenuItem.Click += new System.EventHandler(this.cheakTypeToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -139,5 +148,6 @@
         private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem placeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ownersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cheakTypeToolStripMenuItem;
     }
 }
