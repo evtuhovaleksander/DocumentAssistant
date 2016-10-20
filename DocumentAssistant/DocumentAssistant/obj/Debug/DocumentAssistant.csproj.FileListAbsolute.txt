@@ -17,3 +17,6 @@ E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\Docume
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.BaseShow.resources
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.EditFormWide.resources
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.MainForm.resources
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\Interop.Microsoft.Office.Core.dll
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.csproj.ResolveComReference.cache
