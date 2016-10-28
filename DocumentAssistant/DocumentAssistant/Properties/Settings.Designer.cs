@@ -116,5 +116,101 @@ namespace DocumentAssistant.Properties {
                 this["xls_Serial2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;database=documentassistant;user id=tu;password=QAz1234567890;")]
+        public string BasePathReserv {
+            get {
+                return ((string)(this["BasePathReserv"]));
+            }
+            set {
+                this["BasePathReserv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Text {
+            get {
+                return ((int)(this["xls_Text"]));
+            }
+            set {
+                this["xls_Text"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Text2 {
+            get {
+                return ((int)(this["xls_Text2"]));
+            }
+            set {
+                this["xls_Text2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Text3 {
+            get {
+                return ((int)(this["xls_Text3"]));
+            }
+            set {
+                this["xls_Text3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Text4 {
+            get {
+                return ((int)(this["xls_Text4"]));
+            }
+            set {
+                this["xls_Text4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Text5 {
+            get {
+                return ((int)(this["xls_Text5"]));
+            }
+            set {
+                this["xls_Text5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Text6 {
+            get {
+                return ((int)(this["xls_Text6"]));
+            }
+            set {
+                this["xls_Text6"] = value;
+            }
+        }
     }
 }

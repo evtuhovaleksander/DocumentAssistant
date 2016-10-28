@@ -30,6 +30,8 @@
         {
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baseShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,7 +40,7 @@
             this.placeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ownersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cheakTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baseShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,17 +59,31 @@
             // mainToolStripMenuItem
             // 
             this.mainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.baseShowToolStripMenuItem});
+            this.baseShowToolStripMenuItem,
+            this.toolStripMenuItem2});
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
             this.mainToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
             this.mainToolStripMenuItem.Text = "Main";
+            // 
+            // baseShowToolStripMenuItem
+            // 
+            this.baseShowToolStripMenuItem.Name = "baseShowToolStripMenuItem";
+            this.baseShowToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.baseShowToolStripMenuItem.Text = "BaseShow";
+            this.baseShowToolStripMenuItem.Click += new System.EventHandler(this.baseShowToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(151, 26);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tablesToolStripMenuItem,
             this.ownersToolStripMenuItem,
-            this.cheakTypeToolStripMenuItem});
+            this.cheakTypeToolStripMenuItem,
+            this.checkSettingsToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -80,7 +96,7 @@
             this.statusToolStripMenuItem,
             this.placeToolStripMenuItem});
             this.tablesToolStripMenuItem.Name = "tablesToolStripMenuItem";
-            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.tablesToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.tablesToolStripMenuItem.Text = "Tables";
             // 
             // typeToolStripMenuItem
@@ -114,22 +130,22 @@
             // ownersToolStripMenuItem
             // 
             this.ownersToolStripMenuItem.Name = "ownersToolStripMenuItem";
-            this.ownersToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.ownersToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.ownersToolStripMenuItem.Text = "Owners";
             // 
             // cheakTypeToolStripMenuItem
             // 
             this.cheakTypeToolStripMenuItem.Name = "cheakTypeToolStripMenuItem";
-            this.cheakTypeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.cheakTypeToolStripMenuItem.Text = "Cheak Type";
+            this.cheakTypeToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.cheakTypeToolStripMenuItem.Text = "Check Type XLS";
             this.cheakTypeToolStripMenuItem.Click += new System.EventHandler(this.cheakTypeToolStripMenuItem_Click);
             // 
-            // baseShowToolStripMenuItem
+            // checkSettingsToolStripMenuItem
             // 
-            this.baseShowToolStripMenuItem.Name = "baseShowToolStripMenuItem";
-            this.baseShowToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.baseShowToolStripMenuItem.Text = "BaseShow";
-            this.baseShowToolStripMenuItem.Click += new System.EventHandler(this.baseShowToolStripMenuItem_Click);
+            this.checkSettingsToolStripMenuItem.Name = "checkSettingsToolStripMenuItem";
+            this.checkSettingsToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.checkSettingsToolStripMenuItem.Text = "Check Settings";
+            this.checkSettingsToolStripMenuItem.Click += new System.EventHandler(this.checkSettingsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -140,6 +156,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -160,5 +177,7 @@
         private System.Windows.Forms.ToolStripMenuItem ownersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cheakTypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baseShowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem checkSettingsToolStripMenuItem;
     }
 }

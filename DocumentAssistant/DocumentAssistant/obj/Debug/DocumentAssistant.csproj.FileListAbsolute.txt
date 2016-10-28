@@ -21,5 +21,6 @@ E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\Intero
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.csproj.ResolveComReference.cache
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.CheckType.resources
-E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.Settings.resources
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.ElementForm.resources
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.RedForm.resources
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.Settings_Form.resources

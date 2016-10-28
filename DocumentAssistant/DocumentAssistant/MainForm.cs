@@ -46,5 +46,17 @@ namespace DocumentAssistant
         {
             new BaseShow().Show();
         }
+
+   
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            SettingsClass.Load_Settings();
+        }
+
+        private void checkSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Settings_Form().Show();
+        }
     }
 }

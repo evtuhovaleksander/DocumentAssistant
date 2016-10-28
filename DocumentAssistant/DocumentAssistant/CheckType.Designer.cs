@@ -39,7 +39,12 @@
             this.Check_Status_But = new System.Windows.Forms.Button();
             this.Check_Place_But = new System.Windows.Forms.Button();
             this.get_File = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FillBase = new System.Windows.Forms.Button();
+            this.XLS_Rbut = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv
@@ -98,7 +103,7 @@
             // 
             // Check_Type_But
             // 
-            this.Check_Type_But.Location = new System.Drawing.Point(277, 96);
+            this.Check_Type_But.Location = new System.Drawing.Point(6, 21);
             this.Check_Type_But.Name = "Check_Type_But";
             this.Check_Type_But.Size = new System.Drawing.Size(121, 41);
             this.Check_Type_But.TabIndex = 8;
@@ -108,51 +113,98 @@
             // 
             // Check_Mark_But
             // 
-            this.Check_Mark_But.Location = new System.Drawing.Point(277, 143);
+            this.Check_Mark_But.Location = new System.Drawing.Point(6, 68);
             this.Check_Mark_But.Name = "Check_Mark_But";
             this.Check_Mark_But.Size = new System.Drawing.Size(121, 41);
             this.Check_Mark_But.TabIndex = 9;
             this.Check_Mark_But.Text = "Check Mark";
             this.Check_Mark_But.UseVisualStyleBackColor = true;
+            this.Check_Mark_But.Click += new System.EventHandler(this.Check_Mark_But_Click);
             // 
             // Check_Status_But
             // 
-            this.Check_Status_But.Location = new System.Drawing.Point(277, 190);
+            this.Check_Status_But.Location = new System.Drawing.Point(6, 115);
             this.Check_Status_But.Name = "Check_Status_But";
             this.Check_Status_But.Size = new System.Drawing.Size(121, 41);
             this.Check_Status_But.TabIndex = 10;
             this.Check_Status_But.Text = "Check Status";
             this.Check_Status_But.UseVisualStyleBackColor = true;
+            this.Check_Status_But.Click += new System.EventHandler(this.Check_Status_But_Click);
             // 
             // Check_Place_But
             // 
-            this.Check_Place_But.Location = new System.Drawing.Point(277, 237);
+            this.Check_Place_But.Location = new System.Drawing.Point(6, 162);
             this.Check_Place_But.Name = "Check_Place_But";
             this.Check_Place_But.Size = new System.Drawing.Size(121, 41);
             this.Check_Place_But.TabIndex = 11;
             this.Check_Place_But.Text = "Check Place";
             this.Check_Place_But.UseVisualStyleBackColor = true;
+            this.Check_Place_But.Click += new System.EventHandler(this.Check_Place_But_Click);
             // 
             // get_File
             // 
-            this.get_File.Location = new System.Drawing.Point(404, 96);
+            this.get_File.Location = new System.Drawing.Point(454, 110);
             this.get_File.Name = "get_File";
-            this.get_File.Size = new System.Drawing.Size(149, 41);
+            this.get_File.Size = new System.Drawing.Size(121, 41);
             this.get_File.TabIndex = 12;
             this.get_File.Text = "get_File";
             this.get_File.UseVisualStyleBackColor = true;
             this.get_File.Click += new System.EventHandler(this.get_File_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Check_Type_But);
+            this.groupBox1.Controls.Add(this.Check_Place_But);
+            this.groupBox1.Controls.Add(this.Check_Mark_But);
+            this.groupBox1.Controls.Add(this.Check_Status_But);
+            this.groupBox1.Location = new System.Drawing.Point(290, 185);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(143, 245);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "XLS";
+            // 
+            // FillBase
+            // 
+            this.FillBase.Location = new System.Drawing.Point(1037, 395);
+            this.FillBase.Name = "FillBase";
+            this.FillBase.Size = new System.Drawing.Size(198, 93);
+            this.FillBase.TabIndex = 14;
+            this.FillBase.Text = "FillBase";
+            this.FillBase.UseVisualStyleBackColor = true;
+            // 
+            // XLS_Rbut
+            // 
+            this.XLS_Rbut.AutoSize = true;
+            this.XLS_Rbut.Checked = true;
+            this.XLS_Rbut.Location = new System.Drawing.Point(290, 92);
+            this.XLS_Rbut.Name = "XLS_Rbut";
+            this.XLS_Rbut.Size = new System.Drawing.Size(55, 21);
+            this.XLS_Rbut.TabIndex = 15;
+            this.XLS_Rbut.TabStop = true;
+            this.XLS_Rbut.Text = "XLS";
+            this.XLS_Rbut.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(290, 120);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(61, 21);
+            this.radioButton1.TabIndex = 16;
+            this.radioButton1.Text = "Base";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // CheckType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 500);
+            this.ClientSize = new System.Drawing.Size(1247, 500);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.XLS_Rbut);
+            this.Controls.Add(this.FillBase);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.get_File);
-            this.Controls.Add(this.Check_Place_But);
-            this.Controls.Add(this.Check_Status_But);
-            this.Controls.Add(this.Check_Mark_But);
-            this.Controls.Add(this.Check_Type_But);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.stop_Tbox);
@@ -162,6 +214,7 @@
             this.Text = "CheckType";
             this.Load += new System.EventHandler(this.CheckType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +233,9 @@
         private System.Windows.Forms.Button Check_Status_But;
         private System.Windows.Forms.Button Check_Place_But;
         private System.Windows.Forms.Button get_File;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button FillBase;
+        private System.Windows.Forms.RadioButton XLS_Rbut;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

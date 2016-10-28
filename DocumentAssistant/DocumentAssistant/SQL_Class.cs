@@ -256,7 +256,7 @@ namespace DocumentAssistant
             {
                 temp.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 sql_c.Manualy_Close_Connection();
                 return false;

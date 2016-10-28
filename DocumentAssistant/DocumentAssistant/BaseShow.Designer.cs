@@ -38,8 +38,8 @@
             this.Status = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Owner = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.Load_Data = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -57,11 +57,12 @@
             this.Status,
             this.Text,
             this.Owner});
-            this.dgv2.Location = new System.Drawing.Point(12, 40);
+            this.dgv2.Location = new System.Drawing.Point(12, 35);
             this.dgv2.Name = "dgv2";
             this.dgv2.RowTemplate.Height = 24;
-            this.dgv2.Size = new System.Drawing.Size(595, 444);
+            this.dgv2.Size = new System.Drawing.Size(141, 102);
             this.dgv2.TabIndex = 0;
+            this.dgv2.Visible = false;
             // 
             // ID
             // 
@@ -120,36 +121,42 @@
             this.Owner.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Owner.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(645, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 22);
-            this.textBox1.TabIndex = 1;
-            // 
             // dgv
             // 
+            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(12, 40);
+            this.dgv.Location = new System.Drawing.Point(12, 67);
             this.dgv.Name = "dgv";
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(595, 444);
+            this.dgv.Size = new System.Drawing.Size(1280, 417);
             this.dgv.TabIndex = 2;
+            this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
+            // 
+            // Load_Data
+            // 
+            this.Load_Data.Location = new System.Drawing.Point(12, 12);
+            this.Load_Data.Name = "Load_Data";
+            this.Load_Data.Size = new System.Drawing.Size(262, 49);
+            this.Load_Data.TabIndex = 3;
+            this.Load_Data.Text = "Load_Data";
+            this.Load_Data.UseVisualStyleBackColor = true;
+            this.Load_Data.Click += new System.EventHandler(this.button1_Click);
             // 
             // BaseShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 496);
+            this.ClientSize = new System.Drawing.Size(1304, 496);
+            this.Controls.Add(this.Load_Data);
             this.Controls.Add(this.dgv);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgv2);
             this.Name = "BaseShow";
             this.Load += new System.EventHandler(this.BaseShow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -165,7 +172,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Text;
         private System.Windows.Forms.DataGridViewComboBoxColumn Owner;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Button Load_Data;
     }
 }
