@@ -132,6 +132,7 @@
             this.ownersToolStripMenuItem.Name = "ownersToolStripMenuItem";
             this.ownersToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.ownersToolStripMenuItem.Text = "Owners";
+            this.ownersToolStripMenuItem.Click += new System.EventHandler(this.ownersToolStripMenuItem_Click);
             // 
             // cheakTypeToolStripMenuItem
             // 

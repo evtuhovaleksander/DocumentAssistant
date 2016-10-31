@@ -47,7 +47,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
         public int xls_Type {
             get {
                 return ((int)(this["xls_Type"]));
@@ -59,7 +59,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public int xls_Mark {
             get {
                 return ((int)(this["xls_Mark"]));
@@ -71,7 +71,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public int xls_Place {
             get {
                 return ((int)(this["xls_Place"]));
@@ -83,7 +83,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
         public int xls_Status {
             get {
                 return ((int)(this["xls_Status"]));
@@ -107,7 +107,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public int xls_Serial2 {
             get {
                 return ((int)(this["xls_Serial2"]));
@@ -143,7 +143,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
         public int xls_Text {
             get {
                 return ((int)(this["xls_Text"]));
@@ -155,7 +155,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
         public int xls_Text2 {
             get {
                 return ((int)(this["xls_Text2"]));
@@ -167,7 +167,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("9")]
         public int xls_Text3 {
             get {
                 return ((int)(this["xls_Text3"]));
@@ -179,7 +179,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public int xls_Text4 {
             get {
                 return ((int)(this["xls_Text4"]));
@@ -191,7 +191,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("11")]
         public int xls_Text5 {
             get {
                 return ((int)(this["xls_Text5"]));
@@ -203,7 +203,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
         public int xls_Text6 {
             get {
                 return ((int)(this["xls_Text6"]));

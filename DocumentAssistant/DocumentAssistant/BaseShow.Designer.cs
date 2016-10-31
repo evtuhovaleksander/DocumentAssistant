@@ -40,6 +40,7 @@
             this.Owner = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.Load_Data = new System.Windows.Forms.Button();
+            this.Add_but = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -144,11 +145,22 @@
             this.Load_Data.UseVisualStyleBackColor = true;
             this.Load_Data.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Add_but
+            // 
+            this.Add_but.Location = new System.Drawing.Point(736, 12);
+            this.Add_but.Name = "Add_but";
+            this.Add_but.Size = new System.Drawing.Size(262, 49);
+            this.Add_but.TabIndex = 4;
+            this.Add_but.Text = "Add";
+            this.Add_but.UseVisualStyleBackColor = true;
+            this.Add_but.Click += new System.EventHandler(this.Add_but_Click);
+            // 
             // BaseShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 496);
+            this.Controls.Add(this.Add_but);
             this.Controls.Add(this.Load_Data);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.dgv2);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Owner;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Button Load_Data;
+        private System.Windows.Forms.Button Add_but;
     }
 }

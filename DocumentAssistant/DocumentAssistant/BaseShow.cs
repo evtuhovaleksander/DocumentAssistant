@@ -19,8 +19,23 @@ namespace DocumentAssistant
             InitializeComponent();
             List<Element> lst = new List<Element>();
             lst.Add(new Element("itemtable", "ID", false, false, ""));
-            lst.Add(new Element("itemtable", "Text", true, false, ""));
+            lst.Add(new Element("itemtable", "Serial", true, false, ""));
+            lst.Add(new Element("itemtable", "Serial2", true, false, ""));
+
             lst.Add(new Element("itemtable", "Mark", false, true, "marktable"));
+            lst.Add(new Element("itemtable", "Type", false, true, "typetable"));
+            lst.Add(new Element("itemtable", "Place", false, true, "placetable"));
+            lst.Add(new Element("itemtable", "Status", false, true, "statustable"));
+
+            lst.Add(new Element("itemtable", "Text", true, false, ""));
+            lst.Add(new Element("itemtable", "Text2", true, false, ""));
+            lst.Add(new Element("itemtable", "Text3", true, false, ""));
+            lst.Add(new Element("itemtable", "Text4", true, false, ""));
+            lst.Add(new Element("itemtable", "Text5", true, false, ""));
+            lst.Add(new Element("itemtable", "Text6", true, false, ""));
+
+            lst.Add(new Element("itemtable", "Owner", false, true, "ownertable"));
+
             tbl = new Table(lst, dgv, "itemtable");
             tbl.LoadData();
         }
@@ -40,13 +55,14 @@ namespace DocumentAssistant
             if(e.RowIndex!=-1)
                 if (dgv.Rows[e.RowIndex].Cells[0].Value != null)
                 {
-                    //RedForm frm = new RedForm();
-                    //FormBuilder builder = new FormBuilder(tbl, new Point(50, 50), frm);
-                    //frm.Refresh();
-                    //frm.Show();
-                    //builder.Load_Element(Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value));
+
                     FormBuilder.Prepare_Form_To_Edit(tbl,new Point(50,50), Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value));
                 }
+        }
+
+        private void Add_but_Click(object sender, EventArgs e)
+        {
+            FormBuilder.Prepare_Form_To_Add(tbl, new Point(50, 50));
         }
     }
 }

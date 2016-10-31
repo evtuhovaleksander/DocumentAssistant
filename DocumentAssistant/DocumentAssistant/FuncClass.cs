@@ -26,7 +26,7 @@ namespace DocumentAssistant
             cl.ReadValues(zap);
             while (cl.SQL_DataReader.Read())
             {
-                ds.Add(cl.SQL_DataReader.GetString(0));
+                ds.Add(cl.get_string(0));
             }
 
             inp.DataSource = ds;

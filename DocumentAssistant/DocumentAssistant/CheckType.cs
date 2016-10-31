@@ -21,7 +21,15 @@ namespace DocumentAssistant
 
         private void CheckType_Load(object sender, EventArgs e)
         {
-
+            List<string> str=new List<string>();
+            string zap = "select Owner from ownertable";
+            SQL_Class cl=new SQL_Class();
+            cl.ReadValues(zap);
+            while (cl.SQL_DataReader.Read())
+            {
+                str.Add(cl.get_string(0));
+            }
+            comboBox1.DataSource = str;
         }
 
         public void Check_and_Fill_DGV(XLS_Class xls, int start, int stop, int col, string table, string name)
@@ -43,6 +51,7 @@ namespace DocumentAssistant
         public List<string> check(XLS_Class xls,int start,int stop,int col,string table,string name)
         {
             List<string> rett = new List<string>();
+            
             string element;
             if (XLS_Rbut.Checked)
             {
@@ -64,23 +73,11 @@ namespace DocumentAssistant
             return rett;
         }
 
-        public XLS_Class get_xls()
-        {
-            FileDialog dlg = new OpenFileDialog();
-            dlg.ShowDialog();
-            if (File.Exists(dlg.FileName))
-            {
-                return new XLS_Class(dlg.FileName);
-            }
-            else
-            {
-                return null;
-            }
-        }
+       
 
         private void get_File_Click(object sender, EventArgs e)
         {
-            XLS_Class cl = get_xls();
+            XLS_Class cl = XLS_Class.get_xls();
             if (cl != null)
             {
                 get_File.BackColor=Color.Green;
@@ -101,6 +98,25 @@ namespace DocumentAssistant
         private void Check_Place_But_Click(object sender, EventArgs e)
         {
             Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Place, "placetable", "Place");
+        }
+
+        private void FillBase_Click(object sender, EventArgs e)
+        {
+            int start = Convert.ToInt32(start_Tbox.Text);
+            int stop = Convert.ToInt32(stop_Tbox.Text);
+
+            for (int i = start - 1; i < stop - 1; i++)
+            {
+                Compare_Element el = Compare_Element.get_el_as_base_el(mcl,i);
+
+
+                string zap = "insert into itemtable Serial,Serial2,Mark,Type,Status,Place,Text,Text2,Text3,Text4,Text5,Text6,Owner"+
+                    " Values ('"+ el.Serial + "','"+ el.Serial2 + "',"+ el.Mark + 
+                    ","+ el.Type + ","+ el.Status + ","+ el.Place + 
+                    ",'"+ el.Text + "','"+ el.Text2 + "','"+ el.Text3 + "','"+ el.Text4 + "','"+ el.Text5 + "','',"+comboBox1.SelectedIndex+")";
+                SQL_Class.Execute(zap);
+            }
+            
         }
     }
 }

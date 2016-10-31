@@ -42,7 +42,7 @@ namespace DocumentAssistant
             int i = 0;
             while (cl.SQL_DataReader.Read())
             {
-                dgv.Rows[i].Cells[0].Value = cl.SQL_DataReader.GetInt32(0);
+                dgv.Rows[i].Cells[0].Value = cl.get_int(0);
                 dgv.Rows[i].Cells[1].Value = cl.SQL_DataReader.GetValue(1);
                 i++;
             }

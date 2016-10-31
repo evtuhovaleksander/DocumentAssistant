@@ -43,6 +43,7 @@
             this.FillBase = new System.Windows.Forms.Button();
             this.XLS_Rbut = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -143,9 +144,9 @@
             // 
             // get_File
             // 
-            this.get_File.Location = new System.Drawing.Point(454, 110);
+            this.get_File.Location = new System.Drawing.Point(357, 92);
             this.get_File.Name = "get_File";
-            this.get_File.Size = new System.Drawing.Size(121, 41);
+            this.get_File.Size = new System.Drawing.Size(331, 87);
             this.get_File.TabIndex = 12;
             this.get_File.Text = "get_File";
             this.get_File.UseVisualStyleBackColor = true;
@@ -172,6 +173,7 @@
             this.FillBase.TabIndex = 14;
             this.FillBase.Text = "FillBase";
             this.FillBase.UseVisualStyleBackColor = true;
+            this.FillBase.Click += new System.EventHandler(this.FillBase_Click);
             // 
             // XLS_Rbut
             // 
@@ -195,11 +197,20 @@
             this.radioButton1.Text = "Base";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1037, 365);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 17;
+            // 
             // CheckType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1247, 500);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.XLS_Rbut);
             this.Controls.Add(this.FillBase);
@@ -237,5 +248,6 @@
         private System.Windows.Forms.Button FillBase;
         private System.Windows.Forms.RadioButton XLS_Rbut;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

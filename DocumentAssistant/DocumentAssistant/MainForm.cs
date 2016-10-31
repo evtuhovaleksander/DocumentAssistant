@@ -58,5 +58,10 @@ namespace DocumentAssistant
         {
             new Settings_Form().Show();
         }
+
+        private void ownersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new EditForm("Owner", "Owner", "ownertable").Show();
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace DocumentAssistant
             Inner_Part = "";
             foreach (Element tmp in elList)
             {
-                if (tmp.cmbox&&(!Inner_Part.Contains(tmp.addtable))) Inner_Part+= " inner join " + tmp.addtable + " on " + Table_Name + "." + tmp.name + "=" +
+                if (tmp.cmbox&&(!Inner_Part.Contains(tmp.addtable))) Inner_Part+= " left join " + tmp.addtable + " on " + Table_Name + "." + tmp.name + "=" +
                  tmp.addtable + "." + "ID ";
             }
         }
@@ -110,20 +110,21 @@ namespace DocumentAssistant
         {
             string zap = "insert into " + Table_Name + " (";
 
-            for (int i = 0; i < el_list.Count; i++)
+            for (int i = 1; i < el_list.Count; i++)
             {
-                if (i != 0) zap += ", ";
+                if (i != 1) zap += ", ";
                 zap += Table_Name + ".";
                 zap += el_list[i].name + " "; ;
             }
             zap += ") values (";
-            for (int i = 0; i < el_list.Count; i++)
+            for (int i = 1; i < el_list.Count; i++)
             {
-                if (i != 0) zap += ", ";
+                if (i != 1) zap += ", ";
                 if (el_list[i].cons) zap += "'";
                 zap += parameters[i];
                 if (el_list[i].cons) zap += "'";
             }
+            zap += ")";
             return zap;
         }
         public string make_Update_Queue(List<string> parameters,int id)
@@ -151,7 +152,7 @@ namespace DocumentAssistant
         public void LoadData()
         {
             SQL_Class cl=new SQL_Class();
-            MySqlCommand sqlCom = new MySqlCommand(make_Read_Queue_For_DGV(), cl.SQL_Connection);
+            MySqlCommand sqlCom = new MySqlCommand(make_Read_Queue_For_DGV().Replace("inner","left"), cl.SQL_Connection);
             sqlCom.ExecuteNonQuery();
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sqlCom);
             DataTable dt = new DataTable();
@@ -164,8 +165,8 @@ namespace DocumentAssistant
 
     public class FormBuilder
     {
-        const int fill_width=50;
-        const int label_width = 50;
+        const int fill_width=200;
+        const int label_width = 70;
         Table tbl;
         RedForm frm;
         List<object> fill_elements;
@@ -192,7 +193,7 @@ namespace DocumentAssistant
                     ((TextBox)fill_elements[i]).Parent = frm;
                     ((TextBox)fill_elements[i]).Width = fill_width;
                     ((TextBox) fill_elements[i]).Text = "";
-                    ((TextBox)fill_elements[i]).Location = new Point(pnt.X + ((TextBox)fill_elements[i]).Width+5, pnt.Y + w);
+                    ((TextBox)fill_elements[i]).Location = new Point(pnt.X + ((TextBox)label_elements[i]).Width+5, pnt.Y + w);
                 }
                 else
                 {
@@ -200,12 +201,13 @@ namespace DocumentAssistant
                     ((ComboBox)fill_elements[i]).Parent = frm;
                     ((ComboBox)fill_elements[i]).Width = fill_width;
                     ((ComboBox)fill_elements[i]).Text = "";
-                    ((ComboBox)fill_elements[i]).Location = new Point(pnt.X + ((ComboBox)fill_elements[i]).Width + 5, pnt.Y + w);
+                    ((ComboBox)fill_elements[i]).Location = new Point(pnt.X + ((TextBox)label_elements[i]).Width + 5, pnt.Y + w);
                     fill_elements[i] = FuncClass.PrepareComboBox(((ComboBox) fill_elements[i]), tbl.el_list[i],
                         tbl.Table_Name);
                 }
                 w += ((TextBox)label_elements[i]).Height + 3;
             }
+            frm.Height = pnt.Y + w +100;
         }
 
         public static void Prepare_Form_To_Add(Table inp, Point pnt)
@@ -269,12 +271,13 @@ namespace DocumentAssistant
             {
                 if (tbl.el_list[i].cmbox)
                 {
-                    int index = cl.SQL_DataReader.GetInt32(i);
+                    int index = cl.get_int(i);
                     ((ComboBox) fill_elements[i]).SelectedIndex = index;
                 }
                 else
                 {
-                    ((TextBox)fill_elements[i]).Text = cl.SQL_DataReader.GetString(i);
+                    
+                    ((TextBox)fill_elements[i]).Text = cl.get_string(i);
                 }
             }
         }
