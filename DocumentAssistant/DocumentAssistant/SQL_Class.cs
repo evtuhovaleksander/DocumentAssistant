@@ -16,7 +16,33 @@ namespace DocumentAssistant
     //Properties.Settings.Default.BasePath
     internal class SQL_Class
     {
-        
+
+
+        public int get_int(int i)
+        {
+            if (!SQL_DataReader.IsDBNull(i))
+            {
+                return SQL_DataReader.GetInt32(i);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public string get_string(int i)
+        {
+            
+            if (!SQL_DataReader.IsDBNull(i))
+            {
+                return SQL_DataReader.GetString(i);
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public MySqlConnection SQL_Connection;
         public MySqlDataReader SQL_DataReader;
 
@@ -256,7 +282,7 @@ namespace DocumentAssistant
             {
                 temp.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 sql_c.Manualy_Close_Connection();
                 return false;

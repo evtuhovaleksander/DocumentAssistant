@@ -44,5 +44,173 @@ namespace DocumentAssistant.Properties {
                 return ((string)(this["documentassistantConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int xls_Type {
+            get {
+                return ((int)(this["xls_Type"]));
+            }
+            set {
+                this["xls_Type"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int xls_Mark {
+            get {
+                return ((int)(this["xls_Mark"]));
+            }
+            set {
+                this["xls_Mark"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public int xls_Place {
+            get {
+                return ((int)(this["xls_Place"]));
+            }
+            set {
+                this["xls_Place"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int xls_Status {
+            get {
+                return ((int)(this["xls_Status"]));
+            }
+            set {
+                this["xls_Status"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int xls_Serial {
+            get {
+                return ((int)(this["xls_Serial"]));
+            }
+            set {
+                this["xls_Serial"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int xls_Serial2 {
+            get {
+                return ((int)(this["xls_Serial2"]));
+            }
+            set {
+                this["xls_Serial2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;database=documentassistant;user id=tu;password=QAz1234567890;")]
+        public string BasePathReserv {
+            get {
+                return ((string)(this["BasePathReserv"]));
+            }
+            set {
+                this["BasePathReserv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int xls_Text {
+            get {
+                return ((int)(this["xls_Text"]));
+            }
+            set {
+                this["xls_Text"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int xls_Text2 {
+            get {
+                return ((int)(this["xls_Text2"]));
+            }
+            set {
+                this["xls_Text2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("9")]
+        public int xls_Text3 {
+            get {
+                return ((int)(this["xls_Text3"]));
+            }
+            set {
+                this["xls_Text3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int xls_Text4 {
+            get {
+                return ((int)(this["xls_Text4"]));
+            }
+            set {
+                this["xls_Text4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        public int xls_Text5 {
+            get {
+                return ((int)(this["xls_Text5"]));
+            }
+            set {
+                this["xls_Text5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        public int xls_Text6 {
+            get {
+                return ((int)(this["xls_Text6"]));
+            }
+            set {
+                this["xls_Text6"] = value;
+            }
+        }
     }
 }

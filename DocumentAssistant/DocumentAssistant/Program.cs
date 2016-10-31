@@ -14,9 +14,21 @@ namespace DocumentAssistant
         [STAThread]
         static void Main()
         {
+            //List<string> ms=new List<string>();
+            //ms.Add("0");
+            //ms.Add("1");
+            //ms.Add("2");
+            //ms.Add("3");
+
+            //int i = ms.IndexOf("2");
+            //i = ms.IndexOf("65655");
+
+
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditForm("Status","Статус","statustable"));
+            Application.Run(new MainForm());
         }
     }
 }

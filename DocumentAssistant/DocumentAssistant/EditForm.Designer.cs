@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.typetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.documentassistantDataSet = new DocumentAssistant.documentassistantDataSet();
-            this.typetableTableAdapter = new DocumentAssistant.documentassistantDataSetTableAdapters.typetableTableAdapter();
+           // this.documentassistantDataSet = new DocumentAssistant.documentassistantDataSet();
+           // this.typetableTableAdapter = new DocumentAssistant.documentassistantDataSetTableAdapters.typetableTableAdapter();
             this.SaveChangeBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typetableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.documentassistantDataSet)).BeginInit();
+           // ((System.ComponentModel.ISupportInitialize)(this.documentassistantDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv
@@ -51,16 +51,16 @@
             // typetableBindingSource
             // 
             this.typetableBindingSource.DataMember = "typetable";
-            this.typetableBindingSource.DataSource = this.documentassistantDataSet;
+          //  this.typetableBindingSource.DataSource = this.documentassistantDataSet;
             // 
             // documentassistantDataSet
             // 
-            this.documentassistantDataSet.DataSetName = "documentassistantDataSet";
-            this.documentassistantDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+          //  this.documentassistantDataSet.DataSetName = "documentassistantDataSet";
+          //  this.documentassistantDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // typetableTableAdapter
             // 
-            this.typetableTableAdapter.ClearBeforeFill = true;
+         //   this.typetableTableAdapter.ClearBeforeFill = true;
             // 
             // SaveChangeBut
             // 
@@ -84,16 +84,16 @@
             this.Load += new System.EventHandler(this.EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typetableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.documentassistantDataSet)).EndInit();
+          //  ((System.ComponentModel.ISupportInitialize)(this.documentassistantDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView dgv;
-        private documentassistantDataSet documentassistantDataSet;
+        //private documentassistantDataSet documentassistantDataSet;
         private System.Windows.Forms.BindingSource typetableBindingSource;
-        private documentassistantDataSetTableAdapters.typetableTableAdapter typetableTableAdapter;
+        //private documentassistantDataSetTableAdapters.typetableTableAdapter typetableTableAdapter;
         private System.Windows.Forms.Button SaveChangeBut;
     }
 }
