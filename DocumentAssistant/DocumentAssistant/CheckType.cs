@@ -30,9 +30,10 @@ namespace DocumentAssistant
                 str.Add(cl.get_string(0));
             }
             comboBox1.DataSource = str;
+            cl.Manualy_Close_Connection2();
         }
 
-        public void Check_and_Fill_DGV(XLS_Class xls, int start, int stop, int col, string table, string name)
+        public bool Check_and_Fill_DGV(XLS_Class xls, int start, int stop, int col, string table, string name)
         {
             List<string> lst = check(xls,start, stop, col, table, name);
             dgv.RowCount = lst.Count;
@@ -40,12 +41,25 @@ namespace DocumentAssistant
             {
                 dgv.Rows[i].Cells[0].Value = lst[i];
             }
+            if (lst.Count != 0)
+            {
+                return false;
+
+            }
+            else
+            {
+                return true;
+            }
         }
 
 
         private void Check_Type_But_Click(object sender, EventArgs e)
         {
-            Check_and_Fill_DGV(mcl,Convert.ToInt32(start_Tbox.Text),Convert.ToInt32(stop_Tbox.Text),Properties.Settings.Default.xls_Type,"typetable","Type");
+            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+                Properties.Settings.Default.xls_Type, "typetable", "Type"))
+            {
+                MessageBox.Show("OK!!!!");
+            }
         }
 
         public List<string> check(XLS_Class xls,int start,int stop,int col,string table,string name)
@@ -61,13 +75,13 @@ namespace DocumentAssistant
             {
                 element = name;
             }
-            for (int i = start-1; i < stop-1; i++)
+            for (int i = start; i < stop; i++)
             {
                 if (
                     SQL_Class.ReadValueInt32("select count(*) from " + table + "  where "+element + " like '%" +
                                              xls.read_val(i, col).ToString() + "%'") == 0)
                 {
-                    rett.Add(xls.read_val(i, col).ToString());
+                    if(!rett.Contains(xls.read_val(i, col).ToString()))rett.Add(xls.read_val(i, col).ToString());
                 }
             }
             return rett;
@@ -87,33 +101,43 @@ namespace DocumentAssistant
 
         private void Check_Mark_But_Click(object sender, EventArgs e)
         {
-            Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Mark, "marktable", "Mark");
+            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Mark, "marktable", "Mark"))
+            {
+                MessageBox.Show("OK!!!!");
+            }
         }
 
         private void Check_Status_But_Click(object sender, EventArgs e)
         {
-            Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Status, "statustable", "Status");
+            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Status, "statustable", "Status"))
+            {
+                MessageBox.Show("OK!!!!");
+            }
         }
 
         private void Check_Place_But_Click(object sender, EventArgs e)
         {
-            Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Place, "placetable", "Place");
+
+            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Place, "placetable", "Place"))
+            {
+                MessageBox.Show("OK!!!!");
+            }
         }
 
         private void FillBase_Click(object sender, EventArgs e)
         {
             int start = Convert.ToInt32(start_Tbox.Text);
             int stop = Convert.ToInt32(stop_Tbox.Text);
-
-            for (int i = start - 1; i < stop - 1; i++)
+            
+            for (int i = start ; i < stop ; i++)
             {
                 Compare_Element el = Compare_Element.get_el_as_base_el(mcl,i);
 
 
-                string zap = "insert into itemtable Serial,Serial2,Mark,Type,Status,Place,Text,Text2,Text3,Text4,Text5,Text6,Owner"+
-                    " Values ('"+ el.Serial + "','"+ el.Serial2 + "',"+ el.Mark + 
-                    ","+ el.Type + ","+ el.Status + ","+ el.Place + 
-                    ",'"+ el.Text + "','"+ el.Text2 + "','"+ el.Text3 + "','"+ el.Text4 + "','"+ el.Text5 + "','',"+comboBox1.SelectedIndex+")";
+                string zap = "insert into itemtable (itemtable.Serial,itemtable.Serial2, itemtable.Mark, itemtable.Type, itemtable.Status,itemtable.Place,             itemtable.Text,itemtable.Text2,itemtable.Text3,itemtable.Text4,itemtable.Text5,itemtable.Text6,itemtable.Owner" +
+                    ") Values ('"+ el.Serial + "','"+ el.Serial2 + "',"+ el.Markid + 
+                    ","+ el.Typeid + ","+ el.Statusid + ","+ el.Placeid + 
+                    ",'"+ el.Text + "','"+ el.Text2 + "','"+ el.Text3 + "','"+ el.Text4 + "','"+ el.Text5 + "','',"+el.OwnerID+")";
                 SQL_Class.Execute(zap);
             }
             

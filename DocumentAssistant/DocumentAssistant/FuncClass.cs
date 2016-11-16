@@ -28,7 +28,7 @@ namespace DocumentAssistant
             {
                 ds.Add(cl.get_string(0));
             }
-
+            cl.Manualy_Close_Connection2();
             inp.DataSource = ds;
             return inp;
         }

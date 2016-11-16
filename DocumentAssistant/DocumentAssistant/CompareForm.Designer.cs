@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.get_File = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.stop_Tbox = new System.Windows.Forms.TextBox();
             this.start_Tbox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.base_and_xls_dgv = new System.Windows.Forms.DataGridView();
+            this.Serial2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.base_only_dgv = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.xls_only_dgv = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.base_and_xls_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.base_only_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xls_only_dgv)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 219);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1275, 150);
-            this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
@@ -101,35 +102,140 @@
             this.start_Tbox.TabIndex = 13;
             this.start_Tbox.Text = "1";
             // 
+            // base_and_xls_dgv
+            // 
+            this.base_and_xls_dgv.AllowUserToAddRows = false;
+            this.base_and_xls_dgv.AllowUserToDeleteRows = false;
+            this.base_and_xls_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.base_and_xls_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Serial2});
+            this.base_and_xls_dgv.Location = new System.Drawing.Point(12, 123);
+            this.base_and_xls_dgv.Name = "base_and_xls_dgv";
+            this.base_and_xls_dgv.ReadOnly = true;
+            this.base_and_xls_dgv.RowTemplate.Height = 24;
+            this.base_and_xls_dgv.Size = new System.Drawing.Size(294, 403);
+            this.base_and_xls_dgv.TabIndex = 18;
+            this.base_and_xls_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.base_and_xls_dgv_CellDoubleClick);
+            this.base_and_xls_dgv.DoubleClick += new System.EventHandler(this.base_and_xls_dgv_DoubleClick);
+            // 
+            // Serial2
+            // 
+            this.Serial2.HeaderText = "Serial2";
+            this.Serial2.Name = "Serial2";
+            this.Serial2.ReadOnly = true;
+            // 
+            // base_only_dgv
+            // 
+            this.base_only_dgv.AllowUserToAddRows = false;
+            this.base_only_dgv.AllowUserToDeleteRows = false;
+            this.base_only_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.base_only_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.base_only_dgv.Location = new System.Drawing.Point(335, 123);
+            this.base_only_dgv.Name = "base_only_dgv";
+            this.base_only_dgv.ReadOnly = true;
+            this.base_only_dgv.RowTemplate.Height = 24;
+            this.base_only_dgv.Size = new System.Drawing.Size(294, 403);
+            this.base_only_dgv.TabIndex = 19;
+            this.base_only_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.base_only_dgv_CellDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Serial2";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // xls_only_dgv
+            // 
+            this.xls_only_dgv.AllowUserToAddRows = false;
+            this.xls_only_dgv.AllowUserToDeleteRows = false;
+            this.xls_only_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.xls_only_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2});
+            this.xls_only_dgv.Location = new System.Drawing.Point(664, 123);
+            this.xls_only_dgv.Name = "xls_only_dgv";
+            this.xls_only_dgv.ReadOnly = true;
+            this.xls_only_dgv.RowTemplate.Height = 24;
+            this.xls_only_dgv.Size = new System.Drawing.Size(294, 403);
+            this.xls_only_dgv.TabIndex = 20;
+            this.xls_only_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.xls_only_dgv_CellDoubleClick);
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Serial2";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(125, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 17);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Base and Xls";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(471, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 17);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "base_only";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(799, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "xls_only";
+            // 
             // CompareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 457);
+            this.ClientSize = new System.Drawing.Size(1299, 538);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.xls_only_dgv);
+            this.Controls.Add(this.base_only_dgv);
+            this.Controls.Add(this.base_and_xls_dgv);
             this.Controls.Add(this.get_File);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.stop_Tbox);
             this.Controls.Add(this.start_Tbox);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "CompareForm";
             this.Text = "CompareForm";
             this.Load += new System.EventHandler(this.CompareForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.base_and_xls_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.base_only_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xls_only_dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button get_File;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox stop_Tbox;
         private System.Windows.Forms.TextBox start_Tbox;
+        private System.Windows.Forms.DataGridView base_and_xls_dgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serial2;
+        private System.Windows.Forms.DataGridView base_only_dgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridView xls_only_dgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

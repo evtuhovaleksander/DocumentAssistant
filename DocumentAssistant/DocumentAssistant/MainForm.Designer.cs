@@ -68,14 +68,16 @@
             // baseShowToolStripMenuItem
             // 
             this.baseShowToolStripMenuItem.Name = "baseShowToolStripMenuItem";
-            this.baseShowToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.baseShowToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.baseShowToolStripMenuItem.Text = "BaseShow";
             this.baseShowToolStripMenuItem.Click += new System.EventHandler(this.baseShowToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(151, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.toolStripMenuItem2.Text = "Сравнить";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // settingsToolStripMenuItem
             // 

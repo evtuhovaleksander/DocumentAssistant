@@ -143,7 +143,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
         public int xls_Text {
             get {
                 return ((int)(this["xls_Text"]));
@@ -155,7 +155,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        [global::System.Configuration.DefaultSettingValueAttribute("9")]
         public int xls_Text2 {
             get {
                 return ((int)(this["xls_Text2"]));
@@ -167,7 +167,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("9")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public int xls_Text3 {
             get {
                 return ((int)(this["xls_Text3"]));
@@ -179,7 +179,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("11")]
         public int xls_Text4 {
             get {
                 return ((int)(this["xls_Text4"]));
@@ -191,7 +191,7 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
         public int xls_Text5 {
             get {
                 return ((int)(this["xls_Text5"]));
@@ -203,13 +203,25 @@ namespace DocumentAssistant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("13")]
         public int xls_Text6 {
             get {
                 return ((int)(this["xls_Text6"]));
             }
             set {
                 this["xls_Text6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int xls_Owner {
+            get {
+                return ((int)(this["xls_Owner"]));
+            }
+            set {
+                this["xls_Owner"] = value;
             }
         }
     }

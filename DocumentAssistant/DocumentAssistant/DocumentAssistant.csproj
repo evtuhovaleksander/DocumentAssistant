@@ -92,6 +92,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComparePareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComparePareForm.Designer.cs">
+      <DependentUpon>ComparePareForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FuncClass.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -114,7 +120,7 @@
       <DependentUpon>Settings form.cs</DependentUpon>
     </Compile>
     <Compile Include="SettingsClass.cs" />
-    <Compile Include="SQL_Class.cs" />
+    <Compile Include="SQL_Class - Копировать.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="XLS_Class.cs" />
     <EmbeddedResource Include="BaseShow.resx">
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompareForm.resx">
       <DependentUpon>CompareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComparePareForm.resx">
+      <DependentUpon>ComparePareForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditFormWide.resx">
       <DependentUpon>EditFormWide.cs</DependentUpon>

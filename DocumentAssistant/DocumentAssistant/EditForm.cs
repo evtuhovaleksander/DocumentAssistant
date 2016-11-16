@@ -46,7 +46,7 @@ namespace DocumentAssistant
                 dgv.Rows[i].Cells[1].Value = cl.SQL_DataReader.GetValue(1);
                 i++;
             }
-            cl.Manualy_Close_Connection();
+            cl.Manualy_Close_Connection2();
         }
 
         private void button1_Click(object sender, EventArgs e)

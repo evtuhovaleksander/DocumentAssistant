@@ -152,7 +152,7 @@ namespace DocumentAssistant
         public void LoadData()
         {
             SQL_Class cl=new SQL_Class();
-            MySqlCommand sqlCom = new MySqlCommand(make_Read_Queue_For_DGV().Replace("inner","left"), cl.SQL_Connection);
+            MySqlCommand sqlCom = new MySqlCommand(make_Read_Queue_For_DGV().Replace("inner","left"), SQL_Class.SQL_Connection);
             sqlCom.ExecuteNonQuery();
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sqlCom);
             DataTable dt = new DataTable();
@@ -280,6 +280,7 @@ namespace DocumentAssistant
                     ((TextBox)fill_elements[i]).Text = cl.get_string(i);
                 }
             }
+            cl.Manualy_Close_Connection2();
         }
     }
 }

@@ -38,22 +38,25 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="xls_Text" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">7</Value>
-    </Setting>
-    <Setting Name="xls_Text2" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">8</Value>
     </Setting>
-    <Setting Name="xls_Text3" Type="System.Int32" Scope="User">
+    <Setting Name="xls_Text2" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">9</Value>
     </Setting>
-    <Setting Name="xls_Text4" Type="System.Int32" Scope="User">
+    <Setting Name="xls_Text3" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="xls_Text5" Type="System.Int32" Scope="User">
+    <Setting Name="xls_Text4" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">11</Value>
     </Setting>
-    <Setting Name="xls_Text6" Type="System.Int32" Scope="User">
+    <Setting Name="xls_Text5" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="xls_Text6" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">13</Value>
+    </Setting>
+    <Setting Name="xls_Owner" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">7</Value>
     </Setting>
   </Settings>
 </SettingsFile>

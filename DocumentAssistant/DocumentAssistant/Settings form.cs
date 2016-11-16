@@ -21,7 +21,7 @@ namespace DocumentAssistant
         private void Settings_Form_Load(object sender, EventArgs e)
         {
             SQL_Class cl = new SQL_Class();
-            MySqlCommand sqlCom = new MySqlCommand("select * from settingstable", cl.SQL_Connection);
+            MySqlCommand sqlCom = new MySqlCommand("select * from settingstable", SQL_Class.SQL_Connection);
             sqlCom.ExecuteNonQuery();
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sqlCom);
             DataTable dt = new DataTable();

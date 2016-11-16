@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.Val = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_Tbox = new System.Windows.Forms.TextBox();
             this.stop_Tbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.XLS_Rbut = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Val = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -59,18 +59,12 @@
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(256, 476);
+            this.dgv.Size = new System.Drawing.Size(1124, 358);
             this.dgv.TabIndex = 0;
-            // 
-            // Val
-            // 
-            this.Val.HeaderText = "Value";
-            this.Val.Name = "Val";
-            this.Val.ReadOnly = true;
             // 
             // start_Tbox
             // 
-            this.start_Tbox.Location = new System.Drawing.Point(360, 12);
+            this.start_Tbox.Location = new System.Drawing.Point(95, 392);
             this.start_Tbox.Name = "start_Tbox";
             this.start_Tbox.Size = new System.Drawing.Size(100, 22);
             this.start_Tbox.TabIndex = 1;
@@ -78,16 +72,16 @@
             // 
             // stop_Tbox
             // 
-            this.stop_Tbox.Location = new System.Drawing.Point(360, 40);
+            this.stop_Tbox.Location = new System.Drawing.Point(95, 420);
             this.stop_Tbox.Name = "stop_Tbox";
             this.stop_Tbox.Size = new System.Drawing.Size(100, 22);
             this.stop_Tbox.TabIndex = 2;
-            this.stop_Tbox.Text = "5";
+            this.stop_Tbox.Text = "14";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(274, 15);
+            this.label1.Location = new System.Drawing.Point(9, 395);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 4;
@@ -96,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(274, 43);
+            this.label2.Location = new System.Drawing.Point(9, 423);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 17);
             this.label2.TabIndex = 5;
@@ -144,7 +138,7 @@
             // 
             // get_File
             // 
-            this.get_File.Location = new System.Drawing.Point(357, 92);
+            this.get_File.Location = new System.Drawing.Point(92, 472);
             this.get_File.Name = "get_File";
             this.get_File.Size = new System.Drawing.Size(331, 87);
             this.get_File.TabIndex = 12;
@@ -158,16 +152,16 @@
             this.groupBox1.Controls.Add(this.Check_Place_But);
             this.groupBox1.Controls.Add(this.Check_Mark_But);
             this.groupBox1.Controls.Add(this.Check_Status_But);
-            this.groupBox1.Location = new System.Drawing.Point(290, 185);
+            this.groupBox1.Location = new System.Drawing.Point(451, 395);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(143, 245);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "XLS";
+            this.groupBox1.Text = "Check";
             // 
             // FillBase
             // 
-            this.FillBase.Location = new System.Drawing.Point(1037, 395);
+            this.FillBase.Location = new System.Drawing.Point(612, 436);
             this.FillBase.Name = "FillBase";
             this.FillBase.Size = new System.Drawing.Size(198, 93);
             this.FillBase.TabIndex = 14;
@@ -179,7 +173,7 @@
             // 
             this.XLS_Rbut.AutoSize = true;
             this.XLS_Rbut.Checked = true;
-            this.XLS_Rbut.Location = new System.Drawing.Point(290, 92);
+            this.XLS_Rbut.Location = new System.Drawing.Point(25, 472);
             this.XLS_Rbut.Name = "XLS_Rbut";
             this.XLS_Rbut.Size = new System.Drawing.Size(55, 21);
             this.XLS_Rbut.TabIndex = 15;
@@ -190,7 +184,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(290, 120);
+            this.radioButton1.Location = new System.Drawing.Point(25, 500);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(61, 21);
             this.radioButton1.TabIndex = 16;
@@ -200,16 +194,23 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1037, 365);
+            this.comboBox1.Location = new System.Drawing.Point(612, 406);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 17;
+            // 
+            // Val
+            // 
+            this.Val.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Val.HeaderText = "Value";
+            this.Val.Name = "Val";
+            this.Val.ReadOnly = true;
             // 
             // CheckType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1247, 500);
+            this.ClientSize = new System.Drawing.Size(1247, 776);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.XLS_Rbut);
@@ -234,7 +235,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Val;
         private System.Windows.Forms.TextBox start_Tbox;
         private System.Windows.Forms.TextBox stop_Tbox;
         private System.Windows.Forms.Label label1;
@@ -249,5 +249,6 @@
         private System.Windows.Forms.RadioButton XLS_Rbut;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Val;
     }
 }

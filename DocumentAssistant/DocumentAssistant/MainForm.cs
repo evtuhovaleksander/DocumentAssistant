@@ -63,5 +63,10 @@ namespace DocumentAssistant
         {
             new EditForm("Owner", "Owner", "ownertable").Show();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            new CompareForm().Show();
+        }
     }
 }

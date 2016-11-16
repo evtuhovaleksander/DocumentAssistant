@@ -43,14 +43,28 @@ namespace DocumentAssistant
 
         public object read_val(int i, int j)
         {
-            return ObjWorkSheet.get_Range("A"+j,"A"+j).Text; ;
+            char k = 'A';
+            char[] ms = {'0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'};
+
+
+
+            return ObjWorkSheet.get_Range(ms[j].ToString()+i,ms[j].ToString()+i).Text; 
             return null;
         }
         ~XLS_Class()  // destructor
         {
-            ObjWorkBook.Close(false, Type.Missing, Type.Missing); //закрыть не сохраняя
-            ObjWorkExcel.Quit(); // выйти из экселя
-            GC.Collect(); // убрать за собой
+            try
+            {
+                ObjWorkBook.Close(false, Type.Missing, Type.Missing); //закрыть не сохраняя
+                ObjWorkExcel.Quit(); // выйти из экселя
+                GC.Collect(); // убрать за собой
+            }
+            catch (Exception)
+            {
+                
+                
+            }
+           
         }
        
            

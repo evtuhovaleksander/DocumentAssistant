@@ -24,31 +24,35 @@ namespace DocumentAssistant
             int start = Convert.ToInt32(start_Tbox.Text);
             int stop = Convert.ToInt32(stop_Tbox.Text);
             List<int> del_index=new List<int>();
-            for (int i = start - 1; i < stop - 1; i++)
+            for (int i = start ; i <= stop ; i++)
             {
-                Compare_Element el = Compare_Element.get_el_as_xls_el(mcl, i);
+                Compare_Element el = Compare_Element.get_el_as_xls_el_for_cmp(mcl, i).CloneElement();
                 string serial2 = el.Serial2;
                 int index = mas.Serial2_base.IndexOf(serial2);
                 if (index != -1)
                 {
-                    Compare_Pare pr = mas.pre_mas[index];
-                    pr.xls_el = el;
-                    mas.dual_mas.Add(pr);
-                    mas.pre_mas[index].base_el = null;
-                    mas.pre_mas[index].base_el = null;
+                    Compare_Pare pr = mas.pre_mas[index].CloneComparePare();
+                    pr.xls_el = el.CloneElement();
+                    pr.check_equalence();
+                    mas.dual_mas.Add(pr.CloneComparePare());
+
+
+
                     del_index.Add(index);
                 }
                 else
                 {
                     Compare_Pare pr =new Compare_Pare();
-                    pr.xls_el = el;
-                    mas.xls_only_mas.Add(pr);
+                    pr.xls_el = el.CloneElement();
+                    pr.check_equalence();
+                    mas.xls_only_mas.Add(pr.CloneComparePare());
                 }
             }
             for (int i = 0; i < mas.pre_mas.Count; i++)
             {
                 if (!del_index.Contains(i))
                 {
+                    mas.pre_mas[i].check_equalence();
                     mas.base_only_mas.Add(mas.pre_mas[i]);
                 }
             }
@@ -57,6 +61,42 @@ namespace DocumentAssistant
             mas.all_mas.AddRange(mas.dual_mas);
             mas.all_mas.AddRange(mas.xls_only_mas);
             mas.all_mas.AddRange(mas.base_only_mas);
+
+
+            
+            
+            fill_dgv_with_list(mas.dual_mas,false,base_and_xls_dgv);
+            fill_dgv_with_list(mas.xls_only_mas, true, xls_only_dgv);
+            fill_dgv_with_list(mas.base_only_mas, false, base_only_dgv);
+        }
+
+        public void fill_dgv_with_list(List<Compare_Pare> ms, bool xls, DataGridView dgv)
+        {
+            dgv.RowCount = ms.Count;
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                if (xls)
+                {
+                    dgv.Rows[i].Cells[0].Value = ms[i].xls_el.Serial2;
+                }
+                else
+                {
+                    dgv.Rows[i].Cells[0].Value = ms[i].base_el.Serial2;
+                }
+
+                if (ms[i].full_pair)
+                {
+                    if (ms[i].equal)
+                    {
+                        dgv.Rows[i].Cells[0].Style.BackColor=Color.Green;
+                    }
+                    else
+                    {
+                        dgv.Rows[i].Cells[0].Style.BackColor = Color.OrangeRed;
+                    }
+                }
+
+            }
         }
 
         private void CompareForm_Load(object sender, EventArgs e)
@@ -71,6 +111,37 @@ namespace DocumentAssistant
             {
                 get_File.BackColor = Color.Green;
                 mcl = cl;
+            }
+        }
+
+        private void base_and_xls_dgv_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void base_and_xls_dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                Compare_Pare pr = mas.dual_mas[e.RowIndex];
+
+                new ComparePareForm(pr).Show();
+            }
+        }
+
+        private void base_only_dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                new ComparePareForm(mas.base_only_mas[e.RowIndex]).Show();
+            }
+        }
+
+        private void xls_only_dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                new ComparePareForm(mas.xls_only_mas[e.RowIndex]).Show();
             }
         }
     }
