@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BMB_FX;
+using MySql.Data.MySqlClient;
 
 namespace DocumentAssistant
 {
@@ -14,16 +16,20 @@ namespace DocumentAssistant
         [STAThread]
         static void Main()
         {
-            //List<string> ms=new List<string>();
-            //ms.Add("0");
-            //ms.Add("1");
-            //ms.Add("2");
-            //ms.Add("3");
-
-            //int i = ms.IndexOf("2");
-            //i = ms.IndexOf("65655");
-
-
+            try
+            {
+                MySqlConnection C=new MySqlConnection(Properties.Settings.Default.BasePathReserv_ACER);
+                C.Open();
+                C.Close();
+                Properties.Settings.Default.BasePath = Properties.Settings.Default.BasePathReserv_ACER;
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception)
+            {
+                Properties.Settings.Default.BasePath = Properties.Settings.Default.BasePathReserv;
+                Properties.Settings.Default.Save();
+                
+            }
 
 
             Application.EnableVisualStyles();

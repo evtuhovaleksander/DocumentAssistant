@@ -29,12 +29,13 @@ namespace DocumentAssistant
 
 
         public List<string> Serial2_base; 
-        public static Compare_Pare_Mas get_base_elements()
+        public static Compare_Pare_Mas get_base_elements(int ownerID)//--
         {
             Compare_Pare_Mas rett=new Compare_Pare_Mas();
             string zap = "Select itemtable.ID,itemtable.Serial,itemtable.Serial2," +
                          "itemtable.Mark,itemtable.Type,itemtable.Status,itemtable.Place,"+
-                         "itemtable.Text,itemtable.Text2,itemtable.Text3,itemtable.Text4,itemtable.Text5,itemtable.Text6 from itemtable where itemtable.Owner=0";
+                         "itemtable.Text,itemtable.Text2,itemtable.Text3,itemtable.Text4,itemtable.Text5,itemtable.Text6 "+
+                         ",itemtable.Place2, itemtable.Prise, itemtable.OS, itemtable.Date from itemtable where itemtable.Owner="+ownerID;
             SQL_Class cl=new SQL_Class();
             cl.ReadValues(zap);
 
@@ -53,6 +54,11 @@ namespace DocumentAssistant
                 el.Statusid = cl.get_int(5);
                 el.Placeid = cl.get_int(6);
 
+                el.Place2id= cl.get_int(13);
+                el.Prise = cl.get_string(14);
+                el.OSID = cl.get_int(15);
+                el.date = cl.get_string(16);
+
                 el.Text = cl.get_string(7);
                 el.Text2 = cl.get_string(8);
                 el.Text3 = cl.get_string(9);
@@ -61,7 +67,7 @@ namespace DocumentAssistant
                 el.Text6 = cl.get_string(12);
 
 
-             //   el.read_other_names_base();
+                el.read_other_names_base();
                 Compare_Pare pare=new Compare_Pare();
                 pare.base_el = el;
                 rett.pre_mas.Add(pare);
@@ -92,7 +98,7 @@ namespace DocumentAssistant
         }
 
 
-        public void check_equalence()
+        public void check_equalence(bool Serial,bool Serial2,bool Place,bool Mark,bool date,bool Prise)
         {
             if (base_el == null || xls_el == null)
             {
@@ -103,23 +109,18 @@ namespace DocumentAssistant
                 full_pair = true;
                 equal = true;
                 
-                if (base_el.Serial != xls_el.Serial)
+                if ((base_el.Serial != xls_el.Serial)&&Serial)
                     equal = false;
-                if (base_el.Markid != xls_el.Markid)
+                if ((base_el.Serial2 != xls_el.Serial2) && Serial2)
                     equal = false;
-                if (base_el.Placeid != xls_el.Placeid)
+                if ((base_el.Markid != xls_el.Markid)&&Mark)
                     equal = false;
-                
-            
-
-            if (base_el.Serial != xls_el.Serial)
+                if ((base_el.Placeid != xls_el.Placeid)&&Place)
                     equal = false;
-                if (base_el.Mark != xls_el.Mark)
+                if ((base_el.date != xls_el.date)&&date)
                     equal = false;
-                if (base_el.Place != xls_el.Place)
+                if ((base_el.Prise != xls_el.Prise) && Prise)
                     equal = false;
-             
-
             }
         }
     }
@@ -181,39 +182,48 @@ namespace DocumentAssistant
             Statusid = select_id_where_name("Status", "statustable", Status);
             Placeid = select_id_where_name("Place", "placetable", Place);
             OwnerID = select_id_where_name("Owner", "ownertable", Owner);
+            Place2id = select_id_where_name("Place2", "place2table", Place2);
+            OSID = select_id_where_name("OS", "ostable", OS);
         }
 
-        public void read_other_names_base()
+        public void read_other_names_base()//++
         {
             Type = select_name_where_id("Type", "typetable", Typeid);
             Mark= select_name_where_id("Mark", "marktable", Markid);
             Status= select_name_where_id("Status", "statustable", Statusid);
             Place = select_name_where_id("Place", "placetable", Placeid);
             Owner = select_name_where_id("Owner", "ownertable", OwnerID);
+
+            Place2 = select_name_where_id("Place2", "place2table", Place2id);
+            OS = select_name_where_id("OS", "ostable", OSID);
+
         }
 
-        public  void read_other_xls() //owner
+        public  void read_other_xls() //++
         {
             Typeid = select_id_where_xlsname("Type", "typetable", Type);
             Markid = select_id_where_xlsname("Mark", "marktable", Mark);
             Statusid = select_id_where_xlsname("Status", "statustable", Status);
             Placeid = select_id_where_xlsname("Place", "placetable", Place);
             OwnerID = select_id_where_name("Owner", "ownertable", Owner);
+
+            Place2id= select_id_where_xlsname("Place2", "place2table", Place2);
+            OSID = select_id_where_xlsname("OS", "ostable", OS);
         }
 
-        public Compare_Element (int id, string serial, string serial2, string type, string mark, string status, string place, string text, string text2, string text3)
-        {
-            ID = id;
-            Serial = serial;
-            Serial2 = serial2;
-            Type = type;
-            Mark = mark;
-            Status = status;
-            Place = place;
-            Text = text;
-            Text2 = text2;
-            Text3 = text3;
-        }
+        //public Compare_Element (int id, string serial, string serial2, string type, string mark, string status, string place, string text, string text2, string text3)
+        //{
+        //    ID = id;
+        //    Serial = serial;
+        //    Serial2 = serial2;
+        //    Type = type;
+        //    Mark = mark;
+        //    Status = status;
+        //    Place = place;
+        //    Text = text;
+        //    Text2 = text2;
+        //    Text3 = text3;
+        //}
 
         public Compare_Element()
         {
@@ -222,31 +232,13 @@ namespace DocumentAssistant
             Typeid  = RandomFull.get_rand_int();
             Statusid = RandomFull.get_rand_int();
             Placeid = RandomFull.get_rand_int();
+            Place2id = RandomFull.get_rand_int();
+            Placeid = RandomFull.get_rand_int();
+            OSID = RandomFull.get_rand_int();
         }
 
-        //public static Compare_Element get_el_from_base(int i)
-        //{
-        //    Compare_Element el = new Compare_Element();
-        //    SQL_Class.
-        //    el.Mark = mcl.read_val(i, Properties.Settings.Default.xls_Mark).ToString();
-        //    el.Type = mcl.read_val(i, Properties.Settings.Default.xls_Type).ToString();
-        //    el.Status = mcl.read_val(i, Properties.Settings.Default.xls_Status).ToString();
-        //    el.Place = mcl.read_val(i, Properties.Settings.Default.xls_Place).ToString();
-
-        //    el.Text = mcl.read_val(i, Properties.Settings.Default.xls_Text).ToString();
-        //    el.Text2 = mcl.read_val(i, Properties.Settings.Default.xls_Text2).ToString();
-        //    el.Text3 = mcl.read_val(i, Properties.Settings.Default.xls_Text3).ToString();
-        //    el.Text4 = mcl.read_val(i, Properties.Settings.Default.xls_Text4).ToString();
-        //    el.Text5 = mcl.read_val(i, Properties.Settings.Default.xls_Text5).ToString();
-
-        //    el.Serial = mcl.read_val(i, Properties.Settings.Default.xls_Serial).ToString();
-        //    el.Serial2 = mcl.read_val(i, Properties.Settings.Default.xls_Serial2).ToString();
-
-        //    el.read_other_base();
-        //    return el;
-        //}
-
-        public static Compare_Element get_el_as_base_el(XLS_Class mcl,int i)
+      
+        public static Compare_Element get_el_as_base_el(XLS_Class mcl,int i)//++
         {
             Compare_Element el = new Compare_Element();
             el.Mark = mcl.read_val(i, Properties.Settings.Default.xls_Mark).ToString();
@@ -263,11 +255,19 @@ namespace DocumentAssistant
             el.Serial = mcl.read_val(i, Properties.Settings.Default.xls_Serial).ToString();
             el.Serial2 = mcl.read_val(i, Properties.Settings.Default.xls_Serial2).ToString();
             el.Owner= mcl.read_val(i, Properties.Settings.Default.xls_Owner).ToString();
+
+
+            el.Prise = (mcl.read_val(i, Properties.Settings.Default.xls_Prise)).ToString();
+            el.date = (mcl.read_val(i, Properties.Settings.Default.xls_Date)).ToString();
+            el.OS = mcl.read_val(i, Properties.Settings.Default.xls_OS).ToString();
+            el.Place2 = mcl.read_val(i, Properties.Settings.Default.xls_Place2).ToString();
+
+
             el.read_other_ids_base();
             return el;
         }
 
-        public static Compare_Element get_el_as_xls_el(XLS_Class mcl, int i)
+        public static Compare_Element get_el_as_xls_el(XLS_Class mcl, int i)//++
         {
             Compare_Element el = new Compare_Element();
             el.Mark = mcl.read_val(i, Properties.Settings.Default.xls_Mark).ToString();
@@ -284,10 +284,16 @@ namespace DocumentAssistant
             el.Serial = mcl.read_val(i, Properties.Settings.Default.xls_Serial).ToString();
             el.Serial2 = mcl.read_val(i, Properties.Settings.Default.xls_Serial2).ToString();
 
+            el.Prise = mcl.read_val(i, Properties.Settings.Default.xls_Prise).ToString();
+            el.date = (mcl.read_val(i, Properties.Settings.Default.xls_Date)).ToString();
+            el.OS = mcl.read_val(i, Properties.Settings.Default.xls_OS).ToString();
+            el.Place2 = mcl.read_val(i, Properties.Settings.Default.xls_Place2).ToString();
+
+
             el.read_other_xls();
             return el;
         }
-        public static Compare_Element get_el_as_xls_el_for_cmp(XLS_Class mcl, int i) //owner+
+        public static Compare_Element get_el_as_xls_el_for_cmp(XLS_Class mcl, int i) //++
         {
             Compare_Element el = new Compare_Element();
             el.Mark = mcl.read_val(i, Properties.Settings.Default.xls_Mark).ToString();
@@ -295,33 +301,55 @@ namespace DocumentAssistant
             el.Status = mcl.read_val(i, Properties.Settings.Default.xls_Status).ToString();
             el.Place = mcl.read_val(i, Properties.Settings.Default.xls_Place).ToString();
             el.Owner= mcl.read_val(i, Properties.Settings.Default.xls_Owner).ToString();
-
+            
 
             el.Serial = mcl.read_val(i, Properties.Settings.Default.xls_Serial).ToString();
             el.Serial2 = mcl.read_val(i, Properties.Settings.Default.xls_Serial2).ToString();
 
+            el.Prise = (mcl.read_val(i, Properties.Settings.Default.xls_Prise)).ToString();
+            el.date = (mcl.read_val(i, Properties.Settings.Default.xls_Date)).ToString();
+            el.OS = mcl.read_val(i, Properties.Settings.Default.xls_OS).ToString();
+            el.Place2 = mcl.read_val(i, Properties.Settings.Default.xls_Place2).ToString();
+
+
+
+
             el.read_other_xls();
             return el;
         }
+
+
         public int ID;
+
         public string Serial;
         public string Serial2;
-        public string Type;
-        public string Mark;
-        public string Status;
-        public string Place;
+
         public string Text;
         public string Text2;
         public string Text3;
         public string Text4;
         public string Text5;
         public string Text6;
+
+        public string date;
+        public string Prise;
+        public string OS;
+
+        public string Type;
+        public string Mark;
+        public string Status;
+        public string Place;
+        public string Place2;
+        public string Owner;
+
+
         public int Typeid;
         public int Markid;
         public int Statusid;
         public int Placeid;
+        public int Place2id;
         public int OwnerID;
-        public string Owner;
+        public int OSID;
     }
 
     public class Element
@@ -347,17 +375,20 @@ namespace DocumentAssistant
     }
 
 
-    public class RandomFull
+    public static class RandomFull
     {
+        public static Random rnd = new Random();
         public static int get_rand_int()
         {
-            Random rnd=new Random();
+            
             int i = rnd.Next(0, 100);
             for (int j = 0; j < i; j++)
             {
                 rnd.Next();
             }
-            return -rnd.Next(1,36000);
+            int rett = -rnd.Next(1, 36000);
+            Console.WriteLine(rett);
+            return rett;
         }
     }
 }

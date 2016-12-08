@@ -64,5 +64,16 @@ namespace DocumentAssistant
             }
             load_info();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dgv.RowCount = Buffer.buffer.Count+1;
+            for (int i = 0; i < Buffer.buffer.Count; i++)
+            {
+                dgv.Rows[i].Cells[0].Value = i;
+                dgv.Rows[i].Cells[1].Value = Buffer.buffer[i];
+                dgv.Rows[i].Cells[2].Value = Buffer.buffer[i];
+            }
+        }
     }
 }

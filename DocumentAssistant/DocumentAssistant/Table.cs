@@ -151,17 +151,38 @@ namespace DocumentAssistant
         }
         public void LoadData()
         {
-            SQL_Class cl=new SQL_Class();
-            MySqlCommand sqlCom = new MySqlCommand(make_Read_Queue_For_DGV().Replace("inner","left"), SQL_Class.SQL_Connection);
+            LoadData(get_firstPartOfRequest());
+        }
+
+        public string get_firstPartOfRequest()
+        {
+            return make_Read_Queue_For_DGV().Replace("inner", "left");
+        }
+
+        public void LoadData(string where)
+        {
+            
+            dgv.DataSource = ret_Datatable(where);
+            dgv.Refresh();
+        }
+
+        public DataTable ret_Datatable(string where)
+        {
+            if (where.Substring(0, 5) == "Union") where = where.Substring(6);
+            SQL_Class cl = new SQL_Class();
+            MySqlCommand sqlCom = new MySqlCommand(where, SQL_Class.SQL_Connection);
             sqlCom.ExecuteNonQuery();
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sqlCom);
             DataTable dt = new DataTable();
             dataAdapter.Fill(dt);
-            dgv.DataSource = dt;
-            dgv.Refresh();
-            
+            return dt;
         }
+
+
+
     }
+
+   
 
     public class FormBuilder
     {

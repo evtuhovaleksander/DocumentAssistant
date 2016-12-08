@@ -14,6 +14,15 @@ namespace DocumentAssistant
             Properties.Settings.Default.xls_Mark = get_set("SMark");
             Properties.Settings.Default.xls_Place = get_set("SPlace");
             Properties.Settings.Default.xls_Status = get_set("SStatus");
+            Properties.Settings.Default.xls_Place2 = get_set("SPlace2");
+            Properties.Settings.Default.xls_Owner = get_set("SOwner");
+
+
+            Properties.Settings.Default.xls_Date = get_set("SDate");
+            Properties.Settings.Default.xls_OS = get_set("SOS");
+            Properties.Settings.Default.xls_Prise = get_set("SPrise");
+           
+
 
             Properties.Settings.Default.xls_Serial = get_set("SSerial");
             Properties.Settings.Default.xls_Serial2 = get_set("SSerial2");

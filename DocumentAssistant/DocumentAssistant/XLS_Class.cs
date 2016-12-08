@@ -15,10 +15,12 @@ namespace DocumentAssistant
 
         public static XLS_Class get_xls()
         {
+            //return new XLS_Class("E:\\GitRep\\DocumentAssistant\\NEW BASE.xlsx");
             FileDialog dlg = new OpenFileDialog();
             dlg.ShowDialog();
             if (File.Exists(dlg.FileName))
             {
+                
                 return new XLS_Class(dlg.FileName);
             }
             else

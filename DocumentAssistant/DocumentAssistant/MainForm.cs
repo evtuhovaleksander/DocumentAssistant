@@ -68,5 +68,15 @@ namespace DocumentAssistant
         {
             new CompareForm().Show();
         }
+
+        private void place2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new EditFormWide("Place2", "Место", "place2table").Show();
+        }
+
+        private void oSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new EditFormWide("OS", "OS", "OStable").Show();
+        }
     }
 }

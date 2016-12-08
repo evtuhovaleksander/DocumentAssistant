@@ -26,3 +26,5 @@ E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\Docume
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.Settings_Form.resources
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.CompareForm.resources
 E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.ComparePareForm.resources
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\BMB_FX.exe
+E:\GitRep\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\BMB_FX.pdb

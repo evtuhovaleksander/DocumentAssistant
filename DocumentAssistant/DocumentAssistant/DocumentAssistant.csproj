@@ -55,6 +55,7 @@
     <Compile Include="BaseShow.Designer.cs">
       <DependentUpon>BaseShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buffer.cs" />
     <Compile Include="CheckType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,7 +121,7 @@
       <DependentUpon>Settings form.cs</DependentUpon>
     </Compile>
     <Compile Include="SettingsClass.cs" />
-    <Compile Include="SQL_Class - Копировать.cs" />
+    <Compile Include="SQL_ClassN.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="XLS_Class.cs" />
     <EmbeddedResource Include="BaseShow.resx">
@@ -206,6 +207,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BMB_FX\BMB_FX\BMB_FX\BMB_FX.csproj">
+      <Project>{4BF733FD-6E5A-41E1-9790-421DB1DE7248}</Project>
+      <Name>BMB_FX</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

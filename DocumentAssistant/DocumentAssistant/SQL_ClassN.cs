@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 
 using System.Data.SqlTypes;
@@ -220,6 +221,7 @@ namespace DocumentAssistant
             }
             catch (Exception ex)
             {
+                throw;
                 Manualy_Close_Connection();
                 return false;
             }
@@ -267,7 +269,18 @@ namespace DocumentAssistant
 
         }
 
-        
+        public static List<string> get_data_Source(string queue)
+        {
+            List<string> lst= new List<string>();
+            SQL_Class cl=new SQL_Class();
+            cl.ReadValues(queue);
+            while (cl.SQL_DataReader.Read())
+            {
+                lst.Add(cl.get_string(0));
+            }
+            return lst;
+        }
+
 
     }
 }
