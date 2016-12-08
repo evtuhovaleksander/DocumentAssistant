@@ -90,6 +90,7 @@ namespace DocumentAssistant
         private void button1_Click_1(object sender, EventArgs e)
         {
 
+
             DataTable table = tbl.ret_Datatable(get_request());
             dgv.DataSource = table;
             int i = 0;
