@@ -73,5 +73,8 @@
     <Setting Name="BasePathReserv_ACER" Type="System.String" Scope="User">
       <Value Profile="(Default)">server=127.0.0.1;database=documentassistant;user id=tu;password=QAz1234567890;</Value>
     </Setting>
+    <Setting Name="TempDirectory_Path" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

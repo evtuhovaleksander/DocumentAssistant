@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,8 @@ namespace DocumentAssistant
             Owner_CmBox.DataSource = SQL_Class.get_data_Source("select Owner from ownertable");
 
 
-
+            Filter_Clear();
+            
 
 
 
@@ -60,7 +62,8 @@ namespace DocumentAssistant
             lst.Add(new Element("itemtable", "Owner", false, true, "ownertable"));
 
             tbl = new Table(lst, dgv, "itemtable");
-            tbl.LoadData();
+            Load_Data_With_Filters();
+            paint_dgv();
         }
 
         private void BaseShow_Load(object sender, EventArgs e)
@@ -70,7 +73,7 @@ namespace DocumentAssistant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tbl.LoadData();
+            Load_Data_With_Filters();
         }
 
         private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -87,12 +90,16 @@ namespace DocumentAssistant
             FormBuilder.Prepare_Form_To_Add(tbl, new Point(50, 50));
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+       
+        public void Load_Data_With_Filters()
         {
-
-
             DataTable table = tbl.ret_Datatable(get_request());
             dgv.DataSource = table;
+            paint_dgv();
+        }
+
+        public void paint_dgv()
+        {
             int i = 0;
             for (int j = 0; j < dgv.Columns.Count; j++)
             {
@@ -108,11 +115,11 @@ namespace DocumentAssistant
                 }
                 catch (Exception)
                 {
-                    
-                  
+
+
                 }
 
-                Color col=get_col( vl);
+                Color col = get_col(vl);
                 dgv.Rows[j].DefaultCellStyle.BackColor = col;
             }
             dgv.Refresh();
@@ -333,6 +340,124 @@ namespace DocumentAssistant
             return where+")";
         }
 
+        private void Clear_Filter_But_Click(object sender, EventArgs e)
+        {
+            Filter_Clear();
+        }
 
+        public void Filter_Clear()
+        {
+            st1_ChBox.Checked = true;
+            st2_ChBox.Checked = true;
+            st3_ChBox.Checked = true;
+            st4_ChBox.Checked = true;
+            st5_ChBox.Checked = true;
+            st6_ChBox.Checked = true;
+            st7_ChBox.Checked = true;
+
+            Type_ChBox.Checked = false;
+            Place2_ChBox.Checked = false;
+            Place_ChBox.Checked = false;
+            OS_ChBox.Checked = false;
+            Owner_ChBox.Checked = false;
+
+            Serial_1_CmBox.SelectedIndex = 0;
+            Serial_2_CmBox.SelectedIndex = 0;
+
+            Text_1_CmBox.SelectedIndex = 0;
+            Text_2_CmBox.SelectedIndex = 0;
+            Text_3_CmBox.SelectedIndex = 0;
+            Text_4_CmBox.SelectedIndex = 0;
+            Text_5_CmBox.SelectedIndex = 0;
+            Text_6_CmBox.SelectedIndex = 0;
+            
+        }
+
+      
+
+        private void dgv_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex==-1&&e.Button==MouseButtons.Middle)
+            {
+                string name = dgv.Columns[e.ColumnIndex].Name;
+                for (int i = 0; i < tbl.el_list.Count; i++)
+                {
+                    if (name == tbl.el_list[i].name && tbl.el_list[i].cmbox)
+                    {
+                        Element el = tbl.el_list[i];
+                        GroupChangeForm frm = new GroupChangeForm(el);
+                        frm.ShowDialog();
+                        Application.DoEvents();
+                        if (frm.Acept)
+                        {
+                            int new_index = frm.id;
+                            List<int> ids = new List<int>();
+                            for (int j = 0; j < dgv.RowCount; j++)
+                            {
+                                ids.Add((int)dgv.Rows[j].Cells[0].Value);
+                            }
+
+                            foreach (var VARIABLE in ids)
+                            {
+                                string req = "update itemtable set " + el.name + " = " + new_index + "  where ID=" +
+                                             VARIABLE;
+                                SQL_Class.Execute(req);
+                            }
+                            Load_Data_With_Filters();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void Export_But_Click(object sender, EventArgs e)
+        {
+            if (Place_ChBox.Checked)
+            {
+                if (TempDirectory.AllowWork && TempDirectory.ShablonsEnabled)
+                {
+                    string postfix = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
+                    string filename = "Export-" + postfix + ".xlsx";
+                    string path = TempDirectory.Path + "\\" + filename;
+                    File.Copy(TempDirectory.Path + "\\xls.xlsx", path);
+                    if (File.Exists(path))
+                    {
+
+
+
+
+                        int row = 4;
+                        int j = 1;
+                        XLS_Class cl = new XLS_Class(path);
+                        cl.set_val(1, 2, DateTime.Now.ToString("D"));
+                        cl.set_val(2, 2, Place2_CmBox.SelectedItem.ToString());
+                        for (int i = 0; i < dgv.RowCount; i++)
+                        {
+                            cl.set_val(row, 0, j.ToString());
+                            cl.set_val(row, 1, dgv.Rows[i].Cells[4].Value.ToString());
+                            cl.set_val(row, 2, dgv.Rows[i].Cells[3].Value.ToString());
+                            cl.set_val(row, 3, dgv.Rows[i].Cells[1].Value.ToString());
+                            cl.set_val(row, 4, dgv.Rows[i].Cells[2].Value.ToString());
+                            cl.set_val(row, 5, dgv.Rows[i].Cells[17].Value.ToString());
+                            cl.set_val(row, 6, dgv.Rows[i].Cells[8].Value.ToString());
+                            
+                            row++;
+                            j++;
+                        }
+                        cl.save_as(path);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Для создания инвентаризационного документа по аппаратной включите фильтр по аппаратной (Place2)");
+            }
+        }
+
+        private void dgv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            paint_dgv();
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace DocumentAssistant
                 
             }
 
-
+            TempDirectory.InitTempDirectory();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

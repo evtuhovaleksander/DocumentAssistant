@@ -284,5 +284,17 @@ namespace DocumentAssistant.Properties {
                 this["BasePathReserv_ACER"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TempDirectory_Path {
+            get {
+                return ((string)(this["TempDirectory_Path"]));
+            }
+            set {
+                this["TempDirectory_Path"] = value;
+            }
+        }
     }
 }

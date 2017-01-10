@@ -128,7 +128,7 @@ namespace DocumentAssistant
             {
                 Compare_Pare pr = mas.dual_mas[e.RowIndex];
 
-                new ComparePareForm(pr).Show();
+                new ElementWorkForm(pr).Show();
             }
         }
 
@@ -136,7 +136,7 @@ namespace DocumentAssistant
         {
             if (e.RowIndex != -1)
             {
-                new ComparePareForm(mas.base_only_mas[e.RowIndex]).Show();
+                new ElementWorkForm(mas.base_only_mas[e.RowIndex]).Show();
             }
         }
 
@@ -144,7 +144,7 @@ namespace DocumentAssistant
         {
             if (e.RowIndex != -1)
             {
-                new ComparePareForm(mas.xls_only_mas[e.RowIndex]).Show();
+                new ElementWorkForm(mas.xls_only_mas[e.RowIndex]).Show();
             }
         }
 

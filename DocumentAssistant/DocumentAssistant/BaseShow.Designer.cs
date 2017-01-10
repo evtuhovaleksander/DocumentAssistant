@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.Load_Data = new System.Windows.Forms.Button();
             this.Add_but = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,7 +69,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Text_2_TBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Export_But = new System.Windows.Forms.Button();
             this.Clear_Filter_But = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.st7_ChBox = new System.Windows.Forms.CheckBox();
@@ -91,8 +95,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.wide_dgv = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.OS_ChBox = new System.Windows.Forms.CheckBox();
             this.Owner_ChBox = new System.Windows.Forms.CheckBox();
@@ -109,7 +111,18 @@
             this.Place2_CmBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Place_CmBox = new System.Windows.Forms.ComboBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ElementsFound_TBox = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.ElementsFoundPrice_TBox = new System.Windows.Forms.TextBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.contextMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -120,24 +133,53 @@
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wide_dgv)).BeginInit();
             this.groupBox8.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv
             // 
-            this.dgv.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.AllowUserToDeleteRows = false;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.ContextMenuStrip = this.contextMenu;
             this.dgv.Location = new System.Drawing.Point(11, 444);
             this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(1873, 555);
+            this.dgv.Size = new System.Drawing.Size(2359, 555);
             this.dgv.TabIndex = 2;
             this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
+            this.dgv.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_CellMouseClick);
+            this.dgv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ColumnHeaderMouseClick);
+            // 
+            // contextMenu
+            // 
+            this.contextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(117, 56);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(116, 26);
+            this.toolStripMenuItem3.Text = "test1";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(116, 26);
+            this.toolStripMenuItem4.Text = "test2";
             // 
             // Load_Data
             // 
-            this.Load_Data.Location = new System.Drawing.Point(7, 357);
+            this.Load_Data.Location = new System.Drawing.Point(6, 210);
             this.Load_Data.Name = "Load_Data";
-            this.Load_Data.Size = new System.Drawing.Size(97, 30);
+            this.Load_Data.Size = new System.Drawing.Size(200, 30);
             this.Load_Data.TabIndex = 3;
             this.Load_Data.Text = "Load_Data";
             this.Load_Data.UseVisualStyleBackColor = true;
@@ -145,24 +187,27 @@
             // 
             // Add_but
             // 
-            this.Add_but.Location = new System.Drawing.Point(110, 356);
+            this.Add_but.Location = new System.Drawing.Point(10, 24);
             this.Add_but.Name = "Add_but";
-            this.Add_but.Size = new System.Drawing.Size(76, 31);
+            this.Add_but.Size = new System.Drawing.Size(135, 49);
             this.Add_but.TabIndex = 4;
-            this.Add_but.Text = "Add";
+            this.Add_but.Text = "Добавить новый элемент в базу";
             this.Add_but.UseVisualStyleBackColor = true;
             this.Add_but.Click += new System.EventHandler(this.Add_but_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBox1.Controls.Add(this.groupBox12);
+            this.groupBox1.Controls.Add(this.groupBox11);
             this.groupBox1.Controls.Add(this.groupBox7);
             this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1878, 426);
+            this.groupBox1.Size = new System.Drawing.Size(2358, 426);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фильтры";
@@ -507,38 +552,37 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.Clear_Filter_But);
-            this.groupBox2.Controls.Add(this.groupBox6);
+            this.groupBox2.Controls.Add(this.groupBox10);
             this.groupBox2.Controls.Add(this.groupBox9);
             this.groupBox2.Controls.Add(this.groupBox8);
             this.groupBox2.Controls.Add(this.Load_Data);
-            this.groupBox2.Controls.Add(this.Add_but);
             this.groupBox2.Location = new System.Drawing.Point(550, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1322, 397);
+            this.groupBox2.Size = new System.Drawing.Size(965, 397);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Типизированные поля";
             // 
-            // button1
+            // Export_But
             // 
-            this.button1.Location = new System.Drawing.Point(49, 297);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.Export_But.Location = new System.Drawing.Point(6, 22);
+            this.Export_But.Name = "Export_But";
+            this.Export_But.Size = new System.Drawing.Size(469, 37);
+            this.Export_But.TabIndex = 40;
+            this.Export_But.Text = "Шаблон инвентаризации для аппаратной";
+            this.Export_But.UseVisualStyleBackColor = true;
+            this.Export_But.Click += new System.EventHandler(this.Export_But_Click);
             // 
             // Clear_Filter_But
             // 
-            this.Clear_Filter_But.Location = new System.Drawing.Point(6, 208);
+            this.Clear_Filter_But.Location = new System.Drawing.Point(212, 210);
             this.Clear_Filter_But.Name = "Clear_Filter_But";
             this.Clear_Filter_But.Size = new System.Drawing.Size(97, 30);
             this.Clear_Filter_But.TabIndex = 39;
             this.Clear_Filter_But.Text = "Clear filters";
             this.Clear_Filter_But.UseVisualStyleBackColor = true;
+            this.Clear_Filter_But.Click += new System.EventHandler(this.Clear_Filter_But_Click);
             // 
             // groupBox6
             // 
@@ -563,12 +607,12 @@
             this.groupBox6.Controls.Add(this.label4);
             this.groupBox6.Controls.Add(this.label17);
             this.groupBox6.Controls.Add(this.label18);
-            this.groupBox6.Location = new System.Drawing.Point(885, 21);
+            this.groupBox6.Location = new System.Drawing.Point(1521, 21);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(357, 223);
+            this.groupBox6.Size = new System.Drawing.Size(344, 223);
             this.groupBox6.TabIndex = 14;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Основные поля";
+            this.groupBox6.Text = "Цветовая дифференциация";
             // 
             // st7_ChBox
             // 
@@ -773,7 +817,7 @@
             this.groupBox9.Controls.Add(this.wide_dgv);
             this.groupBox9.Location = new System.Drawing.Point(325, 21);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(554, 366);
+            this.groupBox9.Size = new System.Drawing.Size(634, 370);
             this.groupBox9.TabIndex = 38;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Wide Search";
@@ -783,29 +827,13 @@
             this.wide_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.wide_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.Column3});
             this.wide_dgv.Location = new System.Drawing.Point(6, 18);
             this.wide_dgv.Name = "wide_dgv";
             this.wide_dgv.RowTemplate.Height = 24;
-            this.wide_dgv.Size = new System.Drawing.Size(543, 348);
+            this.wide_dgv.Size = new System.Drawing.Size(622, 348);
             this.wide_dgv.TabIndex = 36;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Текст для поиска";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 300;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Опции поиска";
-            this.Column2.Items.AddRange(new object[] {
-            "Equals",
-            "Contains",
-            "Begins with",
-            "Ends with"});
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 200;
             // 
             // groupBox8
             // 
@@ -961,16 +989,108 @@
             this.Place_CmBox.Size = new System.Drawing.Size(204, 24);
             this.Place_CmBox.TabIndex = 31;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.Add_but);
+            this.groupBox10.Location = new System.Drawing.Point(7, 291);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(302, 96);
+            this.groupBox10.TabIndex = 15;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Работа с данными";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.label23);
+            this.groupBox11.Controls.Add(this.ElementsFoundPrice_TBox);
+            this.groupBox11.Controls.Add(this.label13);
+            this.groupBox11.Controls.Add(this.ElementsFound_TBox);
+            this.groupBox11.Location = new System.Drawing.Point(1521, 250);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(344, 100);
+            this.groupBox11.TabIndex = 41;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Информация о найденных данных";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 35);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(140, 17);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Найдено элементов";
+            // 
+            // ElementsFound_TBox
+            // 
+            this.ElementsFound_TBox.Location = new System.Drawing.Point(153, 32);
+            this.ElementsFound_TBox.Name = "ElementsFound_TBox";
+            this.ElementsFound_TBox.Size = new System.Drawing.Size(181, 22);
+            this.ElementsFound_TBox.TabIndex = 22;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(32, 66);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(115, 17);
+            this.label23.TabIndex = 25;
+            this.label23.Text = "на общую сумму";
+            // 
+            // ElementsFoundPrice_TBox
+            // 
+            this.ElementsFoundPrice_TBox.Location = new System.Drawing.Point(153, 63);
+            this.ElementsFoundPrice_TBox.Name = "ElementsFoundPrice_TBox";
+            this.ElementsFoundPrice_TBox.Size = new System.Drawing.Size(181, 22);
+            this.ElementsFoundPrice_TBox.TabIndex = 24;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.Export_But);
+            this.groupBox12.Location = new System.Drawing.Point(1871, 24);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(481, 100);
+            this.groupBox12.TabIndex = 42;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Экспорт документов";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Текст для поиска";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 200;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Опции поиска";
+            this.Column2.Items.AddRange(new object[] {
+            "Equals",
+            "Contains",
+            "Begins with",
+            "Ends with"});
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Опция соединения";
+            this.Column3.Items.AddRange(new object[] {
+            "И",
+            "Или",
+            "И НЕ",
+            "Или НЕ"});
+            this.Column3.Name = "Column3";
+            // 
             // BaseShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.ClientSize = new System.Drawing.Size(2382, 1033);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgv);
             this.Name = "BaseShow";
             this.Load += new System.EventHandler(this.BaseShow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.contextMenu.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -986,6 +1106,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.wide_dgv)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1061,8 +1185,6 @@
         private System.Windows.Forms.CheckBox Place2_ChBox;
         private System.Windows.Forms.CheckBox Place_ChBox;
         private System.Windows.Forms.CheckBox Type_ChBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
         private System.Windows.Forms.Button Clear_Filter_But;
         private System.Windows.Forms.CheckBox st7_ChBox;
         private System.Windows.Forms.CheckBox st6_ChBox;
@@ -1071,6 +1193,19 @@
         private System.Windows.Forms.CheckBox st3_ChBox;
         private System.Windows.Forms.CheckBox st2_ChBox;
         private System.Windows.Forms.CheckBox st1_ChBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Export_But;
+        private System.Windows.Forms.ContextMenuStrip contextMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox ElementsFoundPrice_TBox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox ElementsFound_TBox;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column3;
     }
 }
