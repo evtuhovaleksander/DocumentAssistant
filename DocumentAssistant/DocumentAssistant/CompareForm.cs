@@ -189,5 +189,126 @@ namespace DocumentAssistant
                 file.Close();
             }
         }
+
+        private void Check_Start_Stop_Mark_Click(object sender, EventArgs e)
+        {
+            start_Tbox.Text = "";
+            stop_Tbox.Text = "";
+            
+            for (int i = 1; i < 9000; i++)
+            {
+
+                string str = mcl.read_val(i, 1).ToString();
+
+                if (str == "#start")
+                {
+                    start_Tbox.Text = (i + 1).ToString();
+                }
+
+                if (str == "#stop")
+                {
+                    stop_Tbox.Text = (i).ToString(); break;
+                }
+            }
+
+            if (start_Tbox.Text == "")
+            {
+                MessageBox.Show("No Start Mark Found!!");
+            }
+            else
+            {
+                if (stop_Tbox.Text == "")
+                {
+                    MessageBox.Show("No Stop Mark Found!!");
+                }
+                else
+                {
+                    MessageBox.Show("OK!!");
+                }
+            }
+
+        }
+
+        public void start_CheckForm()
+        {
+            (new CheckType()).ShowDialog();
+        }
+
+        private void AutoCheck_But_Click(object sender, EventArgs e)
+        {
+            bool ok = true;
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),Properties.Settings.Default.xls_Mark, "marktable", "Mark"))
+            {
+                
+            }
+            else
+            {
+                ok = false;
+            }
+
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Status, "statustable", "Status"))
+            {
+                
+            }
+            else
+            {
+                ok = false;
+            }
+
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Place, "placetable", "Place"))
+            {
+               
+            }
+            else
+            {
+                ok = false;
+            }
+
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+                Properties.Settings.Default.xls_Type, "typetable", "Type"))
+            {
+               
+            }
+            else
+            {
+                ok = false;
+            }
+
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+                DocumentAssistant.Properties.Settings.Default.xls_OS, "ostable", "OS"))
+            {
+               
+            }
+            else
+            {
+                ok = false;
+            }
+
+
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+               Properties.Settings.Default.xls_Owner, "ownertable", "Owner"))
+            {
+               
+            }
+            else
+            {
+                ok = false;
+            }
+
+
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+              Properties.Settings.Default.xls_Place2, "place2table", "Place2"))
+            {
+               
+            }
+            else
+            {
+                ok = false;
+            }
+
+
+            if(!ok) start_CheckForm();
+        }
     }
-}
+    }
+

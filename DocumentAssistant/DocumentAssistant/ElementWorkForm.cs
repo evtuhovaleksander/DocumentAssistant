@@ -13,18 +13,24 @@ namespace DocumentAssistant
     public partial class ElementWorkForm : Form
     {
         Compare_Pare pr;
+        private bool changed;
         public ElementWorkForm(Compare_Pare Pr)
         {
             InitializeComponent();
             prepare_CmBox();
             this.pr = Pr;
+            changed = false;
 
+        }
+
+        public void load_data_from_pair()
+        {
             if (pr.full_pair)
             {
                 load_base_el();
                 load_xls_el();
                 compare();
-             }
+            }
             else
             {
                 if (pr.base_el != null)
@@ -214,6 +220,73 @@ namespace DocumentAssistant
         {
             c1.BackColor = cl;
             c2.BackColor = cl;
+        }
+
+        public void left(TextBox tb1, TextBox tb2)
+        {
+            tb1.Text = tb2.Text;
+        }
+
+        public void left(ComboBox cmb1, TextBox tb2,string par,string table)
+        {
+           string base_par= SQL_Class.ReadValueString("select ID from " + table + " where xls_" + par+ "= '" + tb2.ToString() +
+                                                     "'");
+            cmb1.SelectedItem = base_par;
+        }
+        
+        public void upload(string inter_str, ref string param, string par_name, string table,bool cmb)
+        {
+            if (inter_str != param)
+            {
+                if (MessageBox.Show("Сохранить?", "Сохранить?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    param = inter_str;
+                    if (cmb)
+                    {
+                        int id =
+                            SQL_Class.ReadValueInt32("select ID from " + table + " where " + par_name + "= '" + param +
+                                                     "'");
+                        SQL_Class.Execute("update itemtable set " + par_name + "=" + id + " where ID=" + pr.base_el.ID);
+                    }
+                    else
+                    {
+                        SQL_Class.Execute("update itemtable set " + par_name + "='" + param + "' where ID=" + pr.base_el.ID);
+                    }
+                }
+            }
+        }
+
+        public void upload(string inter_str, ref int param, string par_name, string table)
+        {
+            if (Convert.ToInt32(inter_str) != param)
+            {
+                if (MessageBox.Show("Сохранить?", "Сохранить?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    param = Convert.ToInt32(inter_str);
+                    
+                    {
+                        SQL_Class.Execute("update itemtable set " + par_name + "=" + param + " where ID=" + pr.base_el.ID);
+                    }
+                }
+            }
+        }
+
+        public void reload_base_el()
+        {
+            changed = true;
+            int id = pr.base_el.ID;
+            Compare_Element el = FuncClass.get_Element(id);
+            if (el != null)
+            {
+                pr.base_el = el;
+                load_data_from_pair();
+                
+            }
+        }
+
+        private void ser1_but_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

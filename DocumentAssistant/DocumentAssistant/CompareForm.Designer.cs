@@ -30,8 +30,6 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.get_File = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.stop_Tbox = new System.Windows.Forms.TextBox();
             this.start_Tbox = new System.Windows.Forms.TextBox();
             this.base_and_xls_dgv = new System.Windows.Forms.DataGridView();
@@ -55,7 +53,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -63,22 +60,36 @@
             this.Mark_as_Complete = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.AutoCheck_But = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Check_Start_Stop_Mark = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.ExcelBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.base_and_xls_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.base_only_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xls_only_dgv)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(19, 30);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(332, 153);
+            this.button1.Size = new System.Drawing.Size(332, 69);
             this.button1.TabIndex = 1;
             this.button1.Text = "Compare";
             this.button1.UseVisualStyleBackColor = true;
@@ -86,35 +97,17 @@
             // 
             // get_File
             // 
-            this.get_File.Location = new System.Drawing.Point(141, 34);
+            this.get_File.Location = new System.Drawing.Point(6, 21);
             this.get_File.Name = "get_File";
-            this.get_File.Size = new System.Drawing.Size(110, 50);
+            this.get_File.Size = new System.Drawing.Size(376, 73);
             this.get_File.TabIndex = 17;
             this.get_File.Text = "Взять файл";
             this.get_File.UseVisualStyleBackColor = true;
             this.get_File.Click += new System.EventHandler(this.get_File_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Stop Index";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 17);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Start Index";
-            // 
             // stop_Tbox
             // 
-            this.stop_Tbox.Location = new System.Drawing.Point(151, 70);
+            this.stop_Tbox.Location = new System.Drawing.Point(92, 51);
             this.stop_Tbox.Name = "stop_Tbox";
             this.stop_Tbox.Size = new System.Drawing.Size(100, 22);
             this.stop_Tbox.TabIndex = 14;
@@ -122,7 +115,7 @@
             // 
             // start_Tbox
             // 
-            this.start_Tbox.Location = new System.Drawing.Point(151, 42);
+            this.start_Tbox.Location = new System.Drawing.Point(92, 23);
             this.start_Tbox.Name = "start_Tbox";
             this.start_Tbox.Size = new System.Drawing.Size(100, 22);
             this.start_Tbox.TabIndex = 13;
@@ -139,7 +132,7 @@
             this.base_and_xls_dgv.Name = "base_and_xls_dgv";
             this.base_and_xls_dgv.ReadOnly = true;
             this.base_and_xls_dgv.RowTemplate.Height = 24;
-            this.base_and_xls_dgv.Size = new System.Drawing.Size(294, 671);
+            this.base_and_xls_dgv.Size = new System.Drawing.Size(283, 671);
             this.base_and_xls_dgv.TabIndex = 18;
             this.base_and_xls_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.base_and_xls_dgv_CellDoubleClick);
             this.base_and_xls_dgv.DoubleClick += new System.EventHandler(this.base_and_xls_dgv_DoubleClick);
@@ -317,7 +310,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1092, 770);
+            this.button2.Location = new System.Drawing.Point(1579, 770);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(294, 32);
             this.button2.TabIndex = 34;
@@ -329,26 +322,12 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.groupBox1.Controls.Add(this.get_File);
-            this.groupBox1.Location = new System.Drawing.Point(12, 25);
+            this.groupBox1.Location = new System.Drawing.Point(12, 87);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(388, 100);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1е действие: выбери файл";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.groupBox2.Controls.Add(this.start_Tbox);
-            this.groupBox2.Controls.Add(this.stop_Tbox);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 131);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(388, 109);
-            this.groupBox2.TabIndex = 36;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "2е действие: Укажи рабочий диапазон внутри файла";
             // 
             // groupBox3
             // 
@@ -357,7 +336,7 @@
             this.groupBox3.Controls.Add(this.OS_CmBox);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(12, 261);
+            this.groupBox3.Location = new System.Drawing.Point(12, 397);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(388, 109);
             this.groupBox3.TabIndex = 37;
@@ -373,7 +352,7 @@
             this.groupBox4.Controls.Add(this.Prise_cm);
             this.groupBox4.Controls.Add(this.Date_cm);
             this.groupBox4.Controls.Add(this.Mark_cm);
-            this.groupBox4.Location = new System.Drawing.Point(12, 376);
+            this.groupBox4.Location = new System.Drawing.Point(12, 512);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(388, 202);
             this.groupBox4.TabIndex = 38;
@@ -384,9 +363,9 @@
             // 
             this.groupBox5.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Location = new System.Drawing.Point(12, 600);
+            this.groupBox5.Location = new System.Drawing.Point(12, 720);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(388, 202);
+            this.groupBox5.Size = new System.Drawing.Size(388, 112);
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "5е действие:  СРАВНИ";
@@ -399,7 +378,7 @@
             this.groupBox6.Controls.Add(this.label3);
             this.groupBox6.Controls.Add(this.label4);
             this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Location = new System.Drawing.Point(424, 32);
+            this.groupBox6.Location = new System.Drawing.Point(475, 12);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(991, 732);
             this.groupBox6.TabIndex = 40;
@@ -409,7 +388,7 @@
             // Mark_as_Complete
             // 
             this.Mark_as_Complete.Enabled = false;
-            this.Mark_as_Complete.Location = new System.Drawing.Point(424, 770);
+            this.Mark_as_Complete.Location = new System.Drawing.Point(911, 770);
             this.Mark_as_Complete.Name = "Mark_as_Complete";
             this.Mark_as_Complete.Size = new System.Drawing.Size(310, 44);
             this.Mark_as_Complete.TabIndex = 41;
@@ -419,7 +398,7 @@
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(763, 770);
+            this.button3.Location = new System.Drawing.Point(1250, 770);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(294, 44);
             this.button3.TabIndex = 42;
@@ -429,26 +408,142 @@
             // button4
             // 
             this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(763, 820);
+            this.button4.Location = new System.Drawing.Point(1250, 820);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(294, 29);
             this.button4.TabIndex = 43;
             this.button4.Text = "Экспорт данных утерянных в ведомости";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.groupBox7.Controls.Add(this.AutoCheck_But);
+            this.groupBox7.Location = new System.Drawing.Point(12, 315);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(433, 76);
+            this.groupBox7.TabIndex = 47;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "5е действие: Авто проверка";
+            // 
+            // AutoCheck_But
+            // 
+            this.AutoCheck_But.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AutoCheck_But.Location = new System.Drawing.Point(13, 21);
+            this.AutoCheck_But.Name = "AutoCheck_But";
+            this.AutoCheck_But.Size = new System.Drawing.Size(331, 43);
+            this.AutoCheck_But.TabIndex = 12;
+            this.AutoCheck_But.Text = "Автопроверка";
+            this.AutoCheck_But.UseVisualStyleBackColor = false;
+            this.AutoCheck_But.Click += new System.EventHandler(this.AutoCheck_But_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.groupBox8.Controls.Add(this.groupBox9);
+            this.groupBox8.Controls.Add(this.Check_Start_Stop_Mark);
+            this.groupBox8.Location = new System.Drawing.Point(12, 193);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(433, 116);
+            this.groupBox8.TabIndex = 45;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "4е действие: Укажи в каком диапазоне сканировать xls документ";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.start_Tbox);
+            this.groupBox9.Controls.Add(this.stop_Tbox);
+            this.groupBox9.Controls.Add(this.label8);
+            this.groupBox9.Controls.Add(this.textBox1);
+            this.groupBox9.Controls.Add(this.label9);
+            this.groupBox9.Controls.Add(this.textBox2);
+            this.groupBox9.Location = new System.Drawing.Point(227, 24);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(200, 86);
+            this.groupBox9.TabIndex = 22;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Индексы";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 17);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Start Index";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(92, 23);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 17);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Stop Index";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(92, 51);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 2;
+            // 
+            // Check_Start_Stop_Mark
+            // 
+            this.Check_Start_Stop_Mark.Location = new System.Drawing.Point(6, 42);
+            this.Check_Start_Stop_Mark.Name = "Check_Start_Stop_Mark";
+            this.Check_Start_Stop_Mark.Size = new System.Drawing.Size(198, 55);
+            this.Check_Start_Stop_Mark.TabIndex = 6;
+            this.Check_Start_Stop_Mark.Text = "Проверить наличие маркеров ";
+            this.Check_Start_Stop_Mark.UseVisualStyleBackColor = true;
+            this.Check_Start_Stop_Mark.Click += new System.EventHandler(this.Check_Start_Stop_Mark_Click);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.groupBox10.Controls.Add(this.ExcelBut);
+            this.groupBox10.Location = new System.Drawing.Point(12, 12);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(433, 69);
+            this.groupBox10.TabIndex = 46;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "2е действие: Проверь процессы незакрытых Excel программ";
+            // 
+            // ExcelBut
+            // 
+            this.ExcelBut.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ExcelBut.Location = new System.Drawing.Point(34, 21);
+            this.ExcelBut.Name = "ExcelBut";
+            this.ExcelBut.Size = new System.Drawing.Size(368, 33);
+            this.ExcelBut.TabIndex = 12;
+            this.ExcelBut.Text = "УБЕДИСЬ ЧТО ЗАКРЫТЫ ВСЕ ПРОЦЕССЫ EXCELL";
+            this.ExcelBut.UseVisualStyleBackColor = false;
+            // 
             // CompareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1590, 889);
+            this.ClientSize = new System.Drawing.Size(1914, 889);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.Mark_as_Complete);
             this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Name = "CompareForm";
@@ -458,8 +553,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.base_only_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xls_only_dgv)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -467,6 +560,11 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -474,8 +572,6 @@
         #endregion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button get_File;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox stop_Tbox;
         private System.Windows.Forms.TextBox start_Tbox;
         private System.Windows.Forms.DataGridView base_and_xls_dgv;
@@ -499,7 +595,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -507,5 +602,16 @@
         private System.Windows.Forms.Button Mark_as_Complete;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button AutoCheck_But;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button Check_Start_Stop_Mark;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button ExcelBut;
     }
 }

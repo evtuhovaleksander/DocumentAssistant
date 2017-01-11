@@ -108,6 +108,7 @@
             this.os_up_but = new System.Windows.Forms.Button();
             this.date_up_but = new System.Windows.Forms.Button();
             this.prise = new System.Windows.Forms.Button();
+            this.Add_But = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ser1
@@ -397,6 +398,7 @@
             this.ser1_but.TabIndex = 41;
             this.ser1_but.Text = "left";
             this.ser1_but.UseVisualStyleBackColor = true;
+            this.ser1_but.Click += new System.EventHandler(this.ser1_but_Click);
             // 
             // mark1
             // 
@@ -782,11 +784,21 @@
             this.prise.Text = "up";
             this.prise.UseVisualStyleBackColor = true;
             // 
+            // Add_But
+            // 
+            this.Add_But.Location = new System.Drawing.Point(886, 543);
+            this.Add_But.Name = "Add_But";
+            this.Add_But.Size = new System.Drawing.Size(99, 27);
+            this.Add_But.TabIndex = 92;
+            this.Add_But.Text = "Add";
+            this.Add_But.UseVisualStyleBackColor = true;
+            // 
             // ElementWorkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 578);
+            this.Controls.Add(this.Add_But);
             this.Controls.Add(this.prise);
             this.Controls.Add(this.date_up_but);
             this.Controls.Add(this.os_up_but);
@@ -957,5 +969,6 @@
         private System.Windows.Forms.Button os_up_but;
         private System.Windows.Forms.Button date_up_but;
         private System.Windows.Forms.Button prise;
+        private System.Windows.Forms.Button Add_But;
     }
 }

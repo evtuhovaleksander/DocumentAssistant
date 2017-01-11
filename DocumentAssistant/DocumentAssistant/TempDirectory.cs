@@ -41,4 +41,33 @@ namespace DocumentAssistant
             if (!File.Exists(path)) ShablonsEnabled = false;
         }
     }
+    static class DocumentDirectory
+    {
+        public static bool AllowWork;
+        public static string Path;
+        
+
+        public static void InitDocumentDirectory()
+        {
+            AllowWork = true;
+            
+
+            Path = "D:\\DocumentAssistantArchive";
+            if (!Directory.Exists(Path))
+            {
+                try
+                {
+                    Directory.CreateDirectory(Path);
+                }
+                catch (Exception)
+                {
+                    AllowWork = false;
+                }
+            }
+
+           
+        }
+
+       
+    }
 }

@@ -28,7 +28,7 @@ namespace DocumentAssistant
         public bool Check_and_Fill_DGV(XLS_Class xls, int start, int stop, int col, string table, string name)
         {
             disable_all_update();
-            List<string> lst = check(xls, start, stop, col, table, name);
+            List<string> lst = FuncClass.check(xls, start, stop, col, table, name,XLS_Rbut.Checked);
 
             Buffer.buffer = lst;
             DataGridViewComboBoxCell tmp = new DataGridViewComboBoxCell();
@@ -55,40 +55,9 @@ namespace DocumentAssistant
             }
 
         }
+        
 
-
-        public List<string> check(XLS_Class xls, int start, int stop, int col, string table, string name)
-        {
-            List<string> rett = new List<string>();
-
-            string element;
-            if (XLS_Rbut.Checked)
-            {
-                if (name != "Owner")
-                {
-                    element = "xls" + name;
-                }
-                else
-                {
-                    element = name;
-                }
-
-            }
-            else
-            {
-                element = name;
-            }
-            for (int i = start; i < stop; i++)
-            {
-                if (
-                    SQL_Class.ReadValueInt32("select count(*) from " + table + "  where " + element + " like '%" +
-                                             xls.read_val(i, col).ToString() + "%'") <= 0)
-                {
-                    if (!rett.Contains(xls.read_val(i, col).ToString())) rett.Add(xls.read_val(i, col).ToString());
-                }
-            }
-            return rett;
-        }
+       
 
 
         private void get_File_Click(object sender, EventArgs e)
@@ -214,34 +183,7 @@ namespace DocumentAssistant
 
         private void ExcelBut_Click(object sender, EventArgs e)
         {
-            int i = 0;
-            foreach (var VARIABLE in Process.GetProcesses())
-            {
-                Console.WriteLine(VARIABLE.ProcessName);
-                if (VARIABLE.ProcessName.Contains("XCEL")) i++;
-
-            }
-            if (i != 0)
-            {
-                if (
-                    MessageBox.Show("Найдено " + i + " копий работающих программы Excel \n Закрыть их?", "Warning",
-                        MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    foreach (var VARIABLE in Process.GetProcesses())
-                    {
-                        Console.WriteLine(VARIABLE.ProcessName);
-                        if (VARIABLE.ProcessName.Contains("XCEL")) VARIABLE.Kill();
-                    }
-                }
-                else
-                {
-                    ExcelBut.BackColor = Color.Red;
-                }
-            }
-            else
-            {
-                ExcelBut.BackColor = Color.Green;
-            }
+          FuncClass.check_excel(ExcelBut);
         }
 
 
