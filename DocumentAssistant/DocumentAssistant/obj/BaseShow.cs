@@ -95,26 +95,6 @@ namespace DocumentAssistant
         {
             DataTable table = tbl.ret_Datatable(get_request());
             dgv.DataSource = table;
-            ElementsFound_TBox.Text = table.Rows.Count.ToString();
-            double prise = 0;
-            int ind = 0;
-            for (int i = 0; i < table.Columns.Count; i++)
-            {
-                if (table.Columns[i].ColumnName == "Prise") ind = i;
-            }
-            
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                try
-                {
-                    prise += Convert.ToDouble(table.Rows[i][ind].ToString());
-                }
-                catch (Exception)
-                {
-
-                }
-            }
-            ElementsFoundPrice_TBox.Text = prise.ToString();
             paint_dgv();
         }
 
@@ -256,7 +236,6 @@ namespace DocumentAssistant
             if (st4_ChBox.Checked) where += " OR itemtable.Status=4 ";
             if (st5_ChBox.Checked) where += " OR itemtable.Status=5 ";
             if (st6_ChBox.Checked) where += " OR itemtable.Status=6 ";
-            if (st7_ChBox.Checked) where += " OR itemtable.Status=7 ";
             where += ")";
 
             if (where == " AND (FALSE)") where = "";
@@ -310,47 +289,19 @@ namespace DocumentAssistant
             mas.Add(  "Begins with");
             mas.Add(  "Ends with");
            
-            List<string> bool_mas=new List<string>();
-            bool_mas.Add("И");
-            bool_mas.Add("Или");
-            bool_mas.Add("И НЕ");
-            bool_mas.Add("Или НЕ");
 
             for (int i = 0; i < wide_dgv.RowCount-1; i++)
             {
-                int ind = mas.IndexOf(wide_dgv.Rows[i].Cells[2].Value.ToString());
-                int bool_log = bool_mas.IndexOf(wide_dgv.Rows[i].Cells[0].Value.ToString());
-                rett.Add(get_one_orlike(wide_dgv.Rows[i].Cells[1].Value.ToString(),ind,bool_log));    
+                int ind = mas.IndexOf(wide_dgv.Rows[i].Cells[1].Value.ToString());
+                rett.Add(get_one_orlike(wide_dgv.Rows[i].Cells[0].Value.ToString(),ind));    
             }
             return rett;
         }
 
-        public string get_one_orlike(string str, int ind,int bool_logic)
+        public string get_one_orlike(string str, int ind)
         {
             ind++;
-
-            string where =" ";//= " AND (";
-
-
-            switch (bool_logic)
-            {
-                case 0:
-                    where = " AND ( ";
-                    break;
-                case 1:
-                    where = " OR ( ";
-                    break;
-                case 2:
-                    where = " AND NOT ( ";
-                    break;
-                case 3:
-                    where = " OR NOT ( ";
-                    break;
-               
-            }
-
-            
-
+            string where = " AND (";
             string like = "";
             switch (ind)
             {
@@ -373,31 +324,19 @@ namespace DocumentAssistant
 
             for (int i = 0; i < tbl.el_list.Count; i++)
             {
-                if (i == 0)
-                {
-                    where += "##";
-                }
-
                 if (!"ID Date".Contains(tbl.el_list[i].name))
                 {
-                    
-
                     if (tbl.el_list[i].cmbox)
                     {
-                      if(i!=0)  
-                          where += " OR (" + tbl.el_list[i].addtable + "." + tbl.el_list[i].name + " " + like+")";
+                        where += " OR (" + tbl.el_list[i].addtable + "." + tbl.el_list[i].name + " " + like+")";
                     }
                     else
                     {
-                      if(i!=0)  
-                          where += " OR (" + tbl.Table_Name + "." + tbl.el_list[i].name + " " + like+")";
+                        where += " OR (" + tbl.Table_Name + "." + tbl.el_list[i].name + " " + like+")";
                     }
                 }
             }
-
-            where = where.Replace("( ## OR", " (");
-           // where = where.Replace(" AND ( OR", " AND (");
-           // where = where.Replace(" AND (  OR", " AND (");
+            where = where.Replace(" AND ( OR", " AND (");
             return where+")";
         }
 
