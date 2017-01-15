@@ -382,15 +382,17 @@ namespace DocumentAssistant
 
         private void place_up_but_Click(object sender, EventArgs e)
         {
-            upload(place1.SelectedItem.ToString(),pr.base_el.Placeid,"Place","placetable");
             Logs.add_upload_log(pr.base_el.ID, "Place", "placetable", pr.base_el.Placeid, place1.SelectedItem.ToString());
+            upload(place1.SelectedItem.ToString(),pr.base_el.Placeid,"Place","placetable");
+           
         }
 
 
         private void place20_up_but_Click(object sender, EventArgs e)
         {
-            upload(place21.SelectedItem.ToString(),pr.base_el.Place2id,"Place2","place2table");
             Logs.add_upload_log(pr.base_el.ID, "Place2", "place2table", pr.base_el.Place2id, place21.SelectedItem.ToString());
+            upload(place21.SelectedItem.ToString(),pr.base_el.Place2id,"Place2","place2table");
+            
         }
 
         private void status_but_Click(object sender, EventArgs e)
@@ -400,8 +402,9 @@ namespace DocumentAssistant
 
         private void status_up_but_Click(object sender, EventArgs e)
         {
-            upload(status1.SelectedItem.ToString(),pr.base_el.Statusid,"Status","statustable");
             Logs.add_upload_log(pr.base_el.ID, "Status", "statustable", pr.base_el.Statusid, status1.SelectedItem.ToString());
+            upload(status1.SelectedItem.ToString(),pr.base_el.Statusid,"Status","statustable");
+           
         }
 
         private void os_but_Click(object sender, EventArgs e)
@@ -411,8 +414,9 @@ namespace DocumentAssistant
 
         private void os_up_but_Click(object sender, EventArgs e)
         {
-            upload(os1.SelectedItem.ToString(),pr.base_el.OSID,"OS","ostable");
             Logs.add_upload_log(pr.base_el.ID, "OS", "ostable", pr.base_el.OSID, os1.SelectedItem.ToString());
+            upload(os1.SelectedItem.ToString(),pr.base_el.OSID,"OS","ostable");
+           
         }
 
         private void date_but_Click(object sender, EventArgs e)
@@ -430,8 +434,9 @@ namespace DocumentAssistant
 
         private void date_up_but_Click(object sender, EventArgs e)
         {
-            upload(date1.Value,pr.base_el.date,"Date");
             Logs.add_upload_log(pr.base_el.ID, "Date", pr.base_el.date.ToString(), date1.Value.ToString());
+            upload(date1.Value,pr.base_el.date,"Date");
+           
         }
 
         private void prise_but_Click(object sender, EventArgs e)
@@ -441,44 +446,51 @@ namespace DocumentAssistant
 
         private void prise_Click(object sender, EventArgs e)
         {
-            upload(prise1.Text,pr.base_el.Prise,"Prise");
             Logs.add_upload_log(pr.base_el.ID, "Prise", pr.base_el.Prise, prise1.Text);
+            upload(prise1.Text,pr.base_el.Prise,"Prise");
+            
         }
 
         private void text1_but_Click(object sender, EventArgs e)
         {
-            upload(t1.Text,pr.base_el.Text,"Text");
             Logs.add_upload_log(pr.base_el.ID, "Text", pr.base_el.Text, t1.Text);
+            upload(t1.Text,pr.base_el.Text,"Text");
+         
         }
 
         private void text2_but_Click(object sender, EventArgs e)
         {
-            upload(t2.Text, pr.base_el.Text2, "Text2");
             Logs.add_upload_log(pr.base_el.ID, "Text2", pr.base_el.Text2, t2.Text);
+            upload(t2.Text, pr.base_el.Text2, "Text2");
+          
         }
 
         private void text3_but_Click(object sender, EventArgs e)
         {
-            upload(t3.Text, pr.base_el.Text3, "Text3");
             Logs.add_upload_log(pr.base_el.ID, "Text3", pr.base_el.Text3, t3.Text);
+            upload(t3.Text, pr.base_el.Text3, "Text3");
+           
         }
 
         private void text4_but_Click(object sender, EventArgs e)
         {
-            upload(t4.Text, pr.base_el.Text4, "Text4");
             Logs.add_upload_log(pr.base_el.ID, "Text4", pr.base_el.Text4, t4.Text);
+            upload(t4.Text, pr.base_el.Text4, "Text4");
+           
         }
 
         private void text5_but_Click(object sender, EventArgs e)
         {
-            upload(t5.Text, pr.base_el.Text5, "Text5");
             Logs.add_upload_log(pr.base_el.ID, "Text5", pr.base_el.Text5, t5.Text);
+            upload(t5.Text, pr.base_el.Text5, "Text5");
+           
         }
 
         private void text6_but_Click(object sender, EventArgs e)
         {
-            upload(t6.Text, pr.base_el.Text6, "Text6");
             Logs.add_upload_log(pr.base_el.ID, "Text6", pr.base_el.Text6, t6.Text);
+            upload(t6.Text, pr.base_el.Text6, "Text6");
+           
         }
 
         private void Add_But_Click(object sender, EventArgs e)
@@ -519,8 +531,9 @@ namespace DocumentAssistant
 
         private void status21_but_Click(object sender, EventArgs e)
         {
-            upload(status21.SelectedItem.ToString(), pr.base_el.Status2id, "Status2", "status2table");
             Logs.add_upload_log(pr.base_el.ID, "Status2", "status2table", pr.base_el.Status2id, status21.SelectedItem.ToString());
+            upload(status21.SelectedItem.ToString(), pr.base_el.Status2id, "Status2", "status2table");
+           
         }
     }
 }

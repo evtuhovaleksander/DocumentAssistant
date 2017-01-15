@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -159,5 +160,105 @@ namespace DocumentAssistant
                    
                 }
         }
+
+        public static bool add_document(int itemID,string dp)
+        {
+            string path;
+            
+                try
+                {
+                    path = dp;
+                    string dir = SQL_Class.ReadValueString("select Serial2 from itemtable where ID=" + itemID);
+                    string dest_dir = Path + "\\" + dir;
+                    if (!Directory.Exists(dest_dir))
+                    {
+                        Directory.CreateDirectory(dest_dir);
+                    }
+                    string dest_path = dest_dir + "\\" + System.IO.Path.GetFileName(path);
+                    if (!File.Exists(dest_path))
+                    {
+                        File.Copy(path, dest_path);
+                        string zap = "insert into documents (ItemID,Name,Path) values (" + itemID + ",'" +
+                                     System.IO.Path.GetFileName(path) + "','" + dest_path.Replace("\\", "\\\\") + "')";
+                        SQL_Class.Execute(zap);
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Заменить файл?", "Заменить файл?", MessageBoxButtons.YesNo) ==
+                            DialogResult.Yes)
+                        {
+                            File.Delete(dest_path);
+                            File.Copy(path, dest_path);
+                            string zap = "insert into documents (ItemID,Name,Path) values (" + itemID + ",'" +
+                                         System.IO.Path.GetFileName(path) + "','" + dest_path.Replace("\\", "\\\\") + "')";
+                            SQL_Class.Execute(zap);
+                        }
+                    }
+                    return true;
+                }
+                catch (Exception)
+                {
+                return false;
+            }
+
+            return false;
+        }
+
+        public static bool add_document(int itemID, Image img)
+        {
+
+            try
+            {
+
+                string dir = SQL_Class.ReadValueString("select Serial2 from itemtable where ID=" + itemID);
+                string dest_dir = Path + "\\" + dir;
+                if (!Directory.Exists(dest_dir))
+                {
+                    Directory.CreateDirectory(dest_dir);
+                }
+
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.InitialDirectory = dest_dir;
+                sfd.AddExtension = true;
+                sfd.Filter = ".jpeg";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+
+
+                    string dest_path = sfd.FileName;
+                    if (!File.Exists(dest_path))
+                    {
+                        img.Save(dest_path);
+                        string zap = "insert into documents (ItemID,Name,Path) values (" + itemID + ",'" +
+                                     System.IO.Path.GetFileName(sfd.FileName) + "','" + dest_path.Replace("\\", "\\\\") +
+                                     "')";
+                        SQL_Class.Execute(zap);
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Заменить файл?", "Заменить файл?", MessageBoxButtons.YesNo) ==
+                            DialogResult.Yes)
+                        {
+                            File.Delete(dest_path);
+                            img.Save(dest_path);
+                            string zap = "insert into documents (ItemID,Name,Path) values (" + itemID + ",'" +
+                                         System.IO.Path.GetFileName(sfd.FileName) + "','" +
+                                         dest_path.Replace("\\", "\\\\") +
+                                         "')";
+                            SQL_Class.Execute(zap);
+                        }
+                    }
+                    return true;
+                }
+            }
+            catch
+                (Exception)
+            {
+                return false;
+            }
+            return false;
+        }
+        
+
     }
 }

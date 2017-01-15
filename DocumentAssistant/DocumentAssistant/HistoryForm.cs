@@ -64,7 +64,7 @@ namespace DocumentAssistant
 
         private void Add_Doc_But_Click(object sender, EventArgs e)
         {
-            DocumentDirectory.add_document(ID);
+            new GetDocument(ID).ShowDialog();
             load_data();
         }
 

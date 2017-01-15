@@ -57,8 +57,9 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -128,6 +129,12 @@
       <DependentUpon>ComparePareForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FuncClass.cs" />
+    <Compile Include="GetDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetDocument.Designer.cs">
+      <DependentUpon>GetDocument.cs</DependentUpon>
+    </Compile>
     <Compile Include="GroupChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +200,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GetDocument.resx">
+      <DependentUpon>GetDocument.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GroupChangeForm.resx">
       <DependentUpon>GroupChangeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,7 +228,6 @@
     <EmbeddedResource Include="Settings form.resx">
       <DependentUpon>Settings form.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DocumentAssistant_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -237,6 +246,15 @@
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>

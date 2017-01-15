@@ -71,6 +71,10 @@
             this.Check_Start_Stop_Mark = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.ExcelBut = new System.Windows.Forms.Button();
+            this.full_lab = new System.Windows.Forms.Label();
+            this.base_lab = new System.Windows.Forms.Label();
+            this.xls_lab = new System.Windows.Forms.Label();
+            this.all_lab = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.base_and_xls_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.base_only_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xls_only_dgv)).BeginInit();
@@ -132,7 +136,7 @@
             this.base_and_xls_dgv.Name = "base_and_xls_dgv";
             this.base_and_xls_dgv.ReadOnly = true;
             this.base_and_xls_dgv.RowTemplate.Height = 24;
-            this.base_and_xls_dgv.Size = new System.Drawing.Size(283, 671);
+            this.base_and_xls_dgv.Size = new System.Drawing.Size(283, 616);
             this.base_and_xls_dgv.TabIndex = 18;
             this.base_and_xls_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.base_and_xls_dgv_CellDoubleClick);
             this.base_and_xls_dgv.DoubleClick += new System.EventHandler(this.base_and_xls_dgv_DoubleClick);
@@ -154,7 +158,7 @@
             this.base_only_dgv.Name = "base_only_dgv";
             this.base_only_dgv.ReadOnly = true;
             this.base_only_dgv.RowTemplate.Height = 24;
-            this.base_only_dgv.Size = new System.Drawing.Size(294, 671);
+            this.base_only_dgv.Size = new System.Drawing.Size(294, 616);
             this.base_only_dgv.TabIndex = 19;
             this.base_only_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.base_only_dgv_CellDoubleClick);
             // 
@@ -175,7 +179,7 @@
             this.xls_only_dgv.Name = "xls_only_dgv";
             this.xls_only_dgv.ReadOnly = true;
             this.xls_only_dgv.RowTemplate.Height = 24;
-            this.xls_only_dgv.Size = new System.Drawing.Size(294, 671);
+            this.xls_only_dgv.Size = new System.Drawing.Size(294, 616);
             this.xls_only_dgv.TabIndex = 20;
             this.xls_only_dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.xls_only_dgv_CellDoubleClick);
             // 
@@ -283,12 +287,12 @@
             // 
             // OS_CmBox
             // 
-            this.OS_CmBox.Enabled = false;
             this.OS_CmBox.FormattingEnabled = true;
             this.OS_CmBox.Location = new System.Drawing.Point(136, 64);
             this.OS_CmBox.Name = "OS_CmBox";
             this.OS_CmBox.Size = new System.Drawing.Size(188, 24);
             this.OS_CmBox.TabIndex = 31;
+            this.OS_CmBox.SelectedIndexChanged += new System.EventHandler(this.OS_CmBox_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -310,7 +314,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1579, 770);
+            this.button2.Location = new System.Drawing.Point(1143, 770);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(294, 32);
             this.button2.TabIndex = 34;
@@ -372,6 +376,10 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.all_lab);
+            this.groupBox6.Controls.Add(this.xls_lab);
+            this.groupBox6.Controls.Add(this.base_lab);
+            this.groupBox6.Controls.Add(this.full_lab);
             this.groupBox6.Controls.Add(this.base_and_xls_dgv);
             this.groupBox6.Controls.Add(this.base_only_dgv);
             this.groupBox6.Controls.Add(this.xls_only_dgv);
@@ -388,9 +396,9 @@
             // Mark_as_Complete
             // 
             this.Mark_as_Complete.Enabled = false;
-            this.Mark_as_Complete.Location = new System.Drawing.Point(911, 770);
+            this.Mark_as_Complete.Location = new System.Drawing.Point(491, 758);
             this.Mark_as_Complete.Name = "Mark_as_Complete";
-            this.Mark_as_Complete.Size = new System.Drawing.Size(310, 44);
+            this.Mark_as_Complete.Size = new System.Drawing.Size(283, 44);
             this.Mark_as_Complete.TabIndex = 41;
             this.Mark_as_Complete.Text = "Пометить полные пары статусом \"СВЕРЕННО\"";
             this.Mark_as_Complete.UseVisualStyleBackColor = true;
@@ -398,7 +406,7 @@
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(1250, 770);
+            this.button3.Location = new System.Drawing.Point(814, 758);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(294, 44);
             this.button3.TabIndex = 42;
@@ -408,7 +416,7 @@
             // button4
             // 
             this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(1250, 820);
+            this.button4.Location = new System.Drawing.Point(814, 808);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(294, 29);
             this.button4.TabIndex = 43;
@@ -528,6 +536,43 @@
             this.ExcelBut.TabIndex = 12;
             this.ExcelBut.Text = "УБЕДИСЬ ЧТО ЗАКРЫТЫ ВСЕ ПРОЦЕССЫ EXCELL";
             this.ExcelBut.UseVisualStyleBackColor = false;
+            this.ExcelBut.Click += new System.EventHandler(this.ExcelBut_Click);
+            // 
+            // full_lab
+            // 
+            this.full_lab.AutoSize = true;
+            this.full_lab.Location = new System.Drawing.Point(13, 668);
+            this.full_lab.Name = "full_lab";
+            this.full_lab.Size = new System.Drawing.Size(90, 17);
+            this.full_lab.TabIndex = 24;
+            this.full_lab.Text = "Полных пар:";
+            // 
+            // base_lab
+            // 
+            this.base_lab.AutoSize = true;
+            this.base_lab.Location = new System.Drawing.Point(336, 668);
+            this.base_lab.Name = "base_lab";
+            this.base_lab.Size = new System.Drawing.Size(105, 17);
+            this.base_lab.TabIndex = 25;
+            this.base_lab.Text = "Только в базе:";
+            // 
+            // xls_lab
+            // 
+            this.xls_lab.AutoSize = true;
+            this.xls_lab.Location = new System.Drawing.Point(665, 668);
+            this.xls_lab.Name = "xls_lab";
+            this.xls_lab.Size = new System.Drawing.Size(90, 17);
+            this.xls_lab.TabIndex = 26;
+            this.xls_lab.Text = "Только в xsl:";
+            // 
+            // all_lab
+            // 
+            this.all_lab.AutoSize = true;
+            this.all_lab.Location = new System.Drawing.Point(357, 708);
+            this.all_lab.Name = "all_lab";
+            this.all_lab.Size = new System.Drawing.Size(170, 17);
+            this.all_lab.TabIndex = 27;
+            this.all_lab.Text = "Итого записей в работе:";
             // 
             // CompareForm
             // 
@@ -613,5 +658,9 @@
         private System.Windows.Forms.Button Check_Start_Stop_Mark;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button ExcelBut;
+        private System.Windows.Forms.Label all_lab;
+        private System.Windows.Forms.Label xls_lab;
+        private System.Windows.Forms.Label base_lab;
+        private System.Windows.Forms.Label full_lab;
     }
 }

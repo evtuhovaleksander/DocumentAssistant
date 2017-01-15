@@ -16,6 +16,7 @@ namespace DocumentAssistant
         [STAThread]
         static void Main()
         {
+            new GetDocument(1).ShowDialog();
             try
             {
                 MySqlConnection C=new MySqlConnection(Properties.Settings.Default.BasePathReserv_ACER);

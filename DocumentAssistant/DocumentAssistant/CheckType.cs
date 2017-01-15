@@ -59,10 +59,13 @@ namespace DocumentAssistant
 
             if (lst.Count != 0)
             {
+                lab_but.Text = "Working with table :" + table;
                 return false;
+                
             }
             else
             {
+                lab_but.Text = "";
                 return true;
             }
 
@@ -284,74 +287,7 @@ namespace DocumentAssistant
         private void AutoCheck_But_Click(object sender, EventArgs e)
         {
 
-            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
-            //    Properties.Settings.Default.xls_Mark, "marktable", "Mark"))
-            //{
-            //    Check_Mark_But.BackColor = Color.Green;
-            //}
-            //else
-            //{
-            //    Check_Mark_But.BackColor = Color.Red;
-            //}
-
-            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Status, "statustable", "Status"))
-            //{
-            //    Check_Status_But.BackColor = Color.Green;
-            //}
-            //else
-            //{
-            //    Check_Status_But.BackColor = Color.Red;
-            //}
-
-            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Place, "placetable", "Place"))
-            //{
-            //    Check_Place_But.BackColor = Color.Green;
-            //}
-            //else
-            //{
-            //    Check_Place_But.BackColor = Color.Red;
-            //}
-
-            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
-            //    Properties.Settings.Default.xls_Type, "typetable", "Type"))
-            //{
-            //    Check_Type_But.BackColor = Color.Green;
-            //}
-            //else
-            //{
-            //    Check_Type_But.BackColor = Color.Red;
-            //}
-            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
-            //    DocumentAssistant.Properties.Settings.Default.xls_OS, "ostable", "OS"))
-            //{
-            //    check_OS.BackColor = Color.Green;
-            //}
-            //else
-            //{
-            //    check_OS.BackColor = Color.Red;
-            //}
-
-
-            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
-            //   Properties.Settings.Default.xls_Owner, "ownertable", "Owner"))
-            //{
-            //    Check_Owner.BackColor = Color.Green;
-            //}
-            //else
-            //{
-            //    Check_Owner.BackColor = Color.Red;
-            //}
-
-
-            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
-            //  Properties.Settings.Default.xls_Place2, "place2table", "Place2"))
-            //{
-            //    Place2_Check.BackColor = Color.Green;
-            //}
-            //else
-            //{
-            //    Place2_Check.BackColor = Color.Red;
-            //}
+           
 
             bool ok = true;
             if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Mark, "marktable", "Mark"))

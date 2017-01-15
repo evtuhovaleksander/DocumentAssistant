@@ -22,10 +22,11 @@ namespace DocumentAssistant
 
         private void button1_Click(object sender, EventArgs e)
         {
+            request_mas_of_base_elements();
             int start = Convert.ToInt32(start_Tbox.Text);
             int stop = Convert.ToInt32(stop_Tbox.Text);
             List<int> del_index=new List<int>();
-            for (int i = start ; i <= stop ; i++)
+            for (int i = start ; i < stop ; i++)
             {
                 Compare_Element el = Compare_Element.get_el_as_xls_el_for_cmp(mcl, i).CloneElement();
                 string serial2 = el.Serial2;
@@ -64,11 +65,19 @@ namespace DocumentAssistant
             mas.all_mas.AddRange(mas.base_only_mas);
 
 
-            
+            base_and_xls_dgv.Rows.Clear();
+            base_only_dgv.Rows.Clear();
+            xls_only_dgv.Rows.Clear();
             
             fill_dgv_with_list(mas.dual_mas,false,base_and_xls_dgv);
             fill_dgv_with_list(mas.xls_only_mas, true, xls_only_dgv);
             fill_dgv_with_list(mas.base_only_mas, false, base_only_dgv);
+
+           
+            all_lab.Text += " " + (mas.base_only_mas.Count + mas.dual_mas.Count + mas.xls_only_mas.Count);
+            full_lab.Text += " " + mas.dual_mas.Count;
+            base_lab.Text += " " + mas.base_only_mas.Count;
+            xls_lab.Text += " " + mas.xls_only_mas.Count;
         }
 
         public void fill_dgv_with_list(List<Compare_Pare> ms, bool xls, DataGridView dgv)
@@ -102,7 +111,7 @@ namespace DocumentAssistant
 
         private void CompareForm_Load(object sender, EventArgs e)
         {
-            //mas = Compare_Pare_Mas.get_base_elements();
+           
             Owner_CmBox.DataSource = SQL_Class.get_data_Source("select Owner from ownertable");
             OS_CmBox.DataSource = SQL_Class.get_data_Source("select OS from ostable");
         }
@@ -148,13 +157,19 @@ namespace DocumentAssistant
             }
         }
 
+
+        public void request_mas_of_base_elements()
+        {
+            mas = Compare_Pare_Mas.get_base_elements(SQL_Class.ReadValueInt32("select ID from ownertable where Owner='" + Owner_CmBox.SelectedItem.ToString() + "'"), SQL_Class.ReadValueInt32("select ID from ostable where OS='" + OS_CmBox.SelectedItem.ToString() + "'"));
+        }
+
         private void Owner_CmBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Owner_CmBox.DataSource != null)
             {
                 if (SQL_Class.get_data_Source("select Owner from ownertable").Contains(Owner_CmBox.SelectedItem.ToString()))
                 {
-                    mas = Compare_Pare_Mas.get_base_elements(SQL_Class.ReadValueInt32("select ID from ownertable where Owner='"+ Owner_CmBox.SelectedItem.ToString() + "'"));
+                    request_mas_of_base_elements();
                 }
             }
         }
@@ -162,32 +177,32 @@ namespace DocumentAssistant
         private void button2_Click(object sender, EventArgs e)
         {
             //string lines = "First line.\r\nSecond line.\r\nThird line.";
-            string lines = "Not Found.\r\n";
-            foreach (Compare_Pare var in mas.xls_only_mas)
-            {
-                lines += var.xls_el.Serial2 + "\r\n";
-            }
+            //string lines = "Not Found.\r\n";
+            //foreach (Compare_Pare var in mas.xls_only_mas)
+            //{
+            //    lines += var.xls_el.Serial2 + "\r\n";
+            //}
 
 
 
-            // Write the string to a file.
-            if (Directory.Exists("D:\\DocumentAssistant"))
-            {
-                if (File.Exists("D:\\DocumentAssistant\\NOT__FOUND.txt"))
-                    File.Delete("D:\\DocumentAssistant\\NOT__FOUND.txt");
-                StreamWriter file = new System.IO.StreamWriter("D:\\DocumentAssistant\\NOT__FOUND.txt");
-                file.WriteLine(lines);
+            //// Write the string to a file.
+            //if (Directory.Exists("D:\\DocumentAssistant"))
+            //{
+            //    if (File.Exists("D:\\DocumentAssistant\\NOT__FOUND.txt"))
+            //        File.Delete("D:\\DocumentAssistant\\NOT__FOUND.txt");
+            //    StreamWriter file = new System.IO.StreamWriter("D:\\DocumentAssistant\\NOT__FOUND.txt");
+            //    file.WriteLine(lines);
 
-                file.Close();
-            }
-            else
-            {
-                Directory.CreateDirectory("D:\\DocumentAssistant");
-                StreamWriter file = new System.IO.StreamWriter("D:\\DocumentAssistant\\NOT__FOUND.txt");
-                file.WriteLine(lines);
+            //    file.Close();
+            //}
+            //else
+            //{
+            //    Directory.CreateDirectory("D:\\DocumentAssistant");
+            //    StreamWriter file = new System.IO.StreamWriter("D:\\DocumentAssistant\\NOT__FOUND.txt");
+            //    file.WriteLine(lines);
 
-                file.Close();
-            }
+            //    file.Close();
+            //}
         }
 
         private void Check_Start_Stop_Mark_Click(object sender, EventArgs e)
@@ -308,6 +323,22 @@ namespace DocumentAssistant
 
 
             if(!ok) start_CheckForm();
+        }
+
+        private void ExcelBut_Click(object sender, EventArgs e)
+        {
+            FuncClass.check_excel(ExcelBut);
+        }
+
+        private void OS_CmBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (OS_CmBox.DataSource != null)
+            {
+                if (SQL_Class.get_data_Source("select OS from ostable").Contains(OS_CmBox.SelectedItem.ToString()))
+                {
+                    request_mas_of_base_elements();
+                }
+            }
         }
     }
     }

@@ -29,13 +29,13 @@ namespace DocumentAssistant
 
 
         public List<string> Serial2_base; 
-        public static Compare_Pare_Mas get_base_elements(int ownerID)//--
+        public static Compare_Pare_Mas get_base_elements(int ownerID,int OSiD)//--
         {
             Compare_Pare_Mas rett=new Compare_Pare_Mas();
             string zap = "Select itemtable.ID,itemtable.Serial,itemtable.Serial2," +
                          "itemtable.Mark,itemtable.Type,itemtable.Status,itemtable.Place,"+
                          "itemtable.Text,itemtable.Text2,itemtable.Text3,itemtable.Text4,itemtable.Text5,itemtable.Text6 "+
-                         ",itemtable.Place2, itemtable.Prise, itemtable.OS, itemtable.Date,itemtable.Status2 from itemtable where itemtable.Owner="+ownerID;
+                         ",itemtable.Place2, itemtable.Prise, itemtable.OS, itemtable.Date,itemtable.Status2 from itemtable where (itemtable.Owner="+ownerID+" and itemtable.OS="+OSiD+")";
             SQL_Class cl=new SQL_Class();
             cl.ReadValues(zap);
 
