@@ -231,7 +231,7 @@ namespace DocumentAssistant
 
         public void start_CheckForm()
         {
-            (new CheckType()).ShowDialog();
+            CheckType.Start_Check_Form(mcl.Path);
         }
 
         private void AutoCheck_But_Click(object sender, EventArgs e)

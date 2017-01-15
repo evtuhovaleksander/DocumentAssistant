@@ -99,7 +99,7 @@
             // 
             this.get_File.Location = new System.Drawing.Point(6, 21);
             this.get_File.Name = "get_File";
-            this.get_File.Size = new System.Drawing.Size(376, 73);
+            this.get_File.Size = new System.Drawing.Size(421, 73);
             this.get_File.TabIndex = 17;
             this.get_File.Text = "Взять файл";
             this.get_File.UseVisualStyleBackColor = true;
@@ -107,19 +107,19 @@
             // 
             // stop_Tbox
             // 
+            this.stop_Tbox.Enabled = false;
             this.stop_Tbox.Location = new System.Drawing.Point(92, 51);
             this.stop_Tbox.Name = "stop_Tbox";
             this.stop_Tbox.Size = new System.Drawing.Size(100, 22);
             this.stop_Tbox.TabIndex = 14;
-            this.stop_Tbox.Text = "5";
             // 
             // start_Tbox
             // 
+            this.start_Tbox.Enabled = false;
             this.start_Tbox.Location = new System.Drawing.Point(92, 23);
             this.start_Tbox.Name = "start_Tbox";
             this.start_Tbox.Size = new System.Drawing.Size(100, 22);
             this.start_Tbox.TabIndex = 13;
-            this.start_Tbox.Text = "1";
             // 
             // base_and_xls_dgv
             // 
@@ -324,10 +324,10 @@
             this.groupBox1.Controls.Add(this.get_File);
             this.groupBox1.Location = new System.Drawing.Point(12, 87);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(388, 100);
+            this.groupBox1.Size = new System.Drawing.Size(433, 100);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "1е действие: выбери файл";
+            this.groupBox1.Text = "2е действие: выбери файл";
             // 
             // groupBox3
             // 
@@ -338,10 +338,10 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(12, 397);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(388, 109);
+            this.groupBox3.Size = new System.Drawing.Size(433, 109);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "3е действие: Укажи владельца и тип ТМЦ/ОС";
+            this.groupBox3.Text = "5е действие: Укажи владельца и тип ТМЦ/ОС";
             // 
             // groupBox4
             // 
@@ -354,10 +354,10 @@
             this.groupBox4.Controls.Add(this.Mark_cm);
             this.groupBox4.Location = new System.Drawing.Point(12, 512);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(388, 202);
+            this.groupBox4.Size = new System.Drawing.Size(433, 202);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "4е действие: Укажи параметры сравнения";
+            this.groupBox4.Text = "6е действие: Укажи параметры сравнения";
             // 
             // groupBox5
             // 
@@ -365,10 +365,10 @@
             this.groupBox5.Controls.Add(this.button1);
             this.groupBox5.Location = new System.Drawing.Point(12, 720);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(388, 112);
+            this.groupBox5.Size = new System.Drawing.Size(433, 112);
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "5е действие:  СРАВНИ";
+            this.groupBox5.Text = "7е действие:  СРАВНИ";
             // 
             // groupBox6
             // 
@@ -424,7 +424,7 @@
             this.groupBox7.Size = new System.Drawing.Size(433, 76);
             this.groupBox7.TabIndex = 47;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "5е действие: Авто проверка";
+            this.groupBox7.Text = "4е действие: Авто проверка";
             // 
             // AutoCheck_But
             // 
@@ -447,7 +447,7 @@
             this.groupBox8.Size = new System.Drawing.Size(433, 116);
             this.groupBox8.TabIndex = 45;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "4е действие: Укажи в каком диапазоне сканировать xls документ";
+            this.groupBox8.Text = "3е действие: Укажи в каком диапазоне сканировать xls документ";
             // 
             // groupBox9
             // 
@@ -517,7 +517,7 @@
             this.groupBox10.Size = new System.Drawing.Size(433, 69);
             this.groupBox10.TabIndex = 46;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "2е действие: Проверь процессы незакрытых Excel программ";
+            this.groupBox10.Text = "1е действие: Проверь процессы незакрытых Excel программ";
             // 
             // ExcelBut
             // 

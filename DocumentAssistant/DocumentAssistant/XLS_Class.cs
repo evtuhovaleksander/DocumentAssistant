@@ -11,8 +11,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 namespace DocumentAssistant
 {
    public  class XLS_Class
-    {
-
+   {
+       public string Path;
         public static XLS_Class get_xls()
         {
             //return new XLS_Class("E:\\GitRep\\DocumentAssistant\\NEW BASE.xlsx");
@@ -28,14 +28,15 @@ namespace DocumentAssistant
                 return null;
             }
         }
+       
 
-
-
+        
         Excel.Application ObjWorkExcel;// = new Excel.Application(); //открыть эксель
         Excel.Workbook ObjWorkBook;// = ObjWorkExcel.Workbooks.Open(@"C:\1.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing); //открыть файл
         Excel.Worksheet ObjWorkSheet;// = (Excel.Worksheet)ObjWorkBook.Sheets[1]; //получить 1 лист
         public XLS_Class(string path)
         {
+            Path = path;
             ObjWorkExcel = new Excel.Application(); //открыть эксель
             ObjWorkBook = ObjWorkExcel.Workbooks.Open(path, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing); //открыть файл
             ObjWorkSheet = (Excel.Worksheet)ObjWorkBook.Sheets[1]; //получить 1 лист

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DocumentAssistant.Properties;
 
 namespace DocumentAssistant
 {
@@ -20,11 +21,11 @@ namespace DocumentAssistant
             InitializeComponent();
 
 
-            Type_CmBox.DataSource = SQL_Class.get_data_Source("select Type from typetable");
-            Place_CmBox.DataSource = SQL_Class.get_data_Source("select Place from placetable");
-            Place2_CmBox.DataSource = SQL_Class.get_data_Source("select Place2 from place2table");
-            OS_CmBox.DataSource = SQL_Class.get_data_Source("select OS from ostable");
-            Owner_CmBox.DataSource = SQL_Class.get_data_Source("select Owner from ownertable");
+            Type_CmBox.DataSource = CMB.get_ordered_datasource("Type","typetable");//SQL_Class.get_data_Source("select Type from typetable"));
+            Place_CmBox.DataSource = CMB.get_ordered_datasource("Place", "placetable");//SQL_Class.get_data_Source("select Place from placetable");
+            Place2_CmBox.DataSource = CMB.get_ordered_datasource("Place2", "place2table");//SQL_Class.get_data_Source("select Place2 from place2table");
+            OS_CmBox.DataSource = CMB.get_ordered_datasource("OS", "ostable");//SQL_Class.get_data_Source("select OS from ostable");
+            Owner_CmBox.DataSource = CMB.get_ordered_datasource("Owner", "ownertable");// SQL_Class.get_data_Source("select Owner from ownertable");
 
 
             Filter_Clear();
@@ -47,6 +48,7 @@ namespace DocumentAssistant
             lst.Add(new Element("itemtable", "Place", false, true, "placetable"));
             lst.Add(new Element("itemtable", "Place2", false, true, "place2table"));
             lst.Add(new Element("itemtable", "Status", false, true, "statustable"));
+            lst.Add(new Element("itemtable", "Status2", false, true, "status2table"));
             lst.Add(new Element("itemtable", "OS", false, true, "ostable"));
 
             lst.Add(new Element("itemtable", "Text", true, false, ""));                            //
@@ -64,6 +66,26 @@ namespace DocumentAssistant
             tbl = new Table(lst, dgv, "itemtable");
             Load_Data_With_Filters();
             paint_dgv();
+
+
+            st1.BackColor = Settings.Default.st1;
+            st2.BackColor = Settings.Default.st2;
+            st3.BackColor = Settings.Default.st3;
+            st4.BackColor = Settings.Default.st4;
+            st5.BackColor = Settings.Default.st5;
+            st6.BackColor = Settings.Default.st6;
+
+            st2_1.BackColor = Settings.Default.st_2_1;
+            st2_2.BackColor = Settings.Default.st_2_2;
+            st2_3.BackColor = Settings.Default.st_2_3;
+            st2_4.BackColor = Settings.Default.st_2_4;
+            st2_5.BackColor = Settings.Default.st_2_5;
+
+
+
+
+
+
         }
 
         private void BaseShow_Load(object sender, EventArgs e)
@@ -81,13 +103,19 @@ namespace DocumentAssistant
             if(e.RowIndex!=-1)
                 if (dgv.Rows[e.RowIndex].Cells[0].Value != null)
                 {
-                    FormBuilder.Prepare_Form_To_Edit(tbl,new Point(50,50), Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value));
+                    //FormBuilder.Prepare_Form_To_Edit(tbl,new Point(50,50), Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value));
+                    ElementWorkForm frm =
+                        new ElementWorkForm(FuncClass.get_Element(Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[0].Value)));
+                    frm.ShowDialog();
                 }
         }
 
         private void Add_but_Click(object sender, EventArgs e)
         {
-            FormBuilder.Prepare_Form_To_Add(tbl, new Point(50, 50));
+            //FormBuilder.Prepare_Form_To_Add(tbl, new Point(50, 50));
+            ElementWorkForm frm =
+                        new ElementWorkForm();
+            frm.ShowDialog();
         }
 
        
@@ -120,10 +148,20 @@ namespace DocumentAssistant
 
         public void paint_dgv()
         {
+            string par = "";
+            if (Status_Rbut.Checked)
+            {
+                par = "Status";
+            }
+            else
+            {
+                par = "Status2";
+            }
+
             int i = 0;
             for (int j = 0; j < dgv.Columns.Count; j++)
             {
-                if (dgv.Columns[j].Name == "Status") i = j;
+                if (dgv.Columns[j].Name == par) i = j;
             }
 
             for (int j = 0; j < dgv.Rows.Count; j++)
@@ -139,7 +177,16 @@ namespace DocumentAssistant
 
                 }
 
-                Color col = get_col(vl);
+                Color col = Color.AliceBlue;
+                if (Status_Rbut.Checked)
+                {
+                   col = get_col(vl);
+                }
+                else
+                {
+                    col = get_col_2(vl);
+                }
+                
                 dgv.Rows[j].DefaultCellStyle.BackColor = col;
             }
             dgv.Refresh();
@@ -149,10 +196,10 @@ namespace DocumentAssistant
         {
             switch (val)
             {
-                case "Сверено":
+                case "В работе":
                     return st1.BackColor;
                     break;
-                case "Передано":
+                case "В резерве":
                     return st2.BackColor;
                     break;
                 case "Списано":
@@ -161,16 +208,40 @@ namespace DocumentAssistant
                 case "Утилизировано":
                     return st4.BackColor;
                     break;
-                case "Уточнить":
+                case "Передано":
                     return st5.BackColor;
                     break;
 
-                case "Найти":
+                case "Ремонт":
                     return st6.BackColor;
                     break;
-                case "-":
-                    return st7.BackColor;
+              
+            }
+            return Color.FloralWhite;
+        }
+
+        public Color get_col_2(string val)
+        {
+            switch (val)
+            {
+                case "Новый":
+                    return st2_1.BackColor;
                     break;
+                case "Сверено":
+                    return st2_2.BackColor;
+                    break;
+                case "Уточнить":
+                    return st2_3.BackColor;
+                    break;
+                case "Найти":
+                    return st2_4.BackColor;
+                    break;
+                case "Только в базе":
+                    return st2_5.BackColor;
+                    break;
+
+                
+
             }
             return Color.FloralWhite;
         }
@@ -180,20 +251,28 @@ namespace DocumentAssistant
             string request = "";
             string preDeep = get_PreDeep_where_part();
             string main = tbl.get_firstPartOfRequest();
-            List<string> orlike = get_all_OrLike();
-
-
-            if (orlike.Count != 0)
+            if (WideFileldFilter_ChBox.Checked)
             {
-                foreach (var VARIABLE in orlike)
+                List<string> orlike = get_all_OrLike();
+
+
+                if (orlike.Count != 0)
                 {
-                    request += "Union " + main + " where (" + preDeep + "  " + VARIABLE + ")";
+                    foreach (var VARIABLE in orlike)
+                    {
+                        request += "Union " + main + " where (" + preDeep + "  " + VARIABLE + ")";
+                    }
+                }
+                else
+                {
+                    request += " " + main + " where (" + preDeep + ")";
                 }
             }
             else
             {
                 request += " " + main + " where (" + preDeep + ")";
             }
+           
 
             return request;
         }
@@ -201,22 +280,55 @@ namespace DocumentAssistant
         public string get_PreDeep_where_part()
         {
             string where = "TRUE";
+            if (MainFileldFilter_ChBox.Checked)
+            {
+                where += get_one_Where_Block(Serial_1_TBox, Serial_1_CmBox, "itemtable.Serial");
+                where += get_one_Where_Block(Serial_2_TBox, Serial_2_CmBox, "itemtable.Serial2");
+            }
 
-            where += get_one_Where_Block(Serial_1_TBox, Serial_1_CmBox, "itemtable.Serial");
-            where += get_one_Where_Block(Serial_2_TBox, Serial_2_CmBox, "itemtable.Serial2");
-
-            where += get_one_Where_Block(Text_1_TBox, Text_1_CmBox, "itemtable.Text");
-            where += get_one_Where_Block(Text_2_TBox, Text_2_CmBox, "itemtable.Text2");
-            where += get_one_Where_Block(Text_3_TBox, Text_3_CmBox, "itemtable.Text3");
-            where += get_one_Where_Block(Text_4_TBox, Text_4_CmBox, "itemtable.Text4");
-            where += get_one_Where_Block(Text_5_TBox, Text_5_CmBox, "itemtable.Text5");
-            where += get_one_Where_Block(Text_6_TBox, Text_6_CmBox, "itemtable.Text6");
+            if (TextFileldFilter_ChBox.Checked)
+            {
+                where += get_one_Where_Block(Text_1_TBox, Text_1_CmBox, "itemtable.Text");
+                where += get_one_Where_Block(Text_2_TBox, Text_2_CmBox, "itemtable.Text2");
+                where += get_one_Where_Block(Text_3_TBox, Text_3_CmBox, "itemtable.Text3");
+                where += get_one_Where_Block(Text_4_TBox, Text_4_CmBox, "itemtable.Text4");
+                where += get_one_Where_Block(Text_5_TBox, Text_5_CmBox, "itemtable.Text5");
+                where += get_one_Where_Block(Text_6_TBox, Text_6_CmBox, "itemtable.Text6");
+            }
+          
 
             where += get_stat_part();
-
+            where += get_stat2_part();
+            where += get_date_where_part();
             where += get_Typethized_part();
 
             return where;
+        }
+
+        public string get_date_where_part()
+        {
+            if (DateFileldFilter_ChBox.Checked)
+            {
+                string where = " AND (itemtable.Date between '";
+                DateTime d1 = dateTimePicker1.Value.Date;
+                DateTime d2;
+                if (DateOption_CmBox.SelectedIndex == 1)
+                {
+                    d2 = dateTimePicker2.Value.Date.AddDays(1);
+                }
+                else
+                {
+                    d2 = d1.AddDays(1);
+                }
+                where += d1.ToString("yyyy-MM-dd") + "' and '";
+                where += d2.ToString("yyyy-MM-dd") + "' )";
+              
+                return where;
+            }
+            else
+            {
+                return "";
+            }
         }
 
         public string get_one_Where_Block(TextBox tb, ComboBox cmb, string field)
@@ -248,15 +360,19 @@ namespace DocumentAssistant
 
         public string get_stat_part()
         {
+            
             string where = " AND (FALSE";
-
-            if (st1_ChBox.Checked) where += " OR itemtable.Status=1 ";
-            if (st2_ChBox.Checked) where += " OR itemtable.Status=2 ";
-            if (st3_ChBox.Checked) where += " OR itemtable.Status=3 ";
-            if (st4_ChBox.Checked) where += " OR itemtable.Status=4 ";
-            if (st5_ChBox.Checked) where += " OR itemtable.Status=5 ";
-            if (st6_ChBox.Checked) where += " OR itemtable.Status=6 ";
-            if (st7_ChBox.Checked) where += " OR itemtable.Status=7 ";
+            if (Status1FileldFilter_ChBox.Checked)
+            {
+                if (st1_ChBox.Checked) where += " OR itemtable.Status=1 ";
+                if (st2_ChBox.Checked) where += " OR itemtable.Status=2 ";
+                if (st3_ChBox.Checked) where += " OR itemtable.Status=3 ";
+                if (st4_ChBox.Checked) where += " OR itemtable.Status=4 ";
+                if (st5_ChBox.Checked) where += " OR itemtable.Status=5 ";
+                if (st6_ChBox.Checked) where += " OR itemtable.Status=6 ";
+               
+            }
+           
             where += ")";
 
             if (where == " AND (FALSE)") where = "";
@@ -265,15 +381,39 @@ namespace DocumentAssistant
 
             return where;
         }
+        public string get_stat2_part()
+        {
+            string where = " AND (FALSE";
+            if (Status2FileldFilter_ChBox.Checked)
+            {
+                if (st2_1_ChBox.Checked) where += " OR itemtable.Status2=1 ";
+                if (st2_2_ChBox.Checked) where += " OR itemtable.Status2=2 ";
+                if (st2_3_ChBox.Checked) where += " OR itemtable.Status2=3 ";
+                if (st2_4_ChBox.Checked) where += " OR itemtable.Status2=4 ";
+                if (st2_5_ChBox.Checked) where += " OR itemtable.Status2=5 ";
+               
+            }
 
+            where += ")";
+
+            if (where == " AND (FALSE)") where = "";
+
+
+
+            return where;
+        }
         public string get_Typethized_part()
         {
             string where = " AND (TRUE";
-            where += get_one_Typethized_part(Type_CmBox, Type_ChBox, "Type", "typetable");
-            where += get_one_Typethized_part(Place_CmBox, Place_ChBox, "Place", "placetable");
-            where += get_one_Typethized_part(Place2_CmBox, Place2_ChBox, "Place2", "place2table");
-            where += get_one_Typethized_part(OS_CmBox, OS_ChBox, "OS", "ostable");
-            where += get_one_Typethized_part(Owner_CmBox, Owner_ChBox, "Owner", "ownertable");
+            if (TypedFileldFilter_ChBox.Checked)
+            {
+                where += get_one_Typethized_part(Type_CmBox, Type_ChBox, "Type", "typetable");
+                where += get_one_Typethized_part(Place_CmBox, Place_ChBox, "Place", "placetable");
+                where += get_one_Typethized_part(Place2_CmBox, Place2_ChBox, "Place2", "place2table");
+                where += get_one_Typethized_part(OS_CmBox, OS_ChBox, "OS", "ostable");
+                where += get_one_Typethized_part(Owner_CmBox, Owner_ChBox, "Owner", "ownertable");
+            }
+            
          
             where += ")";
 
@@ -408,6 +548,15 @@ namespace DocumentAssistant
 
         public void Filter_Clear()
         {
+            TextFileldFilter_ChBox.Checked = true;
+            MainFileldFilter_ChBox.Checked = true;
+            TypedFileldFilter_ChBox.Checked = true;
+            Status1FileldFilter_ChBox.Checked = true;
+            Status2FileldFilter_ChBox.Checked = true;
+            WideFileldFilter_ChBox.Checked = true;
+            DateFileldFilter_ChBox.Checked = true;
+
+
             st1_ChBox.Checked = true;
             st2_ChBox.Checked = true;
             st3_ChBox.Checked = true;
@@ -415,6 +564,12 @@ namespace DocumentAssistant
             st5_ChBox.Checked = true;
             st6_ChBox.Checked = true;
             st7_ChBox.Checked = true;
+
+            st2_1_ChBox.Checked = true;
+            st2_2_ChBox.Checked = true;
+            st2_3_ChBox.Checked = true;
+            st2_4_ChBox.Checked = true;
+            st2_5_ChBox.Checked = true;
 
             Type_ChBox.Checked = false;
             Place2_ChBox.Checked = false;
@@ -431,6 +586,8 @@ namespace DocumentAssistant
             Text_4_CmBox.SelectedIndex = 0;
             Text_5_CmBox.SelectedIndex = 0;
             Text_6_CmBox.SelectedIndex = 0;
+
+            wide_dgv.Rows.Clear();
             
         }
 
@@ -463,6 +620,7 @@ namespace DocumentAssistant
                                 string req = "update itemtable set " + el.name + " = " + new_index + "  where ID=" +
                                              VARIABLE;
                                 SQL_Class.Execute(req);
+                                Logs.add_upload_log(VARIABLE,el.name,el.addtable, SQL_Class.ReadValueInt32("select "+el.name+" from itemtable where ID="+VARIABLE),new_index);
                             }
                             Load_Data_With_Filters();
                         }
@@ -519,6 +677,118 @@ namespace DocumentAssistant
         private void dgv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             paint_dgv();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+           
+            foreach (DataGridViewRow VARIABLE in dgv.SelectedRows)
+            {
+                new HistoryForm(Convert.ToInt32(VARIABLE.Cells[0].Value.ToString())).Show();
+            }
+        }
+
+
+        
+
+        private void st1_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st1.BackColor);
+            st1.BackColor = cl;
+            Settings.Default.st1 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st2_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st2.BackColor);
+            st2.BackColor = cl;
+            Settings.Default.st2 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st3_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st3.BackColor);
+            st3.BackColor = cl;
+            Settings.Default.st3 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st4_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st4.BackColor);
+            st4.BackColor = cl;
+            Settings.Default.st4 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st5_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st5.BackColor);
+            st5.BackColor = cl;
+            Settings.Default.st5 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st6_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st6.BackColor);
+            st6.BackColor = cl;
+            Settings.Default.st6 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st2_1_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st2_1.BackColor);
+            st2_1.BackColor = cl;
+            Settings.Default.st_2_1 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st2_2_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st2_2.BackColor);
+            st2_2.BackColor = cl;
+            Settings.Default.st_2_2 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st2_3_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st2_3.BackColor);
+            st2_3.BackColor = cl;
+            Settings.Default.st_2_3 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st2_4_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st2_4.BackColor);
+            st2_4.BackColor = cl;
+            Settings.Default.st_2_4 = cl;
+            Settings.Default.Save();
+            Refresh();
+        }
+
+        private void st2_5_Click(object sender, EventArgs e)
+        {
+            Color cl = FuncClass.get_color_from_table(st2_5.BackColor);
+            st2_5.BackColor = cl;
+            Settings.Default.st_2_5 = cl;
+            Settings.Default.Save();
+            Refresh();
         }
     }
 }

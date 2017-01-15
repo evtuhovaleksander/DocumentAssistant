@@ -281,7 +281,19 @@ namespace DocumentAssistant
             return lst;
         }
 
-        
+        public static List<string> get_data_Source_with_Null(string queue)
+        {
+            List<string> lst = new List<string>();
+            lst.Add("---");
+            SQL_Class cl = new SQL_Class();
+            cl.ReadValues(queue);
+            while (cl.SQL_DataReader.Read())
+            {
+                lst.Add(cl.get_string(0));
+            }
+            return lst;
+        }
+
 
     }
 }

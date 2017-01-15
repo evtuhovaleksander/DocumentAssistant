@@ -36,7 +36,6 @@
             this.tablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.markToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.place2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,7 +96,6 @@
             this.tablesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.typeToolStripMenuItem,
             this.markToolStripMenuItem,
-            this.statusToolStripMenuItem,
             this.placeToolStripMenuItem,
             this.place2ToolStripMenuItem,
             this.oSToolStripMenuItem});
@@ -118,13 +116,6 @@
             this.markToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.markToolStripMenuItem.Text = "Марка";
             this.markToolStripMenuItem.Click += new System.EventHandler(this.markToolStripMenuItem_Click);
-            // 
-            // statusToolStripMenuItem
-            // 
-            this.statusToolStripMenuItem.Name = "statusToolStripMenuItem";
-            this.statusToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.statusToolStripMenuItem.Text = "Статус";
-            this.statusToolStripMenuItem.Click += new System.EventHandler(this.statusToolStripMenuItem_Click);
             // 
             // placeToolStripMenuItem
             // 
@@ -193,7 +184,6 @@
         private System.Windows.Forms.ToolStripMenuItem tablesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem typeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem markToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem placeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ownersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cheakTypeToolStripMenuItem;

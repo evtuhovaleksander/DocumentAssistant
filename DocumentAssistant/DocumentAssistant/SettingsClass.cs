@@ -14,6 +14,7 @@ namespace DocumentAssistant
             Properties.Settings.Default.xls_Mark = get_set("SMark");
             Properties.Settings.Default.xls_Place = get_set("SPlace");
             Properties.Settings.Default.xls_Status = get_set("SStatus");
+            Properties.Settings.Default.xls_Status2 = get_set("SStatus2");
             Properties.Settings.Default.xls_Place2 = get_set("SPlace2");
             Properties.Settings.Default.xls_Owner = get_set("SOwner");
 

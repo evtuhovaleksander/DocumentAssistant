@@ -35,7 +35,7 @@ namespace DocumentAssistant
             string zap = "Select itemtable.ID,itemtable.Serial,itemtable.Serial2," +
                          "itemtable.Mark,itemtable.Type,itemtable.Status,itemtable.Place,"+
                          "itemtable.Text,itemtable.Text2,itemtable.Text3,itemtable.Text4,itemtable.Text5,itemtable.Text6 "+
-                         ",itemtable.Place2, itemtable.Prise, itemtable.OS, itemtable.Date from itemtable where itemtable.Owner="+ownerID;
+                         ",itemtable.Place2, itemtable.Prise, itemtable.OS, itemtable.Date,itemtable.Status2 from itemtable where itemtable.Owner="+ownerID;
             SQL_Class cl=new SQL_Class();
             cl.ReadValues(zap);
 
@@ -57,8 +57,8 @@ namespace DocumentAssistant
                 el.Place2id= cl.get_int(13);
                 el.Prise = cl.get_string(14);
                 el.OSID = cl.get_int(15);
-                el.date = cl.get_string(16);
-
+                el.date = cl.SQL_DataReader.GetDateTime(16);
+                el.Status2id = cl.get_int(17);
                 el.Text = cl.get_string(7);
                 el.Text2 = cl.get_string(8);
                 el.Text3 = cl.get_string(9);
@@ -150,7 +150,7 @@ namespace DocumentAssistant
 
         int select_id_where_name(string name,string tablename,string like)
         {
-            string zap = "Select ID from "+tablename+ " where "+tablename+"." + name+" like '%"+like+"%'";
+            string zap = "Select ID from "+tablename+ " where "+tablename+"." + name+" = '"+like+"'";
             object ob= SQL_Class.ReadValue(zap);
             if (ob == null)
             {
@@ -184,6 +184,7 @@ namespace DocumentAssistant
             OwnerID = select_id_where_name("Owner", "ownertable", Owner);
             Place2id = select_id_where_name("Place2", "place2table", Place2);
             OSID = select_id_where_name("OS", "ostable", OS);
+            Status2id = select_id_where_name("Status2", "status2table", Status2);
         }
 
         public void read_other_names_base()//++
@@ -191,6 +192,7 @@ namespace DocumentAssistant
             Type = select_name_where_id("Type", "typetable", Typeid);
             Mark= select_name_where_id("Mark", "marktable", Markid);
             Status= select_name_where_id("Status", "statustable", Statusid);
+            Status2 = select_name_where_id("Status2", "status2table", Status2id);
             Place = select_name_where_id("Place", "placetable", Placeid);
             Owner = select_name_where_id("Owner", "ownertable", OwnerID);
 
@@ -211,19 +213,7 @@ namespace DocumentAssistant
             OSID = select_id_where_xlsname("OS", "ostable", OS);
         }
 
-        //public Compare_Element (int id, string serial, string serial2, string type, string mark, string status, string place, string text, string text2, string text3)
-        //{
-        //    ID = id;
-        //    Serial = serial;
-        //    Serial2 = serial2;
-        //    Type = type;
-        //    Mark = mark;
-        //    Status = status;
-        //    Place = place;
-        //    Text = text;
-        //    Text2 = text2;
-        //    Text3 = text3;
-        //}
+       
 
         public Compare_Element()
         {
@@ -235,6 +225,7 @@ namespace DocumentAssistant
             Place2id = RandomFull.get_rand_int();
             Placeid = RandomFull.get_rand_int();
             OSID = RandomFull.get_rand_int();
+            Status2id = RandomFull.get_rand_int();
         }
 
       
@@ -245,7 +236,7 @@ namespace DocumentAssistant
             el.Type = mcl.read_val(i, Properties.Settings.Default.xls_Type).ToString();
             el.Status = mcl.read_val(i, Properties.Settings.Default.xls_Status).ToString();
             el.Place = mcl.read_val(i, Properties.Settings.Default.xls_Place).ToString();
-
+            el.Status2 = mcl.read_val(i, Properties.Settings.Default.xls_Status2).ToString();
             el.Text = mcl.read_val(i, Properties.Settings.Default.xls_Text).ToString();
             el.Text2 = mcl.read_val(i, Properties.Settings.Default.xls_Text2).ToString();
             el.Text3 = mcl.read_val(i, Properties.Settings.Default.xls_Text3).ToString();
@@ -258,7 +249,7 @@ namespace DocumentAssistant
 
 
             el.Prise = (mcl.read_val(i, Properties.Settings.Default.xls_Prise)).ToString();
-            el.date = (mcl.read_val(i, Properties.Settings.Default.xls_Date)).ToString();
+            el.date = FuncClass.get_Date(mcl.read_val(i, Properties.Settings.Default.xls_Date).ToString());
             el.OS = mcl.read_val(i, Properties.Settings.Default.xls_OS).ToString();
             el.Place2 = mcl.read_val(i, Properties.Settings.Default.xls_Place2).ToString();
 
@@ -273,6 +264,7 @@ namespace DocumentAssistant
             el.Mark = mcl.read_val(i, Properties.Settings.Default.xls_Mark).ToString();
             el.Type = mcl.read_val(i, Properties.Settings.Default.xls_Type).ToString();
             el.Status = mcl.read_val(i, Properties.Settings.Default.xls_Status).ToString();
+            el.Status2 = "";
             el.Place = mcl.read_val(i, Properties.Settings.Default.xls_Place).ToString();
 
             el.Text = mcl.read_val(i, Properties.Settings.Default.xls_Text).ToString();
@@ -285,20 +277,21 @@ namespace DocumentAssistant
             el.Serial2 = mcl.read_val(i, Properties.Settings.Default.xls_Serial2).ToString();
 
             el.Prise = mcl.read_val(i, Properties.Settings.Default.xls_Prise).ToString();
-            el.date = (mcl.read_val(i, Properties.Settings.Default.xls_Date)).ToString();
+            el.date = FuncClass.get_Date(mcl.read_val(i, Properties.Settings.Default.xls_Date).ToString());
             el.OS = mcl.read_val(i, Properties.Settings.Default.xls_OS).ToString();
             el.Place2 = mcl.read_val(i, Properties.Settings.Default.xls_Place2).ToString();
-
+            el.Status2id = RandomFull.get_rand_int();
 
             el.read_other_xls();
             return el;
         }
-        public static Compare_Element get_el_as_xls_el_for_cmp(XLS_Class mcl, int i) //++
+        public static Compare_Element get_el_as_xls_el_for_cmp(XLS_Class mcl, int i) //++11
         {
             Compare_Element el = new Compare_Element();
             el.Mark = mcl.read_val(i, Properties.Settings.Default.xls_Mark).ToString();
             el.Type = mcl.read_val(i, Properties.Settings.Default.xls_Type).ToString();
             el.Status = mcl.read_val(i, Properties.Settings.Default.xls_Status).ToString();
+            el.Status2 = ""; 
             el.Place = mcl.read_val(i, Properties.Settings.Default.xls_Place).ToString();
             el.Owner= mcl.read_val(i, Properties.Settings.Default.xls_Owner).ToString();
             
@@ -307,10 +300,10 @@ namespace DocumentAssistant
             el.Serial2 = mcl.read_val(i, Properties.Settings.Default.xls_Serial2).ToString();
 
             el.Prise = (mcl.read_val(i, Properties.Settings.Default.xls_Prise)).ToString();
-            el.date = (mcl.read_val(i, Properties.Settings.Default.xls_Date)).ToString();
+            el.date = FuncClass.get_Date(mcl.read_val(i, Properties.Settings.Default.xls_Date).ToString());
             el.OS = mcl.read_val(i, Properties.Settings.Default.xls_OS).ToString();
             el.Place2 = mcl.read_val(i, Properties.Settings.Default.xls_Place2).ToString();
-
+            el.Status2id = RandomFull.get_rand_int();
 
 
 
@@ -331,13 +324,14 @@ namespace DocumentAssistant
         public string Text5;
         public string Text6;
 
-        public string date;
+        public DateTime date;
         public string Prise;
         public string OS;
 
         public string Type;
         public string Mark;
         public string Status;
+        public string Status2;
         public string Place;
         public string Place2;
         public string Owner;
@@ -346,6 +340,7 @@ namespace DocumentAssistant
         public int Typeid;
         public int Markid;
         public int Statusid;
+        public int Status2id;
         public int Placeid;
         public int Place2id;
         public int OwnerID;

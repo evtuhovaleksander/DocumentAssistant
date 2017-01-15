@@ -20,6 +20,18 @@ namespace DocumentAssistant
             InitializeComponent();
         }
 
+        public static void Start_Check_Form(string path)
+        {
+            CheckType frm = new CheckType();
+            frm.XLS_Rbut.Checked = true;
+            frm.get_File_Func(path);
+            frm.Check_Start_Stop_Mark_Click(null,null);
+            frm.AutoCheck_But_Click(null,null);
+            frm.ShowDialog();
+        }
+
+
+
         private void CheckType_Load(object sender, EventArgs e)
         {
 
@@ -34,7 +46,7 @@ namespace DocumentAssistant
             DataGridViewComboBoxCell tmp = new DataGridViewComboBoxCell();
             List<string> tmp2 = new List<string>();
             tmp2.Add("----");
-            tmp2.AddRange(SQL_Class.get_data_Source("select " + name + " from " + table));
+            tmp2.AddRange(CMB.get_ordered_datasource(name,table));
             tmp.DataSource = tmp2;
             dgv.Columns[1].CellTemplate = tmp;
             dgv.Rows.Clear();
@@ -55,12 +67,18 @@ namespace DocumentAssistant
             }
 
         }
-        
-
-       
 
 
-        private void get_File_Click(object sender, EventArgs e)
+        public void get_File_Func(string path)
+        {
+            XLS_Class cl = new XLS_Class(path);
+            if (cl != null)
+            {
+                get_File.BackColor = Color.Green;
+                mcl = cl;
+            }
+        }
+        public void get_File_Func()
         {
             XLS_Class cl = XLS_Class.get_xls();
             if (cl != null)
@@ -68,6 +86,11 @@ namespace DocumentAssistant
                 get_File.BackColor = Color.Green;
                 mcl = cl;
             }
+        }
+
+        private void get_File_Click(object sender, EventArgs e)
+        {
+           get_File_Func();
         }
 
 
@@ -200,10 +223,10 @@ namespace DocumentAssistant
 
 
                 string zap = "insert into itemtable (itemtable.Serial,itemtable.Serial2, itemtable.Mark, itemtable.Type, itemtable.Status,itemtable.Place,             itemtable.Text,itemtable.Text2,itemtable.Text3,itemtable.Text4,itemtable.Text5,itemtable.Text6,itemtable.Owner," +
-                    "itemtable.Place2,itemtable.OS,itemtable.Date,itemtable.Prise" +
+                    "itemtable.Place2,itemtable.OS,itemtable.Date,itemtable.Prise,itemtable.Status2" +
                     ") Values ('" + el.Serial + "','" + el.Serial2 + "'," + el.Markid +
                     "," + el.Typeid + "," + el.Statusid + "," + el.Placeid +
-                    ",'" + el.Text + "','" + el.Text2 + "','" + el.Text3 + "','" + el.Text4 + "','" + el.Text5 + "',''," + el.OwnerID + "," + el.Place2id + "," + el.OSID + ",'" + el.date + "','" + el.Prise + "')";
+                    ",'" + el.Text + "','" + el.Text2 + "','" + el.Text3 + "','" + el.Text4 + "','" + el.Text5 + "',''," + el.OwnerID + "," + el.Place2id + "," + el.OSID + ",'" + el.date.ToString("yyyy-MM-dd") + "','" + el.Prise + "',"+el.Status2id+")";
                 SQL_Class.Execute(zap);
             }
 
@@ -213,7 +236,7 @@ namespace DocumentAssistant
         {
             int id = SQL_Class.ReadValueInt32("select ID from " + table + "  where " + name + "='" + fr + "'");
             string old = SQL_Class.ReadValueString("select xls" + name + " from " + table + " where ID=" + id);
-            old += " " + addition;
+            old += "|" + addition+"|";
             SQL_Class.Execute("Update " + table + " set xls" + name + "='" + old + "' where ID=" + id);
         }
 
@@ -261,8 +284,77 @@ namespace DocumentAssistant
         private void AutoCheck_But_Click(object sender, EventArgs e)
         {
 
-            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
-                Properties.Settings.Default.xls_Mark, "marktable", "Mark"))
+            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+            //    Properties.Settings.Default.xls_Mark, "marktable", "Mark"))
+            //{
+            //    Check_Mark_But.BackColor = Color.Green;
+            //}
+            //else
+            //{
+            //    Check_Mark_But.BackColor = Color.Red;
+            //}
+
+            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Status, "statustable", "Status"))
+            //{
+            //    Check_Status_But.BackColor = Color.Green;
+            //}
+            //else
+            //{
+            //    Check_Status_But.BackColor = Color.Red;
+            //}
+
+            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Place, "placetable", "Place"))
+            //{
+            //    Check_Place_But.BackColor = Color.Green;
+            //}
+            //else
+            //{
+            //    Check_Place_But.BackColor = Color.Red;
+            //}
+
+            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+            //    Properties.Settings.Default.xls_Type, "typetable", "Type"))
+            //{
+            //    Check_Type_But.BackColor = Color.Green;
+            //}
+            //else
+            //{
+            //    Check_Type_But.BackColor = Color.Red;
+            //}
+            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+            //    DocumentAssistant.Properties.Settings.Default.xls_OS, "ostable", "OS"))
+            //{
+            //    check_OS.BackColor = Color.Green;
+            //}
+            //else
+            //{
+            //    check_OS.BackColor = Color.Red;
+            //}
+
+
+            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+            //   Properties.Settings.Default.xls_Owner, "ownertable", "Owner"))
+            //{
+            //    Check_Owner.BackColor = Color.Green;
+            //}
+            //else
+            //{
+            //    Check_Owner.BackColor = Color.Red;
+            //}
+
+
+            //if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+            //  Properties.Settings.Default.xls_Place2, "place2table", "Place2"))
+            //{
+            //    Place2_Check.BackColor = Color.Green;
+            //}
+            //else
+            //{
+            //    Place2_Check.BackColor = Color.Red;
+            //}
+
+            bool ok = true;
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Mark, "marktable", "Mark"))
             {
                 Check_Mark_But.BackColor = Color.Green;
             }
@@ -271,7 +363,7 @@ namespace DocumentAssistant
                 Check_Mark_But.BackColor = Color.Red;
             }
 
-            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Status, "statustable", "Status"))
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Status, "statustable", "Status"))
             {
                 Check_Status_But.BackColor = Color.Green;
             }
@@ -280,7 +372,7 @@ namespace DocumentAssistant
                 Check_Status_But.BackColor = Color.Red;
             }
 
-            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Place, "placetable", "Place"))
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text), Properties.Settings.Default.xls_Place, "placetable", "Place"))
             {
                 Check_Place_But.BackColor = Color.Green;
             }
@@ -289,7 +381,7 @@ namespace DocumentAssistant
                 Check_Place_But.BackColor = Color.Red;
             }
 
-            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
                 Properties.Settings.Default.xls_Type, "typetable", "Type"))
             {
                 Check_Type_But.BackColor = Color.Green;
@@ -298,7 +390,8 @@ namespace DocumentAssistant
             {
                 Check_Type_But.BackColor = Color.Red;
             }
-            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
                 DocumentAssistant.Properties.Settings.Default.xls_OS, "ostable", "OS"))
             {
                 check_OS.BackColor = Color.Green;
@@ -309,7 +402,7 @@ namespace DocumentAssistant
             }
 
 
-            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
                Properties.Settings.Default.xls_Owner, "ownertable", "Owner"))
             {
                 Check_Owner.BackColor = Color.Green;
@@ -320,7 +413,7 @@ namespace DocumentAssistant
             }
 
 
-            if (Check_and_Fill_DGV(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
+            if (FuncClass.Check_Both(mcl, Convert.ToInt32(start_Tbox.Text), Convert.ToInt32(stop_Tbox.Text),
               Properties.Settings.Default.xls_Place2, "place2table", "Place2"))
             {
                 Place2_Check.BackColor = Color.Green;
@@ -329,6 +422,7 @@ namespace DocumentAssistant
             {
                 Place2_Check.BackColor = Color.Red;
             }
+            
         }
 
 

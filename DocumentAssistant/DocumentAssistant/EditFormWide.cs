@@ -72,7 +72,7 @@ namespace DocumentAssistant
             {
                 dgv.Rows[i].Cells[0].Value = i;
                 dgv.Rows[i].Cells[1].Value = Buffer.buffer[i];
-                dgv.Rows[i].Cells[2].Value = Buffer.buffer[i];
+                dgv.Rows[i].Cells[2].Value = "|"+Buffer.buffer[i]+"|";
             }
         }
     }

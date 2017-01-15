@@ -296,5 +296,138 @@ namespace DocumentAssistant.Properties {
                 this["TempDirectory_Path"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int xls_Status2 {
+            get {
+                return ((int)(this["xls_Status2"]));
+            }
+            set {
+                this["xls_Status2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st1 {
+            get {
+                return ((global::System.Drawing.Color)(this["st1"]));
+            }
+            set {
+                this["st1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st2 {
+            get {
+                return ((global::System.Drawing.Color)(this["st2"]));
+            }
+            set {
+                this["st2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st3 {
+            get {
+                return ((global::System.Drawing.Color)(this["st3"]));
+            }
+            set {
+                this["st3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st4 {
+            get {
+                return ((global::System.Drawing.Color)(this["st4"]));
+            }
+            set {
+                this["st4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st5 {
+            get {
+                return ((global::System.Drawing.Color)(this["st5"]));
+            }
+            set {
+                this["st5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st6 {
+            get {
+                return ((global::System.Drawing.Color)(this["st6"]));
+            }
+            set {
+                this["st6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st_2_1 {
+            get {
+                return ((global::System.Drawing.Color)(this["st_2_1"]));
+            }
+            set {
+                this["st_2_1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st_2_2 {
+            get {
+                return ((global::System.Drawing.Color)(this["st_2_2"]));
+            }
+            set {
+                this["st_2_2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st_2_3 {
+            get {
+                return ((global::System.Drawing.Color)(this["st_2_3"]));
+            }
+            set {
+                this["st_2_3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st_2_4 {
+            get {
+                return ((global::System.Drawing.Color)(this["st_2_4"]));
+            }
+            set {
+                this["st_2_4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color st_2_5 {
+            get {
+                return ((global::System.Drawing.Color)(this["st_2_5"]));
+            }
+            set {
+                this["st_2_5"] = value;
+            }
+        }
     }
 }

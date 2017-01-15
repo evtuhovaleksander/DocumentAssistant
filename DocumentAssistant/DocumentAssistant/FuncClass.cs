@@ -1,16 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace DocumentAssistant
 {
     static class FuncClass
     {
+
+        public static DateTime get_Date(string inp)
+        {
+            if (inp == "")
+            {
+                return new DateTime(1900);
+            }
+            else
+            {
+                try
+                {
+                    return Convert.ToDateTime(inp);
+                }
+                catch (Exception)
+                {
+                    return new DateTime(1900);
+                }
+            }
+
+        }
+
         public static ComboBox PrepareComboBox(ComboBox inp, Element el,string MainTable)
         {
             List<string> ds=new List<string>();
@@ -127,7 +150,7 @@ namespace DocumentAssistant
             string zap = "Select itemtable.ID,itemtable.Serial,itemtable.Serial2," +
                         "itemtable.Mark,itemtable.Type,itemtable.Status,itemtable.Place," +
                         "itemtable.Text,itemtable.Text2,itemtable.Text3,itemtable.Text4,itemtable.Text5,itemtable.Text6 " +
-                        ",itemtable.Place2, itemtable.Prise, itemtable.OS, itemtable.Date from itemtable where itemtable.ID=" + id;
+                        ",itemtable.Place2, itemtable.Prise, itemtable.OS, itemtable.Date, itemtable.Owner,itemtable.Status2 from itemtable where itemtable.ID=" + id;
             SQL_Class cl = new SQL_Class();
             cl.ReadValues(zap);
 
@@ -149,8 +172,9 @@ namespace DocumentAssistant
                 el.Place2id = cl.get_int(13);
                 el.Prise = cl.get_string(14);
                 el.OSID = cl.get_int(15);
-                el.date = cl.get_string(16);
-
+                el.date = cl.SQL_DataReader.GetDateTime(16);
+                el.Status2id = cl.get_int(18);
+                el.OwnerID = cl.get_int(17);
                 el.Text = cl.get_string(7);
                 el.Text2 = cl.get_string(8);
                 el.Text3 = cl.get_string(9);
@@ -166,6 +190,64 @@ namespace DocumentAssistant
             return el;
         }
 
+        public static bool add_Element(Compare_Element el)
+        {
+            string zap = "insert into itemtable (itemtable.Serial,itemtable.Serial2," +
+                         "itemtable.Mark,itemtable.Type,itemtable.Status,itemtable.Place," +
+                         "itemtable.Text,itemtable.Text2,itemtable.Text3,itemtable.Text4,itemtable.Text5,itemtable.Text6 " +
+                         ",itemtable.Place2, itemtable.Prise, itemtable.OS, itemtable.Date,itemtable.Owner,itemtable.Status2)";
+            zap += " values(" +
+                   "'" + el.Serial + "'," +
+                   "'" + el.Serial2 + "'," +
+                   el.Markid + "," +
+                   el.Typeid + "," +
+                   el.Statusid + "," +
+                   el.Placeid + "," +
+                   "'" + el.Text + "'," +
+                   "'" + el.Text2 + "'," +
+                   "'" + el.Text3 + "'," +
+                   "'" + el.Text4 + "'," +
+                   "'" + el.Text5 + "'," +
+                   "'" + el.Text6 + "'," +
+                   el.Place2id + "," +
+                   "'" + el.Prise + "'," +
+                   el.OSID + "," +
+                   "'" + el.date + "',"+el.OwnerID+","+el.Status2id+")";
+
+            try
+            {
+                return SQL_Class.Execute(zap);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
+
+        public static DataTable get_dataTable(string where)
+        {
+            
+            MySqlCommand sqlCom = new MySqlCommand(where, SQL_Class.SQL_Connection);
+            sqlCom.ExecuteNonQuery();
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(sqlCom);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+            return dt;
+        }
+
+        public static Color get_color_from_table(Color inp)
+        {
+           ColorDialog dlg= new ColorDialog();
+            if (dlg.ShowDialog() == DialogResult.Yes)
+            {
+                return dlg.Color;
+            }
+            else
+            {
+                return inp;
+            }
+        }
 
     }
 }

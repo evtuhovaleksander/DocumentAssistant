@@ -20,7 +20,7 @@ namespace DocumentAssistant
         {
             InitializeComponent();
             el = inp;
-            cmb.DataSource = SQL_Class.get_data_Source("select " + el.name + " from " + el.addtable);
+            cmb.DataSource = CMB.get_ordered_datasource(el.name, el.addtable);//SQL_Class.get_data_Source("select " + el.name + " from " + el.addtable));
             lb.Text = el.name;
 
         }
