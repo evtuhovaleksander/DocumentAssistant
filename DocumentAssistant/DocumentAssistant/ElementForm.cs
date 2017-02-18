@@ -16,5 +16,10 @@ namespace DocumentAssistant
         {
             InitializeComponent();
         }
+
+        private void ElementForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

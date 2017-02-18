@@ -42,6 +42,7 @@
             this.ownersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cheakTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sfsfsfsfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,8 @@
             // 
             this.mainToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.baseShowToolStripMenuItem,
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.sfsfsfsfToolStripMenuItem});
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
             this.mainToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
             this.mainToolStripMenuItem.Text = "Main";
@@ -106,35 +108,35 @@
             // typeToolStripMenuItem
             // 
             this.typeToolStripMenuItem.Name = "typeToolStripMenuItem";
-            this.typeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.typeToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.typeToolStripMenuItem.Text = "Тип";
             this.typeToolStripMenuItem.Click += new System.EventHandler(this.typeToolStripMenuItem_Click);
             // 
             // markToolStripMenuItem
             // 
             this.markToolStripMenuItem.Name = "markToolStripMenuItem";
-            this.markToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.markToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.markToolStripMenuItem.Text = "Марка";
             this.markToolStripMenuItem.Click += new System.EventHandler(this.markToolStripMenuItem_Click);
             // 
             // placeToolStripMenuItem
             // 
             this.placeToolStripMenuItem.Name = "placeToolStripMenuItem";
-            this.placeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.placeToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.placeToolStripMenuItem.Text = "Место";
             this.placeToolStripMenuItem.Click += new System.EventHandler(this.placeToolStripMenuItem_Click);
             // 
             // place2ToolStripMenuItem
             // 
             this.place2ToolStripMenuItem.Name = "place2ToolStripMenuItem";
-            this.place2ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.place2ToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.place2ToolStripMenuItem.Text = "Место2";
             this.place2ToolStripMenuItem.Click += new System.EventHandler(this.place2ToolStripMenuItem_Click);
             // 
             // oSToolStripMenuItem
             // 
             this.oSToolStripMenuItem.Name = "oSToolStripMenuItem";
-            this.oSToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.oSToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.oSToolStripMenuItem.Text = "ОС/ТМЦ";
             this.oSToolStripMenuItem.Click += new System.EventHandler(this.oSToolStripMenuItem_Click);
             // 
@@ -158,6 +160,7 @@
             this.checkSettingsToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.checkSettingsToolStripMenuItem.Text = "Проверить текущие настройки";
             this.checkSettingsToolStripMenuItem.Click += new System.EventHandler(this.checkSettingsToolStripMenuItem_Click);
+           
             // 
             // MainForm
             // 
@@ -192,5 +195,6 @@
         private System.Windows.Forms.ToolStripMenuItem checkSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem place2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sfsfsfsfToolStripMenuItem;
     }
 }

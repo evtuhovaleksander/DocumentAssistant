@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,11 +32,12 @@ namespace DocumentAssistant
                 Properties.Settings.Default.Save();
                 
             }
-
+           
             TempDirectory.InitTempDirectory();
             DocumentDirectory.InitDocumentDirectory();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
             Application.Run(new MainForm());
         }
     }

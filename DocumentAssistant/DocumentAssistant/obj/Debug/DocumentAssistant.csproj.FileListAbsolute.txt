@@ -124,3 +124,4 @@ C:\Users\AlexDark\Documents\GitHub\DocumentAssistant\DocumentAssistant\DocumentA
 C:\Users\AlexDark\Documents\GitHub\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\MySql.Data.xml
 C:\Users\AlexDark\Documents\GitHub\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.exe.manifest
 C:\Users\AlexDark\Documents\GitHub\DocumentAssistant\DocumentAssistant\DocumentAssistant\obj\Debug\DocumentAssistant.application
+C:\Users\AlexDark\Documents\GitHub\DocumentAssistant\DocumentAssistant\DocumentAssistant\bin\Debug\MySql.Data.dll

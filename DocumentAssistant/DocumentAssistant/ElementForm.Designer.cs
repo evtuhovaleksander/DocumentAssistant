@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(797, 538);
             this.Name = "ElementForm";
             this.Text = "ElementForm";
+            this.Load += new System.EventHandler(this.ElementForm_Load);
             this.ResumeLayout(false);
 
         }
